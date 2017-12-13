@@ -21,7 +21,7 @@ public class Metodos {
 		}else{
 			return true;
 		}
-	}
+	}//esPrimo
 
 	public static int cuentaCifras (int numero){
 		int contador=0;
@@ -30,7 +30,7 @@ public class Metodos {
 			contador++;
 		}
 		return contador;
-	}
+	}//cuentaCifras
 
 
 }//Class
