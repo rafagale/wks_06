@@ -33,5 +33,7 @@ public class Hora {
 	public void setSegundos(int segundos) {
 		this.segundos = segundos % 60;
 	}
-
+	
+	
+	
 }// Class
