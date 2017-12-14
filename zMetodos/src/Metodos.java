@@ -1,6 +1,6 @@
 public class Metodos {
 	private static final double PI=3.141592;
-	
+
 	public static boolean esPrimo (int numero){
 		//Un numero menor o igual que 1, no es primo.
 		if (numero<=1){
@@ -31,6 +31,14 @@ public class Metodos {
 		}
 		return contador;
 	}//cuentaCifras
-
+	public static int cuentaDivisores (int numero){
+		int contador=0;
+		for (int i = 1 ; i <= numero ; i++){
+			if (numero % i == 0){
+				contador++;
+			}
+		}
+		return contador;
+	}//CuentaDivisores
 
 }//Class
