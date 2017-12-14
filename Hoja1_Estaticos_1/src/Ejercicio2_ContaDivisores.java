@@ -27,7 +27,6 @@ public class Ejercicio2_ContaDivisores {
 			System.out.println("Ambos tienen los mismos divisores");
 		}
 		
-		
 	}// main
 
 }// Class
