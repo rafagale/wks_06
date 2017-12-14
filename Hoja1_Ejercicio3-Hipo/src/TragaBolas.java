@@ -49,41 +49,11 @@ public class TragaBolas {
 		return "DORMIR";
 	}//dormir
 	
-	
-	
-	/**
-	 * @return the color
-	 */
-	public String getColor() {
-		return color;
-	}
-
 	/**
 	 * @param color the color to set
 	 */
 	public void setColor(String color) {
 		this.color = color;
-	}
-
-	/**
-	 * @return the bolasComidas
-	 */
-	public int getBolasComidas() {
-		return bolasComidas;
-	}
-
-	/**
-	 * @param bolasComidas the bolasComidas to set
-	 */
-	public void setBolasComidas(int bolasComidas) {
-		this.bolasComidas = bolasComidas;
-	}
-
-	/**
-	 * @return the maxBolas
-	 */
-	public int getMaxBolas() {
-		return maxBolas;
 	}
 
 	/**
