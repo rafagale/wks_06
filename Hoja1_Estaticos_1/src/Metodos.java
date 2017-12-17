@@ -93,12 +93,13 @@ public class Metodos {
 		combinaciones = factorial(num1) / (factorial(num2) * factorial(num1 - num2));
 		return combinaciones;
 	}// combinaciones
-	
+
 	public static double Ecuacion2G(int a, int b, int c) {
 		double raiz1, raiz2;
-		raiz1=(-b+Math.sqrt((b*b)-(4*a*c)))/(2*a);
-		raiz2=(-b-Math.sqrt((b*b)-(4*a*c)))/(2*a);
-		return raiz1;
+		raiz1 = (-b + Math.sqrt((b * b) - (4 * a * c))) / (2 * a);
+		raiz2 = (-b - Math.sqrt((b * b) - (4 * a * c))) / (2 * a);
+		System.out.print(raiz1 + " ");
+		return raiz2;
 	}// Ecuacion2G
 
 }// Class
