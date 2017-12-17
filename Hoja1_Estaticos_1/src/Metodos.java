@@ -12,7 +12,6 @@ public class Metodos {
 		if (numero<=1){
 			return false;
 		}
-
 		//Declaramos esta variable aqui ya que despues es usada"
 		int cont=0;
 		for (int divisor=(int)Math.sqrt(numero);divisor>1;divisor--){
