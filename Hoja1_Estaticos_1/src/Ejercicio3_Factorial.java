@@ -13,10 +13,10 @@ La recursiva es la que da resultados parciales*/
 public class Ejercicio3_Factorial {
 
 	public static void main(String[] args) {
-		double num;
+		int num;
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Introduce un numero para calcular su factorial");
-		num = sc.nextDouble();
+		num = sc.nextInt();
 		System.out.println(Metodos.factorial(num));
 	
 		
