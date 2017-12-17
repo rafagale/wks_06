@@ -11,7 +11,7 @@ import java.util.Scanner;
  * (máximo común divisor) de ambos.
  */
 
-public class Ejercicio6_MCD {
+public class Ejercicio6_MCM {
 
 	public static void main(String[] args) {
 		int num1, num2;
