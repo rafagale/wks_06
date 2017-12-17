@@ -94,6 +94,11 @@ public class Metodos {
 		return combinaciones;
 	}// combinaciones
 	
-	
+	public static double Ecuacion2G(int a, int b, int c) {
+		double raiz1, raiz2;
+		raiz1=(-b+Math.sqrt((b*b)-(4*a*c)))/(2*a);
+		raiz2=(-b-Math.sqrt((b*b)-(4*a*c)))/(2*a);
+		return raiz1;
+	}// Ecuacion2G
 
 }// Class
