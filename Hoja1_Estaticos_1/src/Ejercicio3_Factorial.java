@@ -14,9 +14,7 @@ public class Ejercicio3_Factorial {
 
 	public static void main(String[] args) {
 		int num;
-		Scanner sc = new Scanner(System.in);
-		System.out.println("Introduce un numero para calcular su factorial");
-		num = sc.nextInt();
+		num=Metodos.pedirEntero("Introduce un numero para calcular su factorial");
 		System.out.println(Metodos.factorial(num));
 	
 		

@@ -14,15 +14,12 @@ public class Ejercicio1_Primo {
 
 	public static void main(String[] args) {
 		int num ;
-		
 		num=Metodos.pedirEntero("Introduce un numero");
-		
 		if (Metodos.esPrimo(num)) {
 			System.out.println("Es primo");
 		}else{
 			System.out.println("No es primo");
 		}
-
 	}//main
 
 }//Class

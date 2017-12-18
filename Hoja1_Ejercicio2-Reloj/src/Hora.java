@@ -105,11 +105,11 @@ public class Hora {
 
 	public int verHora(int hora, int minuto, int segundo) {
 
-		if (segundos > (segundos % 60)) { 
+		if (segundos > (segundos % 60)) {
 			minutos += (segundos / 60);
 			segundos = segundos % 60;
 		}
-		if (minutos > (minutos % 60)) { 
+		if (minutos > (minutos % 60)) {
 			horas += (minutos / 60);
 			minutos = minutos % 60;
 		}
