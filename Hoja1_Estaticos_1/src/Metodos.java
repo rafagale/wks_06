@@ -146,7 +146,7 @@ public class Metodos {
 	 * Método para calcular raices en una ecuacion 2G
 	 * @param1 num1 primer número ingresado por el usuario (a)
 	 * @param2 num2 segundo número ingresado por el usuario (b)
-	 * @param3 num3 segundo número ingresado por el usuario (c)
+	 * @param3 num3 tercer número ingresado por el usuario (c)
 	 * @return raiz2 de la ecuacion 2G
 	 */
 	public static double Ecuacion2G(int a, int b, int c) {
