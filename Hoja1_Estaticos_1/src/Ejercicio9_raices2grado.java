@@ -24,14 +24,15 @@ public class Ejercicio9_raices2grado {
 		System.out.println("Introduce c");
 		c = sc.nextInt();
 		//Discriminante positivo
-		if ( ((b*b)-(4*a*c)) > 0) {
+		if ( ((Math.pow(b, 2))-(4*a*c)) > 0) {
 			System.out.println("Las raices son: ");
 			System.out.print(Metodos.Ecuacion2G(a, b, c));
 		} else {
 			System.out.println("El discriminante es negativo");
 		}
-
+		//a  b  c
 		//1 -2 -3
+		// raices -> 3 y -1
 	}// main
 
 }// Class
