@@ -13,10 +13,10 @@ es primo y false si no lo es.*/
 public class Ejercicio1_Primo {
 
 	public static void main(String[] args) {
-		int num;
-		System.out.println("Introduce un numero");
-		Scanner sc = new Scanner(System.in);
-		num = sc.nextInt();
+		int num ;
+		
+		num=Metodos.pedirEntero("Introduce un numero");
+		
 		if (Metodos.esPrimo(num)) {
 			System.out.println("Es primo");
 		}else{

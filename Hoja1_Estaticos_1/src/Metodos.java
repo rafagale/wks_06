@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 /**
  * 
  * @author Rafa
@@ -7,7 +9,21 @@
 public class Metodos {
 
 	private static final double PI = 3.141592;
-
+	
+	/**
+	 * Método para pedir un entero
+	 * @param numero número ingresado por el usuario
+	 * @return numero
+	 */
+	public static int pedirEntero(String mensaje) {
+		int num;
+		Scanner sc = new Scanner(System.in);
+		System.out.println(mensaje);
+		num  = sc.nextInt();
+		return num;
+	}// Pedir numero
+	
+	
 	/**
 	 * Método para calcular si un numero es primo o no
 	 * @param numero número ingresado por el usuario
