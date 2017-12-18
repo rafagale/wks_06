@@ -16,10 +16,8 @@ public class Ejercicio6_MCM {
 	public static void main(String[] args) {
 		int num1, num2;
 		Scanner sc = new Scanner(System.in);
-		System.out.println("Introduce un numero P");
-		num1 = sc.nextInt();
-		System.out.println("Introduce un numero Q");
-		num2 = sc.nextInt();
+		num1 = Metodos.pedirEntero("Introduce un numero P");
+		num2 = Metodos.pedirEntero("Introduce un numero P");
 		System.out.println("El minimo comum multiplo es: ");
 		System.out.println(Metodos.mcm(num1, num2));
 

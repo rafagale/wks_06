@@ -19,8 +19,7 @@ public class Ejercicio7_radio {
 	public static void main(String[] args) {
 		int r, opcion;
 		Scanner sc = new Scanner(System.in);
-		System.out.println("Introduce el radio");
-		r = sc.nextInt();
+		r = Metodos.pedirEntero("Introduce el radio");
 		do {
 			System.out.println("Elige una de las siguientes opciones:");
 			System.out.println("1-Longitud del circulo de radio: " + r);

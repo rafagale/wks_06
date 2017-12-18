@@ -17,11 +17,8 @@ public class Ejercicio8_combinaciones {
 
 	public static void main(String[] args) {
 		int m, n;
-		Scanner sc = new Scanner(System.in);
-		System.out.println("Introduce m");
-		m = sc.nextInt();
-		System.out.println("Introduce n");
-		n = sc.nextInt();
+		m = Metodos.pedirEntero("Introduce un numero m");
+		n = Metodos.pedirEntero("Introduce un numero n");
 		if (m > n) {
 			System.out.println("Las combinaciones de m sobre n son: " + Metodos.combinaciones(m, n));
 		} else {

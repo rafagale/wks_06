@@ -14,11 +14,8 @@ public class Ejercicio2_ContaDivisores {
 
 	public static void main(String[] args) {
 		int num1, num2;
-		Scanner sc = new Scanner(System.in);
-		System.out.println("Introduce un numero P");
-		num1 = sc.nextInt();
-		System.out.println("Introduce un numero Q");
-		num2 = sc.nextInt();
+		num1 = Metodos.pedirEntero("Introduce un numero P");
+		num2 = Metodos.pedirEntero("Introduce un numero Q");
 		if (Metodos.cuentaDivisores(num1)>Metodos.cuentaDivisores(num2)) {
 			System.out.println("P tiene más divisores que Q");
 		}else if (Metodos.cuentaDivisores(num1)>Metodos.cuentaDivisores(num2)) {

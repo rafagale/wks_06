@@ -15,14 +15,9 @@ public class Ejercicio9_raices2grado {
 
 	public static void main(String[] args) {
 		int a, b,c;
-		
-		Scanner sc = new Scanner(System.in);
-		System.out.println("Introduce a");
-		a = sc.nextInt();
-		System.out.println("Introduce b");
-		b = sc.nextInt();
-		System.out.println("Introduce c");
-		c = sc.nextInt();
+		a = Metodos.pedirEntero("Introduce a");
+		b = Metodos.pedirEntero("Introduce b");
+		c = Metodos.pedirEntero("Introduce c");
 		//Discriminante positivo
 		if ( ((Math.pow(b, 2))-(4*a*c)) > 0) {
 			System.out.println("Las raices son: ");

@@ -15,7 +15,7 @@ public class Ejercicio4_PrimosPorLaIzq {
 
 	public static void main(String[] args) {
 		int num;
-		num = Metodos.pedirEntero("Introduce un mensaje");
+		num = Metodos.pedirEntero("Introduce un numero");
 		System.out.print("Los números primos por la izquierda de " +num + " son: ");
 		for (int indice = 0; indice <= num; indice++) {
 			if (Metodos.esPrimo(indice)) {
