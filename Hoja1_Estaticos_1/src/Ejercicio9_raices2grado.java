@@ -26,7 +26,7 @@ public class Ejercicio9_raices2grado {
 		}
 		//a  b  c
 		//1 -2 -3
-		// raices -> 3 y -1
+		// raices --> 3 y -1
 	}// main
 
 }// Class
