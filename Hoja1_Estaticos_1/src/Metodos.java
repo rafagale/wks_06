@@ -20,7 +20,6 @@ public class Metodos {
 		Scanner sc = new Scanner(System.in);
 		System.out.println(mensaje);
 		num  = sc.nextInt();
-		sc.close();
 		return num;
 	}// Pedir numero
 	
