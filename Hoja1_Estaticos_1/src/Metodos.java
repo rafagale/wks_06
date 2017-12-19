@@ -71,14 +71,13 @@ public class Metodos {
 	 * @return cont es el numero de divisores de @param
 	 */
 	public static int cuentaDivisores(int numero) {
-		int cont = 0;
-		for (int divisor = (int) Math.sqrt(numero); divisor > 1; divisor--) {
-			// contabilizados los divisores
-			if (numero % divisor == 0) {
-				cont++;
+		int conta = 0;
+		for (int i = 1 ; i <= numero ; i++) {
+			if (numero % i == 0) {
+				conta++;
 			}
 		}
-		return cont;
+		return conta;
 	}// CuentaDivisores
 
 	/**

@@ -24,6 +24,10 @@ public class Ejercicio2_ContaDivisores {
 			System.out.println("Ambos tienen los mismos divisores");
 		}
 		
+		System.out.println(Metodos.cuentaDivisores(num1) +" Son los divisores de P");
+		System.out.println(Metodos.cuentaDivisores(num2) +" Son los divisores de Q");
+		
+		
 	}// main
 
 }// Class
