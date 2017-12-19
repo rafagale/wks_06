@@ -23,4 +23,3 @@ public class Ejercicio1_Primo {
 	}//main
 
 }//Class
-

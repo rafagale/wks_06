@@ -13,19 +13,20 @@
 public class Ejercicio9_raices2grado {
 
 	public static void main(String[] args) {
-		int a, b,c;
+		int a, b, c;
 		a = Metodos.pedirEntero("Introduce a");
 		b = Metodos.pedirEntero("Introduce b");
 		c = Metodos.pedirEntero("Introduce c");
-		//Discriminante positivo
-		if ( ((Math.pow(b, 2))-(4*a*c)) > 0) {
+		double raices[] = Metodos.Ecuacion2G(a, b, c);
+		// Discriminante positivo
+		if (((Math.pow(b, 2)) - (4 * a * c)) > 0) {
 			System.out.println("Las raices son: ");
-			System.out.print(Metodos.Ecuacion2G(a, b, c));
+			System.out.println(raices[0] + " " + raices[1]);
 		} else {
 			System.out.println("El discriminante es negativo");
 		}
-		//a  b  c
-		//1 -2 -3
+		// a b c
+		// 1 -2 -3
 		// raices --> 3 y -1
 	}// main
 

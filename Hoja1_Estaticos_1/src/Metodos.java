@@ -165,12 +165,11 @@ public class Metodos {
 	 * @param3 num3 tercer número ingresado por el usuario (c)
 	 * @return raiz2 de la ecuacion 2G
 	 */
-	public static double Ecuacion2G(int a, int b, int c) {
+	public static double[] Ecuacion2G(int a, int b, int c) {
 		double raiz1, raiz2;
 		raiz1 = (-b + Math.sqrt((Math.pow(b, 2)) - (4 * a * c))) / (2 * a);
 		raiz2 = (-b - Math.sqrt((Math.pow(b, 2)) - (4 * a * c))) / (2 * a);
-		System.out.print(raiz1 + " ");
-		return raiz2;
+		return new double[] {raiz1, raiz2};
 	}// Ecuacion2G
 
 }// Class
