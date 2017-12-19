@@ -75,7 +75,7 @@ public class Metodos {
 		for (int divisor = (int) Math.sqrt(numero); divisor > 1; divisor--) {
 			// contabilizados los divisores
 			if (numero % divisor == 0) {
-				cont += 1;
+				cont++;
 			}
 		}
 		return cont;
