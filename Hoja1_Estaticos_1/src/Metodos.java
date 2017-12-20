@@ -166,11 +166,11 @@ public class Metodos {
 	}// combinaciones
 
 	/**
-	 * Método para calcular raices en una ecuacion 2G
-	 * @param1 num1 primer número ingresado por el usuario (a)
-	 * @param2 num2 segundo número ingresado por el usuario (b)
-	 * @param3 num3 tercer número ingresado por el usuario (c)
-	 * @return raiz2 de la ecuacion 2G
+	 *  Método para calcular raices en una ecuacion 2G
+	 * @param a primer número ingresado por el usuario
+	 * @param b segundo número ingresado por el usuario
+	 * @param c tercer número ingresado por el usuario
+	 * @return array con las dos raices
 	 */
 	public static double[] Ecuacion2G(int a, int b, int c) {
 		double raiz1, raiz2;
