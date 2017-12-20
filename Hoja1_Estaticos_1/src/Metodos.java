@@ -29,7 +29,7 @@ public class Metodos {
 		System.out.println(mensaje);
 		num  = sc.nextDouble();
 		return num;
-	}// Pedir entero
+	}// Pedir double
 	
 	
 	/**
