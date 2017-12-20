@@ -11,10 +11,11 @@ public class CuentaCorrienteMain {
 		double dinero;
 		int opcion;
 		CuentaCorriente cuentaNueva1, cuentaNueva2;
-		cuentaNueva1 = new CuentaCorriente("001", 65);
-		cuentaNueva2 = new CuentaCorriente("002", 0);
-		System.out.println(cuentaNueva1.getNumCuenta());
-		
+		cuentaNueva1 = new CuentaCorriente("Amancio Ortega", 99999999);
+		cuentaNueva2 = new CuentaCorriente("Rafa", -500);
+		// System.out.println(cuentaNueva1.getNumCuenta());
+		// System.out.println(cuentaNueva2.getNumCuenta());
+
 		opcion = pedirEntero(
 				"1-Ingresar en la cuenta 001\n2-Ingresar en la cuenta 002\n3-Retirar de la cuenta 001\n4-Retirar de la cuenta 002\n5-Visualizar");
 		while (opcion != 0) {
@@ -39,7 +40,7 @@ public class CuentaCorrienteMain {
 				System.out.println("El saldo de la cuenta " + cuentaNueva1.getNumCuenta() + " es "
 						+ cuentaNueva1.getSaldo() + "€");
 				System.out.println("El saldo de la cuenta " + cuentaNueva2.getNumCuenta() + " es "
-						+ cuentaNueva1.getSaldo() + "€");
+						+ cuentaNueva2.getSaldo() + "€");
 				break;
 			default:
 				System.out.println("Opcion incorrecta");

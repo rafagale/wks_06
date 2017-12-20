@@ -7,9 +7,9 @@ public class CuentaCorriente {
 	private String numCuenta;
 	private double saldo;
 
-	CuentaCorriente(String numCuenta, double saldo) {
-		numCuenta="Amancio Ortega";
-		saldo=95541554;
+	CuentaCorriente(String cuenta, double cash) {
+		numCuenta = cuenta;
+		saldo = cash;
 	}
 
 	public String getNumCuenta() {
@@ -19,7 +19,6 @@ public class CuentaCorriente {
 	public double getSaldo() {
 		return saldo;
 	}
-
 
 	/**
 	 * metodo para ingresar efectivo
@@ -47,13 +46,9 @@ public class CuentaCorriente {
 			return true;
 		} else {
 			System.out.println("No hay tanto dinero en la cuenta");
+			System.out.println("Tienes" +saldo +"€ y estas intentando sacar " +cantidad +"€");
 			return false;
 		}
 	}
-
-	/**
-	 * Mostrará por pantalla la información de la cuenta corriente: Número de
-	 * cuenta y saldo.
-	 */
 
 }// Class
