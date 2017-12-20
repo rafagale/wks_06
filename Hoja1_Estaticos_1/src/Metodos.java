@@ -21,7 +21,15 @@ public class Metodos {
 		System.out.println(mensaje);
 		num  = sc.nextInt();
 		return num;
-	}// Pedir numero
+	}// Pedir entero
+	
+	public static double pedirDouble(String mensaje) {
+		double num;
+		Scanner sc = new Scanner(System.in);
+		System.out.println(mensaje);
+		num  = sc.nextDouble();
+		return num;
+	}// Pedir entero
 	
 	
 	/**
