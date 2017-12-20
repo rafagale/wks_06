@@ -29,6 +29,7 @@ public class CuentaCorriente {
 	 */
 	public double ingresaEfectivo(double cantidad) {
 		saldo += cantidad;
+		System.out.println("Se ha retirado " + cantidad + " en la cuenta");
 		return saldo;
 	}
 
@@ -42,7 +43,7 @@ public class CuentaCorriente {
 	public boolean retiraEfectivo(double cantidad) {
 		if (cantidad <= saldo) {
 			saldo -= cantidad;
-			System.out.println("Se ha ingresado " + cantidad + " en la cuenta");
+			System.out.println("Se ha retirado " + cantidad + " en la cuenta");
 			return true;
 		} else {
 			System.out.println("No hay tanto dinero en la cuenta");
