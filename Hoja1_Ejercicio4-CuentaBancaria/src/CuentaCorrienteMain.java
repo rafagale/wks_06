@@ -18,6 +18,18 @@ public class CuentaCorrienteMain {
 
 		opcion = pedirEntero(
 				"1-Ingresar en la cuenta 001\n2-Ingresar en la cuenta 002\n3-Retirar de la cuenta 001\n4-Retirar de la cuenta 002\n5-Visualizar");
+		opcion = menu(opcion, cuentaNueva1, cuentaNueva2);
+		
+	}// main
+/**
+ * 
+ * @param opcion
+ * @param cuentaNueva1
+ * @param cuentaNueva2
+ * @return
+ */
+	public static int menu(int opcion, CuentaCorriente cuentaNueva1, CuentaCorriente cuentaNueva2) {
+		double dinero;
 		while (opcion != 0) {
 			switch (opcion) {
 			case 1: // Ingresar en la cuenta 001
@@ -48,7 +60,8 @@ public class CuentaCorrienteMain {
 			opcion = pedirEntero(
 					"1-Ingresar en la cuenta 001\n2-Ingresar en la cuenta 002\n3-Retirar de la cuenta 001\n4-Retirar de la cuenta 002\n5-Visualizar");
 		}
-	}// main
+		return opcion;
+	}
 
 	public static int pedirEntero(String mensaje) {
 		int num;
