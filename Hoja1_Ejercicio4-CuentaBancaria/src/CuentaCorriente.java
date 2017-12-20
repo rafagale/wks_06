@@ -7,10 +7,19 @@ public class CuentaCorriente {
 	private String numCuenta;
 	private double saldo;
 
-	CuentaCorriente(String cuenta, double cantidad) {
-		numCuenta = "00";
-		saldo = 0;
+	CuentaCorriente(String numCuenta, double saldo) {
+		numCuenta="Amancio Ortega";
+		saldo=95541554;
 	}
+
+	public String getNumCuenta() {
+		return numCuenta;
+	}
+
+	public double getSaldo() {
+		return saldo;
+	}
+
 
 	/**
 	 * metodo para ingresar efectivo
@@ -46,25 +55,5 @@ public class CuentaCorriente {
 	 * Mostrará por pantalla la información de la cuenta corriente: Número de
 	 * cuenta y saldo.
 	 */
-	public void visualizar() {
-		System.out.println("Cuenta numero " + numCuenta);
-		System.out.println("Saldo: " + saldo);
-	}
-
-	public String getNumCuenta() {
-		return numCuenta;
-	}
-
-	public void setNumCuenta(String numCuenta) {
-		this.numCuenta = numCuenta;
-	}
-
-	public double getSaldo() {
-		return saldo;
-	}
-
-	public void setSaldo(double saldo) {
-		this.saldo = saldo;
-	}
 
 }// Class
