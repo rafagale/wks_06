@@ -12,8 +12,8 @@ public class Metodos {
 	
 	/**
 	 * Método para pedir un entero
-	 * @param numero número ingresado por el usuario
-	 * @return numero
+	 * @param mensaje para pedir numero
+	 * @return el numero introducido por teclado
 	 */
 	public static int pedirEntero(String mensaje) {
 		int num;
@@ -22,7 +22,11 @@ public class Metodos {
 		num  = sc.nextInt();
 		return num;
 	}// Pedir entero
-	
+	/**
+	 * Método para pedir un double
+	 * @param mensaje para pedir numero
+	 * @return el numero introducido por teclado
+	 */
 	public static double pedirDouble(String mensaje) {
 		double num;
 		Scanner sc = new Scanner(System.in);
@@ -30,7 +34,18 @@ public class Metodos {
 		num  = sc.nextDouble();
 		return num;
 	}// Pedir double
-	
+	/**
+	 * Método para pedir un string
+	 * @param mensaje para pedir string
+	 * @return el string introducido por teclado
+	 */
+	public static String pedirString(String mensaje) {
+		String s1;
+		Scanner sc = new Scanner(System.in);
+		System.out.println(mensaje);
+		s1  = sc.nextLine();
+		return s1;
+	}// Pedir string
 	
 	/**
 	 * Método para calcular si un numero es primo o no
