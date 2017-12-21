@@ -18,30 +18,55 @@ public class FechaMain {
 
 	public static void main(String[] args) {
 		int dia, mes, anio;
-		Fecha nuevaFecha, nuevaFecha2;
+		Fecha fechaActual, fechaNacimiento;
 		System.out.println("Introduce la fecha de hoy");
 		do {
 			dia = pedirEntero("Dia?");
 			mes = pedirEntero("Mes?");
 			anio = pedirEntero("Año?");
-			nuevaFecha = new Fecha(dia, mes, anio);
-		} while (!nuevaFecha.esCorrecta());
-		
-		
+			fechaActual = new Fecha(dia, mes, anio);
+		} while (!fechaActual.esCorrecta());
+
 		while (anio != 0) {
 			do {
 				System.out.println("Introduce la fecha de nacimiento de una persona");
 				dia = pedirEntero("Dia?");
 				mes = pedirEntero("Mes?");
 				anio = pedirEntero("Año?");
-				nuevaFecha2 = new Fecha(dia, mes, anio);
-			} while (!nuevaFecha2.esCorrecta());
-			System.out.println(nuevaFecha2.getCadenaFecha1());
-			System.out.println(nuevaFecha2.getCadenaFecha2());
-			System.out.println("La persona tiene: " + (nuevaFecha.getAnio() - nuevaFecha2.getAnio()) + " años");
+				fechaNacimiento = new Fecha(dia, mes, anio);
+			} while (!fechaNacimiento.esCorrecta());
+			mostrarFechaNacimiento(fechaNacimiento);
+			mostrarEdad(fechaActual, fechaNacimiento);
+			System.out.println("\n---------------------------------------------");
 		}
+
 	}// main
 
+	/**
+	 * @param fechaNacimiento
+	 */
+	public static void mostrarFechaNacimiento(Fecha fechaNacimiento) {
+		System.out.print("Fecha de nacimiento: ");
+		System.out.print(fechaNacimiento.getCadenaFecha1() +" || ");
+		System.out.print(fechaNacimiento.getCadenaFecha2());
+		System.out.println();
+	}//Mostrar fecha nacimiento
+
+	/**
+	 * @param fechaActual
+	 * @param fechaNacimiento
+	 */
+	public static void mostrarEdad(Fecha fechaActual, Fecha fechaNacimiento) {
+		System.out.printf("La persona tiene: %d años, %d meses y %d días",
+				(fechaActual.getAnio() - fechaNacimiento.getAnio()), (fechaActual.getMes() - fechaNacimiento.getMes()),
+				(fechaActual.getDia() - fechaNacimiento.getDia()));
+	}//mostrar Edad
+
+	/**
+	 * 
+	 * @param mensaje para pedir numero
+	 * @return el numero introducido por teclado
+	 */
 	public static int pedirEntero(String mensaje) {
 		int num;
 		Scanner sc = new Scanner(System.in);
@@ -49,4 +74,5 @@ public class FechaMain {
 		num = sc.nextInt();
 		return num;
 	}// Pedir entero
+
 }// Class

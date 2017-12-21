@@ -22,11 +22,14 @@ public class Fecha {
 		} else {
 			return false;
 		}
-
 	}// Bisiesto
 
+	/**
+	 * 
+	 * @return true si la fecha es correcta
+	 */
 	public boolean esCorrecta() {
-		int numDiasMes;
+		int numDiasMes=0;
 		if (anio < 0) {
 			return false;
 		}
@@ -34,30 +37,44 @@ public class Fecha {
 			return false;
 		}
 		if (dia < 1 || dia > 31) {
-			if (mes == 1 || mes == 3 || mes == 5 || mes == 7 || mes == 8 || mes == 10 || mes == 12) {
-				numDiasMes = 31;
-			} else if (mes == 4 || mes == 6 || mes == 9 || mes == 11) {
-				numDiasMes = 30;
+			return false;
+		} else {
+			if (mes == 4 || mes == 6 || mes == 9 || mes == 11) {
+				numDiasMes=getDiasMes();
 				if (dia > numDiasMes) {
 					return false;
 				}
-			} else if (mes == 2 && !esBisiesto()) {
-				numDiasMes = 28;
-				if (dia > numDiasMes) {
-					return false;
-				}
-			} else if (mes == 2 && esBisiesto()) {
-				numDiasMes = 29;
+			} else if (mes == 2) {
+				numDiasMes=getDiasMes();
 				if (dia > numDiasMes) {
 					return false;
 				}
 			}
-			return false;
-		} else {
 			return true;
 		}
 	} // Fechacorrecta
 
+	/**
+	 * 
+	 * @return el número de días que tiene el mes
+	 */
+	public int getDiasMes() {
+		int numDiasMes = 0;
+		if (mes == 1 || mes == 3 || mes == 5 || mes == 7 || mes == 8 || mes == 10 || mes == 12) {
+			numDiasMes = 31;
+		} else if (mes == 4 || mes == 6 || mes == 9 || mes == 11) {
+			numDiasMes = 30;
+		} else if (mes == 2) {
+			if (esBisiesto()) {
+				numDiasMes = 29;
+			} else {
+				numDiasMes = 28;
+			}
+		}
+		return numDiasMes;
+	}// getDiasMes
+	
+	
 	/**
 	 * 
 	 * @returnuna cadena que contiene el mes con letras: enero, febrero, marzo,
@@ -93,23 +110,7 @@ public class Fecha {
 		return nombreMes;
 	} // getCadenaMes
 
-	/**
-	 * 
-	 * @return el número de días que tiene el mes
-	 */
-	public int getDiasMes() {
-		int numDiasMes = 0;
-		if (mes == 1 || mes == 3 || mes == 5 || mes == 7 || mes == 8 || mes == 10 || mes == 12) {
-			numDiasMes = 31;
-		} else if (mes == 4 || mes == 6 || mes == 9 || mes == 11) {
-			numDiasMes = 30;
-		} else if (mes == 2 && !esBisiesto()) {
-			numDiasMes = 28;
-		} else if (mes == 2 && esBisiesto()) {
-			numDiasMes = 29;
-		}
-		return numDiasMes;
-	}// getDiasMes
+
 
 	/**
 	 * 
@@ -131,62 +132,26 @@ public class Fecha {
 		return fecha2;
 	}// getCadenaFecha2
 
+
+	/**
+	 * @return the dia
+	 */
 	public int getDia() {
 		return dia;
 	}
 
-	public void setDia(int dia) {
-		this.dia = dia;
-	}
-
+	/**
+	 * @return the mes
+	 */
 	public int getMes() {
 		return mes;
 	}
 
-	public void setMes(int mes) {
-		this.mes = mes;
-	}
-
+	/**
+	 * @return the anio
+	 */
 	public int getAnio() {
 		return anio;
 	}
 
-	public void setAnyo(int anio) {
-		this.anio = anio;
-	}
-
-	
-/*	while (!fechaBien){ //Filtrado
-		System.out.println("Dia");
-		dia = sc.nextInt();
-		if (dia<1 || dia>31){
-			fechaBien=false;
-		}
-		System.out.println("Mes");
-		mes = sc.nextInt();
-		if (mes==1 || mes ==3 || mes==5 || mes==7  || mes==8 || mes==10 || mes==12){
-			numDiasMes=31;
-			fechaBien=true;
-		}else if (mes==4 || mes ==6 || mes==9 || mes==11){
-			numDiasMes=30;
-			if (dia>numDiasMes){
-				fechaBien=false;
-			}else{
-				fechaBien=true;
-			}
-		}else if (mes==2){
-			numDiasMes=28;
-			if (dia>numDiasMes){
-				fechaBien=false;
-			}else{
-				fechaBien=true;
-			}
-		}
-		System.out.println("Año");
-		anyo = sc.nextInt();
-		if (anyo<1900 || anyo>2020){
-			fechaBien=false;
-		}*/
-	
-	
 }// Class
