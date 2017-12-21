@@ -9,8 +9,8 @@ public class Fecha {
 	private int mes;
 	private int anio;
 
-	public Fecha(int dia, int mes, int anio) {
-		super();
+	Fecha(int dia, int mes, int anio) {
+
 		this.dia = dia;
 		this.mes = mes;
 		this.anio = anio;
@@ -29,7 +29,7 @@ public class Fecha {
 	 * @return true si la fecha es correcta
 	 */
 	public boolean esCorrecta() {
-		int numDiasMes=0;
+		int numDiasMes = 0;
 		if (anio < 0) {
 			return false;
 		}
@@ -40,12 +40,12 @@ public class Fecha {
 			return false;
 		} else {
 			if (mes == 4 || mes == 6 || mes == 9 || mes == 11) {
-				numDiasMes=getDiasMes();
+				numDiasMes = getDiasMes();
 				if (dia > numDiasMes) {
 					return false;
 				}
 			} else if (mes == 2) {
-				numDiasMes=getDiasMes();
+				numDiasMes = getDiasMes();
 				if (dia > numDiasMes) {
 					return false;
 				}
@@ -73,8 +73,7 @@ public class Fecha {
 		}
 		return numDiasMes;
 	}// getDiasMes
-	
-	
+
 	/**
 	 * 
 	 * @returnuna cadena que contiene el mes con letras: enero, febrero, marzo,
@@ -110,8 +109,6 @@ public class Fecha {
 		return nombreMes;
 	} // getCadenaMes
 
-
-
 	/**
 	 * 
 	 * @return cadena con la fecha en formato'dd-mm-yyyy'.
@@ -131,7 +128,6 @@ public class Fecha {
 		fecha2 = dia + " de " + getCadenaMes() + " de " + anio;
 		return fecha2;
 	}// getCadenaFecha2
-
 
 	/**
 	 * @return the dia
