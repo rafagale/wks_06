@@ -155,4 +155,38 @@ public class Fecha {
 		this.anio = anio;
 	}
 
+	
+/*	while (!fechaBien){ //Filtrado
+		System.out.println("Dia");
+		dia = sc.nextInt();
+		if (dia<1 || dia>31){
+			fechaBien=false;
+		}
+		System.out.println("Mes");
+		mes = sc.nextInt();
+		if (mes==1 || mes ==3 || mes==5 || mes==7  || mes==8 || mes==10 || mes==12){
+			numDiasMes=31;
+			fechaBien=true;
+		}else if (mes==4 || mes ==6 || mes==9 || mes==11){
+			numDiasMes=30;
+			if (dia>numDiasMes){
+				fechaBien=false;
+			}else{
+				fechaBien=true;
+			}
+		}else if (mes==2){
+			numDiasMes=28;
+			if (dia>numDiasMes){
+				fechaBien=false;
+			}else{
+				fechaBien=true;
+			}
+		}
+		System.out.println("Año");
+		anyo = sc.nextInt();
+		if (anyo<1900 || anyo>2020){
+			fechaBien=false;
+		}*/
+	
+	
 }// Class
