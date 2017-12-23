@@ -59,16 +59,17 @@ public class FechaMain {
 	public static void mostrarEdad(Fecha fechaActual, Fecha fechaNacimiento) {
 		int anios = 0, meses = 0, dias = 0;
 		dias = fechaActual.getDia() - fechaNacimiento.getDia();
-		if (fechaActual.getDia() - fechaNacimiento.getDia() < 0) {
-			meses += 1;
-			dias = fechaNacimiento.getDia();
-		}
 		meses = fechaActual.getMes() - fechaNacimiento.getMes();
-		if (fechaActual.getMes() - fechaNacimiento.getMes() < 0) {
-			meses=fechaNacimiento.getMes();
-		}
 		anios = fechaActual.getAnio() - fechaNacimiento.getAnio();
-		System.out.printf("La persona tiene: %d años, %d meses y %d días", anios, meses, dias);
+
+		// Aún no es el mes de su cumpleaños
+		// o es el mes pero no ha llegado el día.
+		if (meses < 0 || (meses == 0 && dias < 0)) {
+			anios--;
+		}
+		System.out.printf("La persona tiene: %d años", anios);
+		// System.out.printf("La persona tiene: %d años, %d meses y %d días",
+		// anios, meses, dias);
 	}// mostrar Edad
 
 	/**
