@@ -47,24 +47,34 @@ public class FechaMain {
 	 */
 	public static void mostrarFechaNacimiento(Fecha fechaNacimiento) {
 		System.out.print("Fecha de nacimiento: ");
-		System.out.print(fechaNacimiento.getCadenaFecha1() +" || ");
+		System.out.print(fechaNacimiento.getCadenaFecha1() + " || ");
 		System.out.print(fechaNacimiento.getCadenaFecha2());
 		System.out.println();
-	}//Mostrar fecha nacimiento
+	}// Mostrar fecha nacimiento
 
 	/**
 	 * @param fechaActual
 	 * @param fechaNacimiento
 	 */
 	public static void mostrarEdad(Fecha fechaActual, Fecha fechaNacimiento) {
-		System.out.printf("La persona tiene: %d años, %d meses y %d días",
-				(fechaActual.getAnio() - fechaNacimiento.getAnio()), (fechaActual.getMes() - fechaNacimiento.getMes()),
-				(fechaActual.getDia() - fechaNacimiento.getDia()));
-	}//mostrar Edad
+		int anios = 0, meses = 0, dias = 0;
+		dias = fechaActual.getDia() - fechaNacimiento.getDia();
+		if (fechaActual.getDia() - fechaNacimiento.getDia() < 0) {
+			meses += 1;
+			dias = fechaNacimiento.getDia();
+		}
+		meses = fechaActual.getMes() - fechaNacimiento.getMes();
+		if (fechaActual.getMes() - fechaNacimiento.getMes() < 0) {
+			meses=fechaNacimiento.getMes();
+		}
+		anios = fechaActual.getAnio() - fechaNacimiento.getAnio();
+		System.out.printf("La persona tiene: %d años, %d meses y %d días", anios, meses, dias);
+	}// mostrar Edad
 
 	/**
 	 * 
-	 * @param mensaje para pedir numero
+	 * @param mensaje
+	 *            para pedir numero
 	 * @return el numero introducido por teclado
 	 */
 	public static int pedirEntero(String mensaje) {
