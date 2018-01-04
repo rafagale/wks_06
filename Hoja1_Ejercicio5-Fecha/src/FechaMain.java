@@ -28,10 +28,10 @@ public class FechaMain {
 			anio = pedirEntero("Año?");
 			fechaActual = new Fecha(dia, mes, anio);
 		} while (!fechaActual.esCorrecta());
-		
+
 		System.out.println("La fecha actual es: " + fechaActual.getCadenaFecha1());
 		opcion = pedirEntero(
-				"Que quieres hacer?\n1-Sumar dias\n2-Saber la diferencia en dias entre este fecha y la fecha actual\n3-Calcular una edad");
+				"Que quieres hacer?\n1-Sumar dias\n2-Saber la diferencia en dias entre esta fecha y la fecha actual\n3-Calcular una edad");
 
 		while (opcion != 0) {
 			switch (opcion) {
@@ -48,7 +48,7 @@ public class FechaMain {
 					fechaNueva = new Fecha(dia, mes, anio);
 				} while (!fechaNueva.esCorrecta());
 				System.out.println("La nueva fecha es " + fechaNueva.getCadenaFecha1());
-				System.out.println("La diferencia en dias entre esas fechas es de : "
+				System.out.println("La diferencia en dias entre esas fechas es de: "
 						+ fechaActual.diferenciaFecha(fechaNueva) + " dias");
 				break;
 			case 3:
@@ -69,7 +69,7 @@ public class FechaMain {
 				break;
 			}// Switch
 			opcion = pedirEntero(
-					"Que quieres hacer?\n1-Sumar dias\n2-Saber la diferencia en dias entre este fecha y la fecha actual\n3-Calcular una edad");
+					"Que quieres hacer?\n1-Sumar dias\n2-Saber la diferencia en dias entre esta fecha y la fecha actual\n3-Calcular una edad");
 		} // while
 	}// main
 
