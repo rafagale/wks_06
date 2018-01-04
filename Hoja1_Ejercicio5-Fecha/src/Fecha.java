@@ -136,15 +136,19 @@ public class Fecha {
 	public String sumaDias(int sumaDias) {
 		String fecha1;
 		int[] meses = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
-		int sumaAnios;
-		int diasRestantes;
-		sumaAnios = sumaDias / 365;
-		diasRestantes = sumaDias % 365;
-		anio += sumaAnios;
-
 		if (esBisiesto()) {
 			meses[1] = 29;
 		}
+		int diasDelAnio=0;
+		for (int i = 0; i < meses.length; i++) {
+			diasDelAnio+=meses[i];
+		}
+		int sumaAnios;
+		int diasRestantes;
+		sumaAnios = sumaDias / diasDelAnio;
+		diasRestantes = sumaDias % diasDelAnio;
+		anio += sumaAnios;
+
 
 		for (int i = 0; i < diasRestantes; i++) {
 			if (dia < meses[mes - 1]) {
@@ -170,9 +174,14 @@ public class Fecha {
 		if (esBisiesto()) {
 			meses[1] = 29;
 		}
-
-		diasTotales = (this.anio * 365) + (this.mes * meses[this.mes]) + this.dia;
-		diasFechaNueva = (fecha2.anio * 365) + (fecha2.mes * meses[this.mes]) + fecha2.dia;
+		
+		int diasDelAnio=0;
+		for (int i = 0; i < meses.length; i++) {
+			diasDelAnio+=meses[i];
+		}
+		
+		diasTotales = (this.anio * diasDelAnio) + (this.mes * meses[this.mes]) + this.dia;
+		diasFechaNueva = (fecha2.anio * diasDelAnio) + (fecha2.mes * meses[this.mes]) + fecha2.dia;
 		System.out.println(diasTotales);
 		System.out.println(diasFechaNueva);
 
