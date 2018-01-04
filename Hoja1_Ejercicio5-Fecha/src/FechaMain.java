@@ -17,8 +17,10 @@ import java.util.Scanner;
 public class FechaMain {
 
 	public static void main(String[] args) {
+		int opcion;
 		int dia, mes, anio;
-		Fecha fechaActual, fechaNacimiento;
+		int diasASumar = 0;
+		Fecha fechaActual, fechaNacimiento, fechaNueva;
 		System.out.println("Introduce la fecha de hoy");
 		do {
 			dia = pedirEntero("Dia?");
@@ -27,19 +29,48 @@ public class FechaMain {
 			fechaActual = new Fecha(dia, mes, anio);
 		} while (!fechaActual.esCorrecta());
 
-		while (anio != 0) {
-			do {
-				System.out.println("Introduce la fecha de nacimiento de una persona");
-				dia = pedirEntero("Dia?");
-				mes = pedirEntero("Mes?");
-				anio = pedirEntero("Año?");
-				fechaNacimiento = new Fecha(dia, mes, anio);
-			} while (!fechaNacimiento.esCorrecta());
-			mostrarFechaNacimiento(fechaNacimiento);
-			mostrarEdad(fechaActual, fechaNacimiento);
-			System.out.println("\n---------------------------------------------");
-		}
 
+		System.out.println("Introduce una fecha nueva");
+		do {
+			dia = pedirEntero("Dia?");
+			mes = pedirEntero("Mes?");
+			anio = pedirEntero("Año?");
+			fechaNueva = new Fecha(dia, mes, anio);
+		} while (!fechaActual.esCorrecta());
+		System.out.println("La nueva fecha es " + fechaNueva.getCadenaFecha1());
+
+		 opcion = pedirEntero(
+				"Que quieres hacer?\n1-Sumar dias\n2-Saber la diferencia en dias entre este fecha y la fecha actual\n3-Calcular una edad");
+
+		while (opcion != 0) {
+			switch (opcion) {
+			case 1:
+				diasASumar = pedirEntero("Introduce días a sumar");
+				System.out.println("La fecha resultante es " + fechaNueva.sumaDias(diasASumar));
+				break;
+			case 2:
+				System.out.println(
+						"La diferencia en dias entre esas fechas es: " + fechaNueva.diferenciaFecha(fechaNueva));
+				break;
+			case 3:
+				do {
+					System.out.println("Introduce la fecha de nacimiento de una persona");
+					dia = pedirEntero("Dia?");
+					mes = pedirEntero("Mes?");
+					anio = pedirEntero("Año?");
+					fechaNacimiento = new Fecha(dia, mes, anio);
+				} while (!fechaNacimiento.esCorrecta());
+				mostrarFechaNacimiento(fechaNacimiento);
+				mostrarEdad(fechaActual, fechaNacimiento);
+				System.out.println("\n---------------------------------------------");
+				break;
+			default:
+				System.out.println("Opcion incorrecta");
+				break;
+			}//Switch
+			opcion = pedirEntero(
+					"Que quieres hacer?\n1-Sumar dias\n2-Saber la diferencia en dias entre este fecha y la fecha actual\n3-Calcular una edad");
+		}//while
 	}// main
 
 	/**

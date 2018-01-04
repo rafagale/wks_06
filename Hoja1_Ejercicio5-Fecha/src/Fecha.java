@@ -130,6 +130,45 @@ public class Fecha {
 	}// getCadenaFecha2
 
 	/**
+	 * 
+	 * @return dias
+	 */
+	public String sumaDias(int sumaDias) {
+		String fecha1;
+		int[] meses = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
+		int sumaAnios;
+		int diasRestantes;
+		sumaAnios = sumaDias / 365;
+		diasRestantes = sumaDias % 365;
+		anio += sumaAnios;
+
+		if (esBisiesto()) {
+			meses[1] = 29;
+		}
+
+		for (int i = 0; i < diasRestantes; i++) {
+			if (dia < meses[mes - 1]) {
+				dia++;
+			} else if ((dia == meses[mes - 1]) && (mes < 12)) {
+				dia = 1;
+				mes++;
+			} else if ((dia == meses[mes - 1]) && (mes == 12)) {
+				dia = 1;
+				mes = 1;
+				anio++;
+			}
+		}
+		fecha1 = dia + "/" + mes + "/" + anio;
+		return fecha1;
+	}// sumaDias
+
+	public int diferenciaFecha(Fecha fechaFinal) {
+		int diferencia=0;
+		
+		return diferencia;
+	}// diferenciaFecha
+
+	/**
 	 * @return the dia
 	 */
 	public int getDia() {
