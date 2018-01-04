@@ -162,9 +162,20 @@ public class Fecha {
 		return fecha1;
 	}// sumaDias
 
-	public int diferenciaFecha(Fecha fechaFinal) {
-		int diferencia=0;
-		
+	public int diferenciaFecha(Fecha fecha2) {
+		int diferencia = 0;
+		int diasTotales, diasTotales2;
+/*		int[] meses = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
+		if (esBisiesto()) {
+			meses[1] = 29;
+		}*/
+		diasTotales = (this.anio * 365) + (this.mes * 30) + this.dia;
+		diasTotales2 = (fecha2.anio * 365) + (fecha2.mes * 30) + fecha2.dia;
+		System.out.println(diasTotales);
+		System.out.println(diasTotales2);
+
+		diferencia = diasTotales2 - diasTotales;
+
 		return diferencia;
 	}// diferenciaFecha
 

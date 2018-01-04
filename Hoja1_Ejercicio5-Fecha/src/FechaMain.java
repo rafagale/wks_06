@@ -29,28 +29,26 @@ public class FechaMain {
 			fechaActual = new Fecha(dia, mes, anio);
 		} while (!fechaActual.esCorrecta());
 
-
-		System.out.println("Introduce una fecha nueva");
-		do {
-			dia = pedirEntero("Dia?");
-			mes = pedirEntero("Mes?");
-			anio = pedirEntero("Año?");
-			fechaNueva = new Fecha(dia, mes, anio);
-		} while (!fechaActual.esCorrecta());
-		System.out.println("La nueva fecha es " + fechaNueva.getCadenaFecha1());
-
-		 opcion = pedirEntero(
+		opcion = pedirEntero(
 				"Que quieres hacer?\n1-Sumar dias\n2-Saber la diferencia en dias entre este fecha y la fecha actual\n3-Calcular una edad");
 
 		while (opcion != 0) {
 			switch (opcion) {
 			case 1:
 				diasASumar = pedirEntero("Introduce días a sumar");
-				System.out.println("La fecha resultante es " + fechaNueva.sumaDias(diasASumar));
+				System.out.println("La fecha resultante es " + fechaActual.sumaDias(diasASumar));
 				break;
 			case 2:
-				System.out.println(
-						"La diferencia en dias entre esas fechas es de : " + fechaNueva.diferenciaFecha(fechaNueva) +" dias");
+				System.out.println("Introduce una fecha nueva");
+				do {
+					dia = pedirEntero("Dia?");
+					mes = pedirEntero("Mes?");
+					anio = pedirEntero("Año?");
+					fechaNueva = new Fecha(dia, mes, anio);
+				} while (!fechaActual.esCorrecta());
+				System.out.println("La nueva fecha es " + fechaNueva.getCadenaFecha1());
+				System.out.println("La diferencia en dias entre esas fechas es de : "
+						+ fechaNueva.diferenciaFecha(fechaNueva) + " dias");
 				break;
 			case 3:
 				do {
@@ -66,11 +64,12 @@ public class FechaMain {
 				break;
 			default:
 				System.out.println("Opcion incorrecta");
+				System.out.println(fechaActual.getCadenaFecha1());
 				break;
-			}//Switch
+			}// Switch
 			opcion = pedirEntero(
 					"Que quieres hacer?\n1-Sumar dias\n2-Saber la diferencia en dias entre este fecha y la fecha actual\n3-Calcular una edad");
-		}//while
+		} // while
 	}// main
 
 	/**
