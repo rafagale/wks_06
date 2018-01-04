@@ -50,7 +50,7 @@ public class FechaMain {
 				break;
 			case 2:
 				System.out.println(
-						"La diferencia en dias entre esas fechas es: " + fechaNueva.diferenciaFecha(fechaNueva));
+						"La diferencia en dias entre esas fechas es de : " + fechaNueva.diferenciaFecha(fechaNueva) +" dias");
 				break;
 			case 3:
 				do {
