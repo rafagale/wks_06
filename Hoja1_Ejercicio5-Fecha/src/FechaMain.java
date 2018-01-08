@@ -98,6 +98,13 @@ public class FechaMain {
 		if (meses < 0 || (meses == 0 && dias < 0)) {
 			anios--;
 		}
+		if (fechaActual.getDia() == fechaNacimiento.getDia()) {
+			if (fechaActual.getMes() == fechaNacimiento.getMes()) {
+				System.out.println("*************************************\n*************************************");
+				System.out.println("Felicidades! A celebrarlo al burger king!!");
+				System.out.println("*************************************\n*************************************");
+			}
+		}
 		System.out.printf("La persona tiene: %d años", anios);
 		// System.out.printf("La persona tiene: %d años, %d meses y %d días",
 		// anios, meses, dias);
