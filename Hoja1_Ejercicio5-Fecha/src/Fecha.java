@@ -181,7 +181,7 @@ public class Fecha {
 		}
 		
 		diasTotales = (this.anio * diasDelAnio) + (this.mes * meses[this.mes]) + this.dia;
-		diasFechaNueva = (fecha2.anio * diasDelAnio) + (fecha2.mes * meses[this.mes]) + fecha2.dia;
+		diasFechaNueva = (fecha2.anio * diasDelAnio) + (fecha2.mes * meses[fecha2.mes]) + fecha2.dia;
 		System.out.println(diasTotales);
 		System.out.println(diasFechaNueva);
 
