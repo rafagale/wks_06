@@ -26,6 +26,12 @@ public class Indicadormain {
 		deposito.setCapacidadmax(datos);
 		op = menu("Elige que desea hacer: :\n 1. Añadir liquido :\n 2. Extraer liquido :\n 0. Salir");
 
+		Indicador vectorIndicadores [] = new Indicador[4];
+		
+		for (int i = 0; i < vectorIndicadores.length; i++) {
+			vectorIndicadores[i] = new Indicador();
+		}
+		
 		while (op != 0) {
 			switch (op) {
 			case 1:
