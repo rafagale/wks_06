@@ -97,15 +97,14 @@ public class FechaMain {
 		// o es el mes pero no ha llegado el día.
 		if (meses < 0 || (meses == 0 && dias < 0)) {
 			anios--;
+		} 
+		if (fechaActual.getDia() == fechaNacimiento.getDia() && fechaActual.getMes() == fechaNacimiento.getMes()) {
+			System.out.println(cumple());
+			System.out.printf("La persona ha cumplido hoy: %d años", anios);
+		} else {
+			System.out.printf("La persona tiene: %d años", anios);
 		}
-		if (fechaActual.getDia() == fechaNacimiento.getDia()) {
-			if (fechaActual.getMes() == fechaNacimiento.getMes()) {
-				System.out.println("*************************************\n*************************************");
-				System.out.println("Felicidades! A celebrarlo al burger king!!");
-				System.out.println("*************************************\n*************************************");
-			}
-		}
-		System.out.printf("La persona tiene: %d años", anios);
+		
 		// System.out.printf("La persona tiene: %d años, %d meses y %d días",
 		// anios, meses, dias);
 	}// mostrar Edad
@@ -123,5 +122,10 @@ public class FechaMain {
 		num = sc.nextInt();
 		return num;
 	}// Pedir entero
+
+	public static String cumple() {
+		String frase = "*************************************\n*************************************\nFelicidades! A celebrarlo al burger king!!\n*************************************\n*************************************";
+		return frase;
+	}
 
 }// Class
