@@ -1,3 +1,5 @@
+package zMetodos;
+
 import java.util.Scanner;
 
 /**
