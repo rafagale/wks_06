@@ -5,43 +5,50 @@ public class TragaBolas {
 	private int bolasComidas;
 	private int maxBolas;
 
-	/*TragaBolas() {
-
-	}*/
-
-	TragaBolas(String color, int bolasComidas, int maxBolas) {
-		color = "";
-		bolasComidas = 0;
-		maxBolas = 0;
+	TragaBolas() {
 	}
 
-	public String visualizar() { //metodos de instancia
-		System.out.println("El hipo es de color " + color + " lleva " + bolasComidas
-				+ " bolas comidas y su máximo de bolas es " + maxBolas);
-		return "No muestra nada";
+	public TragaBolas(String color, int maxBolas) {
+		Scanner sc = new Scanner(System.in);
+		do {
+			System.out.println("Color del hipopotamo?");
+			this.color = sc.nextLine();
+		} while (!this.color.toLowerCase().equals("verde") && !this.color.toLowerCase().equals("rojo")
+				&& !this.color.toLowerCase().equals("amarillo"));
+		System.out.println("Bolas máximas?");
+		this.maxBolas = sc.nextInt();
+	}
+
+	public String visualizar() { // metodos de instancia
+		String visualizacion;
+		visualizacion = "El hipo es de color " + color + " lleva " + bolasComidas
+				+ " bolas comidas y su máximo de bolas es " + maxBolas;
+		return visualizacion;
 	}// visualizar
 
-	public int comer() { //metodos de instancia
+	public String comer() { // metodos de instancia
+		String mensaje;
 		if (bolasComidas < maxBolas) {
 			bolasComidas++;
-			System.out.println("Ha comido una ñam ñam");
+			mensaje = "Ha comido una ñam ñam";
 		} else {
-			System.out.println("No puedo comer mas necesito dormir");
+			mensaje = "No puedo comer mas necesito dormir";
 		}
-		return bolasComidas;
+		return mensaje;
 	}// comer
 
-	public String trotar() { //metodos de instancia
+	public String trotar() { // metodos de instancia
+		String mensajeTrotar;
 		if (bolasComidas >= 1) {
 			bolasComidas--;
-			System.out.println("Estoy trotando");
+			mensajeTrotar="Estoy trotando";
 		} else {
-			System.out.println("Estoy esmirriao no me puedo ni mover");
+			mensajeTrotar="Estoy esmirriao no me puedo ni mover";
 		}
-		return "TROTAR";
+		return mensajeTrotar;
 	}// trotar
 
-	public String dormir() { //metodos de instancia
+	public String dormir() { // metodos de instancia
 		String cadena = "";
 		if (bolasComidas == maxBolas) {
 			bolasComidas = bolasComidas / 2;
@@ -52,20 +59,5 @@ public class TragaBolas {
 		return cadena;
 	}// dormir
 
-	/**
-	 * @param color
-	 *            the color to set
-	 */
-	public void setColor(String color) { //metodos de instancia
-		this.color = color;
-	}
-
-	/**
-	 * @param maxBolas
-	 *            the maxBolas to set
-	 */
-	public void setMaxBolas(int maxBolas) { //metodos de instancia
-		this.maxBolas = maxBolas;
-	}
 
 }// Class
