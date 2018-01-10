@@ -11,51 +11,6 @@ public class Hora {
 		segundos = 0;
 	}
 
-	/**
-	 * @return the horas
-	 */
-	public int getHoras() {
-		return horas;
-	}
-
-	/**
-	 * @param horas
-	 *            the horas to set
-	 */
-	public void setHoras(int horas) {
-		this.horas = horas;
-	}
-
-	/**
-	 * @return the minutos
-	 */
-	public int getMinutos() {
-		return minutos;
-	}
-
-	/**
-	 * @param minutos
-	 *            the minutos to set
-	 */
-	public void setMinutos(int minutos) {
-		this.minutos = minutos;
-	}
-
-	/**
-	 * @return the segundos
-	 */
-	public int getSegundos() {
-		return segundos;
-	}
-
-	/**
-	 * @param segundos
-	 *            the segundos to set
-	 */
-	public void setSegundos(int segundos) {
-		this.segundos = segundos;
-	}
-
 	public int ponerEnHora(int hora, int minuto, int segundo) {
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Introduce una hora");
