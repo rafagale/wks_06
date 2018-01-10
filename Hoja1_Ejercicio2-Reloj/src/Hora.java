@@ -69,6 +69,7 @@ public class Hora {
 			minutos = minutos % 60;
 		}
 		System.out.printf("%02d:%02d:%02d", horas % 24, minutos, segundos);
+		System.out.println("\nLa suma de la hora en segundos es: " +(horas*3600+minutos*60+segundos));
 		return hora;
 	}
 
