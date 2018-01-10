@@ -11,7 +11,7 @@ public class Hora {
 		segundos = 0;
 	}
 
-	public int ponerEnHora(int hora, int minuto, int segundo) {
+	public String ponerEnHora(int hora, int minuto, int segundo) {
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Introduce una hora");
 		horas = sc.nextInt();
@@ -19,7 +19,7 @@ public class Hora {
 		minutos = sc.nextInt();
 		System.out.println("Introduce los segundos");
 		segundos = sc.nextInt();
-		return hora;
+		return "Puesto en hora";
 	}
 
 	public String ajustarHora(int hora, int minuto, int segundo) {

@@ -17,7 +17,7 @@ public class HoraTest {
 		unaHora.verHora(hora, minuto, segundo);
 		
 		System.out.println("\nEl reloj no tiene pilas ponlo en hora");
-		unaHora.ponerEnHora(hora, minuto, segundo);
+		System.out.println(unaHora.ponerEnHora(hora, minuto, segundo));
 		
 		System.out.print("\nHas introducido la hora: ");
 		unaHora.verHora(hora, minuto, segundo);
