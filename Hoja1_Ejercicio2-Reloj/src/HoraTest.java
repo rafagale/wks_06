@@ -1,4 +1,4 @@
-import java.util.*;
+import java.util.Scanner;
 /**
  * @author Rafa
  * @version 0.1
@@ -25,7 +25,7 @@ public class HoraTest {
 		System.out.println("\nQuieres ajustarlo? (s/n)");
 		ajustar = sc.nextLine();
 		if (ajustar.toLowerCase().equals("s")) {
-			unaHora.ajustarHora(hora, minuto, segundo);
+			System.out.println(unaHora.ajustarHora(hora, minuto, segundo));
 			System.out.print("\nLa nueva hora es: ");
 			unaHora.verHora(hora, minuto, segundo);
 		} else {

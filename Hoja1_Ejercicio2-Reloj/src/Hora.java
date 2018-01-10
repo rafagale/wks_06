@@ -67,8 +67,9 @@ public class Hora {
 		return hora;
 	}
 
-	public int ajustarHora(int hora, int minuto, int segundo) {
+	public String ajustarHora(int hora, int minuto, int segundo) {
 		int n;
+		String mensaje;
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Que quieres ajustarle?");
 		System.out.println("1-Hora\n2-Minutos\n3-Segundos\n4-Todo");
@@ -100,7 +101,8 @@ public class Hora {
 			n = sc.nextInt();
 			segundos += n;
 		}// switch
-		return hora;
+		mensaje="Hora ajustada";
+		return mensaje;
 	}
 
 	public int verHora(int hora, int minuto, int segundo) {
