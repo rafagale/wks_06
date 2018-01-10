@@ -27,10 +27,9 @@ public class CuentaCorriente {
 	 *            se sumara al saldo
 	 * @return el saldo
 	 */
-	public double ingresaEfectivo(double cantidad) {
+	public void ingresaEfectivo(double cantidad) {
 		saldo += cantidad;
 		System.out.println("Se ha retirado " + cantidad + " en la cuenta");
-		return saldo;
 	}
 
 	/**

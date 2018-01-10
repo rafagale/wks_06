@@ -2,8 +2,8 @@ import java.util.Scanner;
 
 public class TragaBolas {
 	private String color;// Sólo puede ser verde, amarillo, rojo
-	private int bolasComidas;
-	private int maxBolas;
+	private Integer bolasComidas;
+	private Integer maxBolas;
 
 	TragaBolas() {
 	}
