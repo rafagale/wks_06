@@ -1,4 +1,4 @@
-import java.util.*;
+import java.util.Scanner;
 
 /**
  * 
@@ -11,16 +11,34 @@ public class CuentaCorrienteMain {
 		double dinero;
 		int opcion;
 		CuentaCorriente cuentaNueva1, cuentaNueva2;
-		cuentaNueva1 = new CuentaCorriente("Amancio Ortega", 99999999);
-		cuentaNueva2 = new CuentaCorriente("Rafa", -500);
-		// System.out.println(cuentaNueva1.getNumCuenta());
-		// System.out.println(cuentaNueva2.getNumCuenta());
-
+		cuentaNueva1 = new CuentaCorriente("001", 99999999, "Amancio Ortega");
+		cuentaNueva2 = new CuentaCorriente("002", 0, "Rafa");
 		opcion = pedirEntero(
 				"1-Ingresar en la cuenta 001\n2-Ingresar en la cuenta 002\n3-Retirar de la cuenta 001\n4-Retirar de la cuenta 002\n5-Visualizar");
 		opcion = menu(opcion, cuentaNueva1, cuentaNueva2);
-
+		
 	}// main
+
+	/**
+	 * 
+	 */
+	public static void mostrarBillete() {
+		System.out.println("XXXXXXXXXXXXXXXXXXFEDERAL RESERVE NOTEXXXXXXXXXXXXXXXXXXX");
+		System.out.println("XXX  XX       THE UNITED STATES OF AMERICA        XXX  XX");
+		System.out.println("XXXX XX  -------       ------------               XXXX XX");
+		System.out.println("XXXX XX              /   jJ===-\\    \\      C7675  XXXX XX");
+		System.out.println("XXXXXX     OOO      /   jJ - -  L    \\      ---    XXXXXX");
+		System.out.println("XXXXX     OOOOO     |   JJ  |   X    |       __     XXXXX");
+		System.out.println("XXX    3   OOO      |   JJ ---  X    |      OOOO    3 XXX");
+		System.out.println("XXX                 |   J|\\    /|    |     OOOOOO     XXX");
+		System.out.println("XXX     C36799887   |   /  |  |  \\   |      OOOO      XXX");
+		System.out.println("XXX                 |  |          |  |       --       XXX");
+		System.out.println("XXX      -------    \\ /            \\ /                XXX");
+		System.out.println("X  XX                \\ ____________ /               X  XX");
+		System.out.println("XX XXX 3_________        --------  ___   _______ 3 XXX XX");
+		System.out.println("XX XXX            ___   ONE DOLLAR  i              XXX XX");
+		System.out.println("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX");
+	}
 
 	/**
 	 * 
@@ -36,10 +54,12 @@ public class CuentaCorrienteMain {
 			case 1: // Ingresar en la cuenta 001
 				dinero = pedirDouble("Introduce la cantidad a ingresar");
 				cuentaNueva1.ingresaEfectivo(dinero);
+				System.out.println("Se ha retirado " + dinero + " en la cuenta");
 				break;
 			case 2: // Ingresar en la cuenta 002
 				dinero = pedirDouble("Introduce la cantidad a ingresar");
 				cuentaNueva2.ingresaEfectivo(dinero);
+				System.out.println("Se ha retirado " + dinero + " en la cuenta");
 				break;
 			case 3:// Retirar en la cuenta 001
 				dinero = pedirDouble("Introduce la cantidad a retirar");
@@ -50,10 +70,11 @@ public class CuentaCorrienteMain {
 				cuentaNueva2.retiraEfectivo(dinero);
 				break;
 			case 5: // Visualizar ambas cuentas
+				mostrarBillete();
 				System.out.println("El saldo de la cuenta " + cuentaNueva1.getNumCuenta() + " es "
-						+ cuentaNueva1.getSaldo() + "€");
+						+ cuentaNueva1.getSaldo() + "€ y pertenece a " +cuentaNueva1.getNombreCuenta());
 				System.out.println("El saldo de la cuenta " + cuentaNueva2.getNumCuenta() + " es "
-						+ cuentaNueva2.getSaldo() + "€");
+						+ cuentaNueva2.getSaldo() + "€ y pertenece a " +cuentaNueva2.getNombreCuenta());
 				break;
 			default:
 				System.out.println("Opcion incorrecta");
@@ -79,5 +100,7 @@ public class CuentaCorrienteMain {
 		num = sc.nextDouble();
 		return num;
 	}// Pedir double
+	
+
 
 }// Class

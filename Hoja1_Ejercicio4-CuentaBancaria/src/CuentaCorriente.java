@@ -6,11 +6,13 @@
 public class CuentaCorriente {
 	private String numCuenta;
 	private double saldo;
+	private String nombreCuenta;
 
-	CuentaCorriente(String cuenta, double cash) {
-		numCuenta = cuenta;
-		saldo = cash;
-	}
+	public CuentaCorriente(String numCuenta, double saldo, String nombreCuenta) {
+		this.numCuenta = numCuenta;
+		this.saldo = saldo;
+		this.nombreCuenta = nombreCuenta;
+	}//Constructor
 
 	public String getNumCuenta() {
 		return numCuenta;
@@ -29,7 +31,13 @@ public class CuentaCorriente {
 	 */
 	public void ingresaEfectivo(double cantidad) {
 		saldo += cantidad;
-		System.out.println("Se ha retirado " + cantidad + " en la cuenta");
+	}//Ingresar
+
+	/**
+	 * @return the nombreCuenta
+	 */
+	public String getNombreCuenta() {
+		return nombreCuenta;
 	}
 
 	/**
@@ -49,6 +57,6 @@ public class CuentaCorriente {
 			System.out.println("Tienes" +saldo +"€ y estas intentando sacar " +cantidad +"€");
 			return false;
 		}
-	}
+	}//Retirar
 
 }// Class
