@@ -5,8 +5,6 @@ public class TragaBolas {
 	private Integer bolasComidas;
 	private Integer maxBolas;
 
-	TragaBolas() {
-	}
 
 	public TragaBolas(String color, int maxBolas) {
 		Scanner sc = new Scanner(System.in);
@@ -17,6 +15,7 @@ public class TragaBolas {
 				&& !this.color.toLowerCase().equals("amarillo"));
 		System.out.println("Bolas máximas?");
 		this.maxBolas = sc.nextInt();
+		this.bolasComidas = 0;
 	}
 
 	public String visualizar() { // metodos de instancia
