@@ -11,8 +11,8 @@ public class CuentaCorrienteMain {
 		double dinero;
 		int opcion;
 		CuentaCorriente cuentaNueva1, cuentaNueva2;
-		cuentaNueva1 = new CuentaCorriente("001", 99999999, "Amancio Ortega");
-		cuentaNueva2 = new CuentaCorriente("002", 0, "Rafa");
+		cuentaNueva1 = new CuentaCorriente("001", 99999999.0, "Amancio Ortega");
+		cuentaNueva2 = new CuentaCorriente("002", 2.0, "Rafa");
 		opcion = pedirEntero(
 				"1-Ingresar en la cuenta 001\n2-Ingresar en la cuenta 002\n3-Retirar de la cuenta 001\n4-Retirar de la cuenta 002\n5-Visualizar");
 		opcion = menu(opcion, cuentaNueva1, cuentaNueva2);
@@ -63,7 +63,6 @@ public class CuentaCorrienteMain {
 				break;
 			case 3:// Retirar en la cuenta 001
 				dinero = pedirDouble("Introduce la cantidad a retirar");
-				cuentaNueva1.retiraEfectivo(dinero);
 				if (cuentaNueva1.retiraEfectivo(dinero)) {
 					System.out.println("Se ha retirado " + dinero + "€ en la cuenta");
 				} else {
@@ -73,7 +72,6 @@ public class CuentaCorrienteMain {
 				break;
 			case 4:// Retirar en la cuenta 002
 				dinero = pedirDouble("Introduce la cantidad a retirar");
-				cuentaNueva2.retiraEfectivo(dinero);
 				if (cuentaNueva2.retiraEfectivo(dinero)) {
 					System.out.println("Se ha retirado " + dinero + "€ en la cuenta");
 				} else {

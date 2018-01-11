@@ -5,10 +5,10 @@
  */
 public class CuentaCorriente {
 	private String numCuenta;
-	private double saldo;
+	private Double saldo;
 	private String nombreCuenta;
 
-	public CuentaCorriente(String numCuenta, double saldo, String nombreCuenta) {
+	public CuentaCorriente(String numCuenta, Double saldo, String nombreCuenta) {
 		this.numCuenta = numCuenta;
 		this.saldo = saldo;
 		this.nombreCuenta = nombreCuenta;

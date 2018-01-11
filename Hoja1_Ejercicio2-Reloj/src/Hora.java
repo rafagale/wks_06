@@ -1,11 +1,11 @@
 import java.util.Scanner;
 
 public class Hora {
-	private int horas;
-	private int minutos;
-	private int segundos;
+	private Integer horas;
+	private Integer minutos;
+	private Integer segundos;
 
-	Hora() { // Constructor para hh, mm, ss
+	public Hora() { // Constructor para hh, mm, ss
 		horas = 0;
 		minutos = 0;
 		segundos = 0;
