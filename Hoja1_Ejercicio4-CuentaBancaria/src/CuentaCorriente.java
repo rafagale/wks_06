@@ -50,11 +50,8 @@ public class CuentaCorriente {
 	public boolean retiraEfectivo(double cantidad) {
 		if (cantidad <= saldo) {
 			saldo -= cantidad;
-			System.out.println("Se ha retirado " + cantidad + " en la cuenta");
 			return true;
 		} else {
-			System.out.println("No hay tanto dinero en la cuenta");
-			System.out.println("Tienes" +saldo +"€ y estas intentando sacar " +cantidad +"€");
 			return false;
 		}
 	}//Retirar
