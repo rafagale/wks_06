@@ -54,18 +54,18 @@ public class CuentaCorrienteMain {
 			case 1: // Ingresar en la cuenta 001
 				dinero = pedirDouble("Introduce la cantidad a ingresar");
 				cuentaNueva1.ingresaEfectivo(dinero);
-				System.out.println("Se ha retirado " + dinero + "€ en la cuenta");
+				System.out.println("Se ha ingresado " + dinero + "€ en la cuenta");
 				break;
 			case 2: // Ingresar en la cuenta 002
 				dinero = pedirDouble("Introduce la cantidad a ingresar");
 				cuentaNueva2.ingresaEfectivo(dinero);
-				System.out.println("Se ha retirado " + dinero + "€ en la cuenta");
+				System.out.println("Se ha ingresado " + dinero + "€ en la cuenta");
 				break;
 			case 3:// Retirar en la cuenta 001
 				dinero = pedirDouble("Introduce la cantidad a retirar");
 				cuentaNueva1.retiraEfectivo(dinero);
 				if (cuentaNueva1.retiraEfectivo(dinero)) {
-					
+					System.out.println("Se ha retirado " + dinero + "€ en la cuenta");
 				} else {
 					System.out.println("No hay tanto dinero en la cuenta");
 					System.out.println("Tienes" +cuentaNueva1.getSaldo() +"€ y estas intentando sacar " +dinero +"€");
@@ -75,7 +75,7 @@ public class CuentaCorrienteMain {
 				dinero = pedirDouble("Introduce la cantidad a retirar");
 				cuentaNueva2.retiraEfectivo(dinero);
 				if (cuentaNueva2.retiraEfectivo(dinero)) {
-					
+					System.out.println("Se ha retirado " + dinero + "€ en la cuenta");
 				} else {
 					System.out.println("No hay tanto dinero en la cuenta");
 					System.out.println("Tienes" +cuentaNueva2.getSaldo() +"€ y estas intentando sacar " +dinero +"€");
