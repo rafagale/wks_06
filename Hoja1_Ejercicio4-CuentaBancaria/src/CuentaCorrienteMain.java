@@ -21,27 +21,6 @@ public class CuentaCorrienteMain {
 
 	/**
 	 * 
-	 */
-	public static void mostrarBillete() {
-		System.out.println("XXXXXXXXXXXXXXXXXXFEDERAL RESERVE NOTEXXXXXXXXXXXXXXXXXXX");
-		System.out.println("XXX  XX       THE UNITED STATES OF AMERICA        XXX  XX");
-		System.out.println("XXXX XX  -------       ------------               XXXX XX");
-		System.out.println("XXXX XX              /   jJ===-\\    \\      C7675  XXXX XX");
-		System.out.println("XXXXXX     OOO      /   jJ - -  L    \\      ---    XXXXXX");
-		System.out.println("XXXXX     OOOOO     |   JJ  |   X    |       __     XXXXX");
-		System.out.println("XXX    3   OOO      |   JJ ---  X    |      OOOO    3 XXX");
-		System.out.println("XXX                 |   J|\\    /|    |     OOOOOO     XXX");
-		System.out.println("XXX     C36799887   |   /  |  |  \\   |      OOOO      XXX");
-		System.out.println("XXX                 |  |          |  |       --       XXX");
-		System.out.println("XXX      -------    \\ /            \\ /                XXX");
-		System.out.println("X  XX                \\ ____________ /               X  XX");
-		System.out.println("XX XXX 3_________        --------  ___   _______ 3 XXX XX");
-		System.out.println("XX XXX            ___   ONE DOLLAR  i              XXX XX");
-		System.out.println("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX");
-	}
-
-	/**
-	 * 
 	 * @param opcion
 	 * @param cuentaNueva1
 	 * @param cuentaNueva2
@@ -109,6 +88,22 @@ public class CuentaCorrienteMain {
 		return num;
 	}// Pedir double
 	
-
+	public static void mostrarBillete() {
+		System.out.println("XXXXXXXXXXXXXXXXXXFEDERAL RESERVE NOTEXXXXXXXXXXXXXXXXXXX");
+		System.out.println("XXX  XX       THE UNITED STATES OF AMERICA        XXX  XX");
+		System.out.println("XXXX XX  -------       ------------               XXXX XX");
+		System.out.println("XXXX XX              /   jJ===-\\    \\      C7675  XXXX XX");
+		System.out.println("XXXXXX     OOO      /   jJ - -  L    \\      ---    XXXXXX");
+		System.out.println("XXXXX     OOOOO     |   JJ  |   X    |       __     XXXXX");
+		System.out.println("XXX    3   OOO      |   JJ ---  X    |      OOOO    3 XXX");
+		System.out.println("XXX                 |   J|\\    /|    |     OOOOOO     XXX");
+		System.out.println("XXX     C36799887   |   /  |  |  \\   |      OOOO      XXX");
+		System.out.println("XXX                 |  |          |  |       --       XXX");
+		System.out.println("XXX      -------    \\ /            \\ /                XXX");
+		System.out.println("X  XX                \\ ____________ /               X  XX");
+		System.out.println("XX XXX 3_________        --------  ___   _______ 3 XXX XX");
+		System.out.println("XX XXX            ___   ONE DOLLAR  i              XXX XX");
+		System.out.println("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX");
+	}
 
 }// Class
