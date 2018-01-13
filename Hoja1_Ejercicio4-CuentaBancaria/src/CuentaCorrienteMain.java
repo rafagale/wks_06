@@ -81,10 +81,8 @@ public class CuentaCorrienteMain {
 				break;
 			case 5: // Visualizar ambas cuentas
 				mostrarBillete();
-				System.out.println("El saldo de la cuenta " + cuentaNueva1.getNumCuenta() + " es "
-						+ cuentaNueva1.getSaldo() + "€ y pertenece a " +cuentaNueva1.getNombreCuenta());
-				System.out.println("El saldo de la cuenta " + cuentaNueva2.getNumCuenta() + " es "
-						+ cuentaNueva2.getSaldo() + "€ y pertenece a " +cuentaNueva2.getNombreCuenta());
+				System.out.println(cuentaNueva1);
+				System.out.println(cuentaNueva2);
 				break;
 			default:
 				System.out.println("Opcion incorrecta");

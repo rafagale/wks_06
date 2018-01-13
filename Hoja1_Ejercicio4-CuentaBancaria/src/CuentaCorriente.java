@@ -56,4 +56,12 @@ public class CuentaCorriente {
 		}
 	}//Retirar
 
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "CuentaCorriente [numCuenta=" + numCuenta + ", saldo=" + saldo + "€, nombreCuenta=" + nombreCuenta + "]";
+	}
+
 }// Class
