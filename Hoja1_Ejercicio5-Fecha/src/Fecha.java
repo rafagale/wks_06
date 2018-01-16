@@ -23,6 +23,14 @@ public class Fecha {
 		}
 	}// Bisiesto
 
+	public boolean esBisiesto(int anio) {
+		if ((anio % 4 == 0) && ((anio % 100 != 0) || (anio % 400 == 0))) {
+			return true;
+		} else {
+			return false;
+		}
+	}// Bisiesto
+
 	/**
 	 * 
 	 * @return true si la fecha es correcta
@@ -166,25 +174,14 @@ public class Fecha {
 
 	public int diferenciaFecha(Fecha fecha2) {
 		int diferencia = 0;
-		int diasTotales, diasFechaNueva;
-
-		int[] meses = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
-		if (esBisiesto()) {
-			meses[1] = 29;
-		}
-
-		int diasDelAnio = 0;
-		for (int i = 0; i < meses.length; i++) {
-			diasDelAnio += meses[i];
-		}
-
-		diasTotales = (this.anio * diasDelAnio) + (this.mes * meses[this.mes]) + this.dia;
-		diasFechaNueva = (fecha2.anio * diasDelAnio) + (fecha2.mes * meses[fecha2.mes]) + fecha2.dia;
-		System.out.println(diasTotales);
-		System.out.println(diasFechaNueva);
-
-		diferencia = diasFechaNueva - diasTotales;
-
+		int diasTotalesActual=0;
+		int diasTotalesFecha2=0;
+		diasTotalesActual= diasDesdeElInicio(this);
+		diasTotalesFecha2 = diasDesdeElInicio(fecha2);
+		System.out.println("diasTotalesActual" +diasTotalesActual);
+		System.out.println("diasTotalesFecha2" +diasTotalesFecha2);
+		diferencia = diasTotalesActual - diasTotalesFecha2;
+		
 		if (diferencia < 0) {
 			diferencia = -diferencia;
 		}
@@ -211,5 +208,31 @@ public class Fecha {
 	public int getAnio() {
 		return anio;
 	}
+
+	private Integer diasDesdeElInicio(Fecha date) {
+		int diferencia = 0;
+		int diasTotales=0;
+
+		int[] meses = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
+
+		for (int i = 0; i <= date.anio - 1; i++) {
+			if (esBisiesto()) {
+				diasTotales = diasTotales + 366;
+			} else {
+				diasTotales = diasTotales + 365;
+			}
+		} // Calcular dias hasta el año anterior
+
+		for (int miMes = 1; miMes <= date.mes - 1; miMes++) {
+			
+			if (esBisiesto()) {
+				meses[1] = 29;
+			}
+			diasTotales = diasTotales + meses[miMes - 1];
+		}// dias  transcurridoshasta el mes anterior
+		
+		diasTotales = diasTotales + date.dia;
+		return diasTotales;
+	} // dias totales
 
 }// Class

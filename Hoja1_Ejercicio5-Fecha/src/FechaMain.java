@@ -50,6 +50,7 @@ public class FechaMain {
 				System.out.println("La nueva fecha es " + fechaNueva.getCadenaFecha1());
 				System.out.println("La diferencia en dias entre esas fechas es de: "
 						+ fechaActual.diferenciaFecha(fechaNueva) + " dias");
+				System.out.println(fechaActual.diferenciaFecha(fechaNueva));
 				break;
 			case 3:
 				do {
