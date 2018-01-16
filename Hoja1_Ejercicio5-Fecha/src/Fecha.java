@@ -186,7 +186,10 @@ public class Fecha {
 		System.out.println(diasFechaNueva);
 
 		diferencia = diasFechaNueva - diasTotales;
-
+		
+		if (diferencia < 0) {
+			diferencia = - diferencia;
+		}
 		return diferencia;
 	}// diferenciaFecha
 
