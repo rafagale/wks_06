@@ -4,17 +4,30 @@
  *
  */
 public class CuentaCorriente {
-	private String numCuenta;
+	private String numCuenta="";
 	private Double saldo;
-	private String nombreCuenta;
-	static Integer totalCuentas;
+	private String nombreCliente;
+	private static int totalCuentas=0;
 
-	public CuentaCorriente(String numCuenta, Double saldo, String nombreCuenta) {
-		this.numCuenta = numCuenta;
+	public CuentaCorriente() {
+
+	}
+
+	public CuentaCorriente(Double saldo, String nombreCuenta) {
+		for (int i = 0; i < totalCuentas; i++) {
+			this.numCuenta = "" + i ;
+		}
 		this.saldo = saldo;
-		this.nombreCuenta = nombreCuenta;
-		totalCuentas++;
+		this.nombreCliente = nombreCuenta;
+		totalCuentas++; 
 	}// Constructor
+
+	/**
+	 * @return the totalCuentas
+	 */
+	public static int getTotalCuentas() {
+		return totalCuentas;
+	}
 
 	public String getNumCuenta() {
 		return numCuenta;
@@ -39,7 +52,7 @@ public class CuentaCorriente {
 	 * @return the nombreCuenta
 	 */
 	public String getNombreCuenta() {
-		return nombreCuenta;
+		return nombreCliente;
 	}
 
 	/**
@@ -65,16 +78,20 @@ public class CuentaCorriente {
 	 */
 	@Override
 	public String toString() {
-		return "CuentaCorriente [numCuenta=" + numCuenta + ", saldo=" + saldo + "€, nombreCuenta=" + nombreCuenta + "]";
+		return "CuentaCorriente [numCuenta=" + numCuenta + ", saldo=" + saldo + "€, nombreCliente=" + nombreCliente + "]";
 	}
 
 	public void cerrarCuenta() {
-		nombreCuenta = nombreCuenta + "(CERRADA)";
+		nombreCliente = nombreCliente + "(CERRADA)";
+		saldo = 0.0;
+		totalCuentas--; 
 	}
 
 	public static CuentaCorriente fusiona(CuentaCorriente unaCuenta, CuentaCorriente otraCuenta) {
 		CuentaCorriente cuentaFusionada = null;
-		cuentaFusionada.saldo = unaCuenta.getSaldo() + otraCuenta.getSaldo();
+		if (unaCuenta.getNombreCuenta() == otraCuenta.getNombreCuenta()) {
+			cuentaFusionada.saldo = unaCuenta.getSaldo() + otraCuenta.getSaldo();
+		}
 		return cuentaFusionada;
 	}// fusiona
 

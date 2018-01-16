@@ -10,7 +10,6 @@ public class Fecha {
 	private int anio;
 
 	Fecha(int dia, int mes, int anio) {
-
 		this.dia = dia;
 		this.mes = mes;
 		this.anio = anio;
@@ -139,16 +138,15 @@ public class Fecha {
 		if (esBisiesto()) {
 			meses[1] = 29;
 		}
-		int diasDelAnio=0;
+		int diasDelAnio = 0;
 		for (int i = 0; i < meses.length; i++) {
-			diasDelAnio+=meses[i];
+			diasDelAnio += meses[i];
 		}
 		int sumaAnios;
 		int diasRestantes;
 		sumaAnios = sumaDias / diasDelAnio;
 		diasRestantes = sumaDias % diasDelAnio;
 		anio += sumaAnios;
-
 
 		for (int i = 0; i < diasRestantes; i++) {
 			if (dia < meses[mes - 1]) {
@@ -174,21 +172,21 @@ public class Fecha {
 		if (esBisiesto()) {
 			meses[1] = 29;
 		}
-		
-		int diasDelAnio=0;
+
+		int diasDelAnio = 0;
 		for (int i = 0; i < meses.length; i++) {
-			diasDelAnio+=meses[i];
+			diasDelAnio += meses[i];
 		}
-		
+
 		diasTotales = (this.anio * diasDelAnio) + (this.mes * meses[this.mes]) + this.dia;
 		diasFechaNueva = (fecha2.anio * diasDelAnio) + (fecha2.mes * meses[fecha2.mes]) + fecha2.dia;
 		System.out.println(diasTotales);
 		System.out.println(diasFechaNueva);
 
 		diferencia = diasFechaNueva - diasTotales;
-		
+
 		if (diferencia < 0) {
-			diferencia = - diferencia;
+			diferencia = -diferencia;
 		}
 		return diferencia;
 	}// diferenciaFecha
