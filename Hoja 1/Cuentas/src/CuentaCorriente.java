@@ -6,7 +6,7 @@
  * @author yo
  *
  */
-public class Cuentacorriente {
+public class CuentaCorriente {
 	private String numero;
 	private Double saldo;
 	private String cliente;
@@ -17,7 +17,7 @@ public class Cuentacorriente {
 	 * @param saldo
 	 * @param cliente
 	 */
-	public Cuentacorriente(Double saldo, String cliente) {
+	public CuentaCorriente(Double saldo, String cliente) {
 		String num="0000"+siguiente;
 		numero = num.substring(num.length()-3);
 		this.saldo = saldo;

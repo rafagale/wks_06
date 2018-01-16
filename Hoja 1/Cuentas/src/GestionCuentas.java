@@ -13,8 +13,8 @@ public class GestionCuentas {
 	 */
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		Cuentacorriente [] cuentas;
-		cuentas = new Cuentacorriente[10];
+		CuentaCorriente [] cuentas;
+		cuentas = new CuentaCorriente[10];
 		String cliente;
 		Double saldo;
 		Leer.mostrarEnPantalla(cuentas.toString());
@@ -26,12 +26,12 @@ public class GestionCuentas {
 		for (int i=0; i<2; i++){
 			cliente=Leer.pedirCadena("Nombre del cliente ");
 			saldo=Leer.pedirDouble("Saldo inicial ");
-			cuentas[i]=new Cuentacorriente(saldo, cliente);
+			cuentas[i]=new CuentaCorriente(saldo, cliente);
 		}
 		Leer.mostrarEnPantalla(cuentas.toString());
 		for (int i=0; i<cuentas.length; i++){
 			Leer.mostrarEnPantalla(""+cuentas[i]);
-			if (i<Cuentacorriente.getSiguiente()-1){
+			if (i<CuentaCorriente.getSiguiente()-1){
 				//Leer.mostrarEnPantalla(cuentas[i].visualiza());
 				System.out.println((cuentas[i]));
 			}
@@ -51,12 +51,12 @@ public class GestionCuentas {
 			Boolean existe=false, saldosuf;
 			switch(opcion){
 			case 1://Crear cuenta
-				if(Cuentacorriente.getSiguiente()==11){
+				if(CuentaCorriente.getSiguiente()==11){
 					Leer.mostrarEnPantalla("Límite de cuentas alcanzado");
 				}else{
 					cliente=Leer.pedirCadena("Nombre del cliente ");
 					saldo=Leer.pedirDouble("Saldo inicial ");
-					cuentas[Cuentacorriente.getSiguiente()-1]=new Cuentacorriente(saldo, cliente);					
+					cuentas[CuentaCorriente.getSiguiente()-1]=new CuentaCorriente(saldo, cliente);					
 				}
 				break;
 			case 2://visualizar cuentas
@@ -71,7 +71,7 @@ public class GestionCuentas {
 					importe=Leer.pedirDouble("Teclee importe a ingresar (mayor que cero: ");
 				}
 				cuenta=Leer.pedirCadena("Código de cuenta en la que ingresar");
-				for(int i=0; i<Cuentacorriente.getSiguiente()-1; i++){
+				for(int i=0; i<CuentaCorriente.getSiguiente()-1; i++){
 					if( cuentas[i].getNumero().equals(cuenta)){
 						cuentas[i].ingresarEfectivo(importe);
 						existe=true;
@@ -86,7 +86,7 @@ public class GestionCuentas {
 					importe=Leer.pedirDouble("Teclee importe a retirar (mayor que cero: ");
 				}
 				cuenta=Leer.pedirCadena("Código de cuenta en la que ingresar");
-				for(int i=0; i<Cuentacorriente.getSiguiente()-1; i++){
+				for(int i=0; i<CuentaCorriente.getSiguiente()-1; i++){
 					if( cuentas[i].getNumero().equals(cuenta)){
 						saldosuf=cuentas[i].retirarEfectivo(importe);
 						if(!saldosuf){

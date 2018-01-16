@@ -7,17 +7,26 @@ public class GestionCuentas {
 		double dineroInicial;
 		String nombreCliente;
 		CuentaCorriente[] cuentas = new CuentaCorriente[3];
+		for (int i = 0; i < cuentas.length; i++) {
+			System.out.println(cuentas[i]);
+		}
+		for (int i = 0; i < cuentas.length; i++) {
+			if (i < CuentaCorriente.getTotalCuentas() - 1) {
+				System.out.println((cuentas[i]));
+			}
+		}
 		opcion = pedirEntero("1-Crear una cuenta\n2-Fusionar dos cuentas\n3-Ingresar\n4-Retirar\n5-Visualizar");
 		while (opcion != 0) {
 			switch (opcion) {
 			case 1:
-				for (int i = 0; i < 1; i++) {
-					dineroInicial = pedirDouble("Dinero inicial");
-					nombreCliente = pedirString("Nombre de cliente");
-					cuentas[i] = new CuentaCorriente(dineroInicial, nombreCliente);
-					System.out.println(cuentas[i]);
+				if (CuentaCorriente.getTotalCuentas() == 3) {
+					System.out.println("Limite de cuentas alcanzado");
+				} else {
+					dineroInicial = pedirDouble("Saldo inicial ");
+					nombreCliente = pedirString("Nombre del cliente ");
+					cuentas[CuentaCorriente.getTotalCuentas()] = new CuentaCorriente(dineroInicial, nombreCliente);
 				}
-				System.out.println("Hay " + CuentaCorriente.getTotalCuentas() + " cuentas abiertas");
+				System.out.println("Hay " + (CuentaCorriente.getTotalCuentas()-1) + " cuentas abiertas");
 				break;
 			case 2:
 
@@ -29,7 +38,11 @@ public class GestionCuentas {
 
 				break;
 			case 5:
-
+				for(int i=0; i<cuentas.length; i++){
+					if (cuentas[i]!=null){
+						System.out.println((cuentas[i]));
+					}
+				}
 				break;
 			default:
 				break;

@@ -4,19 +4,17 @@
  *
  */
 public class CuentaCorriente {
-	private String numCuenta="";
+	private String numCuenta;
 	private Double saldo;
 	private String nombreCliente;
-	private static int totalCuentas=0;
+	private static int totalCuentas=1;
 
 	public CuentaCorriente() {
 
 	}
 
 	public CuentaCorriente(Double saldo, String nombreCuenta) {
-		for (int i = 0; i < totalCuentas; i++) {
-			this.numCuenta = "" + i ;
-		}
+		this.numCuenta=""+totalCuentas;
 		this.saldo = saldo;
 		this.nombreCliente = nombreCuenta;
 		totalCuentas++; 
@@ -37,31 +35,15 @@ public class CuentaCorriente {
 		return saldo;
 	}
 
-	/**
-	 * metodo para ingresar efectivo
-	 * 
-	 * @param cantidad
-	 *            se sumara al saldo
-	 * @return el saldo
-	 */
 	public void ingresaEfectivo(double cantidad) {
 		saldo += cantidad;
 	}// Ingresar
 
-	/**
-	 * @return the nombreCuenta
-	 */
+
 	public String getNombreCuenta() {
 		return nombreCliente;
 	}
 
-	/**
-	 * metodo para retirar efectivo
-	 * 
-	 * @param cantidad
-	 *            se restara del saldo
-	 * @return true si hay dinero. false si no hay dinero
-	 */
 	public boolean retiraEfectivo(double cantidad) {
 		if (cantidad <= saldo) {
 			saldo -= cantidad;
@@ -71,11 +53,6 @@ public class CuentaCorriente {
 		}
 	}// Retirar
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see java.lang.Object#toString()
-	 */
 	@Override
 	public String toString() {
 		return "CuentaCorriente [numCuenta=" + numCuenta + ", saldo=" + saldo + "€, nombreCliente=" + nombreCliente + "]";
