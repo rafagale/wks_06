@@ -66,7 +66,7 @@ public class CuentaCorriente {
 
 	public static CuentaCorriente fusiona(CuentaCorriente unaCuenta, CuentaCorriente otraCuenta) {
 		CuentaCorriente cuentaFusionada = null;
-		if (unaCuenta.getNombreCuenta() == otraCuenta.getNombreCuenta()) {
+		if (unaCuenta.getNombreCuenta().equals(otraCuenta.getNombreCuenta())) {
 			cuentaFusionada.saldo = unaCuenta.getSaldo() + otraCuenta.getSaldo();
 		}
 		return cuentaFusionada;
