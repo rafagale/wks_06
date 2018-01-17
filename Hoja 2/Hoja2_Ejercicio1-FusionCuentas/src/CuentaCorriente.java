@@ -52,8 +52,7 @@ public class CuentaCorriente {
 
 	@Override
 	public String toString() {
-		return "CuentaCorriente [numCuenta=" + numCuenta + ", saldo=" + saldo + "€, nombreCliente=" + nombreCliente
-				+ "]";
+		return "CuentaCorriente [numCuenta=" + numCuenta + ", saldo=" + saldo + "€, nombreCliente=" + nombreCliente			+ "]";
 	}
 
 	public void cerrarCuenta() {

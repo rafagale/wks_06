@@ -31,8 +31,8 @@ public class GestionCuentas {
 				a = pedirEntero("Introduce la primera cuenta");
 				b = pedirEntero("Introduce la segunda cuenta");
 				if (cuentas[a - 1].getNombreCuenta().indexOf("CERRADA") == -1 || cuentas[b - 1].getNombreCuenta().indexOf("CERRADA") == -1) {
-					System.out.println("Ahora hay " + (CuentaCorriente.getTotalCuentas() - 2) + " cuentas abiertas");
 					cuentas[CuentaCorriente.getTotalCuentas() - 1] = CuentaCorriente.fusiona(cuentas[a - 1], cuentas[b - 1]);
+					System.out.println("Ahora hay " + (CuentaCorriente.getTotalCuentas() - 1) + " cuentas abiertas");
 				} else {
 					System.out.println("Una o varias de las cuentas que intentas fusionar estan cerradas");
 				}
@@ -55,8 +55,7 @@ public class GestionCuentas {
 						System.out.println("Se ha retirado " + dinero + "€ en la cuenta");
 					} else {
 						System.out.println("No hay tanto dinero en la cuenta");
-						System.out.println(
-								"Tienes" + cuentas[n].getSaldo() + "€ y estas intentando sacar " + dinero + "€");
+						System.out.println("Tienes" + cuentas[n].getSaldo() + "€ y estas intentando sacar " + dinero + "€");
 					}
 				} else {
 					System.out.println("La cuenta esta cerrada");
@@ -70,6 +69,7 @@ public class GestionCuentas {
 						System.out.println("Reservado #" + (i + 1));
 					}
 				}
+				System.out.println(CuentaCorriente.getTotalCuentas()-1);
 				break;
 			default:
 				mostrarBillete();
