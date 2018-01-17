@@ -3,13 +3,11 @@ import java.util.Scanner;
 public class GestionCuentas {
 
 	public static void main(String[] args) {
-		int opcion, n;
-		double dineroInicial;
+		int opcion, n, a, b;
+		double dineroInicial, dinero;
 		String nombreCliente;
-		CuentaCorriente[] cuentas = new CuentaCorriente[3];
-		for (int i = 0; i < cuentas.length; i++) {
-			System.out.println(cuentas[i]);
-		}
+		// Maximo de 5 cuentas (todas null)
+		CuentaCorriente[] cuentas = new CuentaCorriente[5];
 		for (int i = 0; i < cuentas.length; i++) {
 			if (i < CuentaCorriente.getTotalCuentas() - 1) {
 				System.out.println((cuentas[i]));
@@ -18,35 +16,64 @@ public class GestionCuentas {
 		opcion = pedirEntero("1-Crear una cuenta\n2-Fusionar dos cuentas\n3-Ingresar\n4-Retirar\n5-Visualizar");
 		while (opcion != 0) {
 			switch (opcion) {
-			case 1:
-				if (CuentaCorriente.getTotalCuentas() == 3) {
+			case 1: //Crear cuenta
+				if (CuentaCorriente.getTotalCuentas() == 5) {
 					System.out.println("Limite de cuentas alcanzado");
 				} else {
 					dineroInicial = pedirDouble("Saldo inicial ");
 					nombreCliente = pedirString("Nombre del cliente ");
-					cuentas[CuentaCorriente.getTotalCuentas()] = new CuentaCorriente(dineroInicial, nombreCliente);
+					cuentas[(CuentaCorriente.getTotalCuentas() - 1)] = new CuentaCorriente(dineroInicial, nombreCliente);
 				}
-				System.out.println("Hay " + (CuentaCorriente.getTotalCuentas()-1) + " cuentas abiertas");
+				System.out.println("Ahora hay " + (CuentaCorriente.getTotalCuentas() - 1) + " cuentas abiertas");
 				break;
-			case 2:
-
+			case 2: //fusionar cuenta
+				System.out.println("Qué cuentas quieres fusionar?");
+				a = pedirEntero("Introduce la primera cuenta");
+				b = pedirEntero("Introduce la segunda cuenta");
+				if (cuentas[a - 1].getNombreCuenta().indexOf("CERRADA") == -1 || cuentas[b - 1].getNombreCuenta().indexOf("CERRADA") == -1) {
+					System.out.println("Ahora hay " + (CuentaCorriente.getTotalCuentas() - 2) + " cuentas abiertas");
+					cuentas[CuentaCorriente.getTotalCuentas() - 1] = CuentaCorriente.fusiona(cuentas[a - 1], cuentas[b - 1]);
+				} else {
+					System.out.println("Una o varias de las cuentas que intentas fusionar estan cerradas");
+				}
 				break;
-			case 3:
-
+			case 3: //Ingresar
+				n = pedirEntero("Introduce la cuenta en la que quieres ingresas dinero");
+				if (cuentas[n - 1].getNombreCuenta().indexOf("CERRADA") == -1) {
+					dinero = pedirDouble("Introduce la cantidad a ingresar");
+					cuentas[n - 1].ingresaEfectivo(dinero);
+					System.out.println("Se ha ingresado " + dinero + "€ en la cuenta");
+				} else {
+					System.out.println("La cuenta esta cerrada");
+				}
 				break;
-			case 4:
-
+			case 4: //Retirar
+				n = pedirEntero("Introduce la cuenta en la que quieres retirar dinero");
+				if (cuentas[n - 1].getNombreCuenta().indexOf("CERRADA") == -1) {
+					dinero = pedirDouble("Introduce la cantidad a retirar");
+					if (cuentas[n - 1].retiraEfectivo(dinero)) {
+						System.out.println("Se ha retirado " + dinero + "€ en la cuenta");
+					} else {
+						System.out.println("No hay tanto dinero en la cuenta");
+						System.out.println(
+								"Tienes" + cuentas[n].getSaldo() + "€ y estas intentando sacar " + dinero + "€");
+					}
+				} else {
+					System.out.println("La cuenta esta cerrada");
+				}
 				break;
 			case 5:
-				for(int i=0; i<cuentas.length; i++){
-					if (cuentas[i]!=null){
+				for (int i = 0; i < cuentas.length; i++) {
+					if (cuentas[i] != null) {
 						System.out.println((cuentas[i]));
+					} else {
+						System.out.println("Reservado #" + (i + 1));
 					}
 				}
 				break;
 			default:
-				break;
-
+				mostrarBillete();
+				System.out.println("Elige una opcion correcta");
 			}// switch
 			opcion = pedirEntero("1-Crear una cuenta\n2-Fusionar dos cuentas\n3-Ingresar\n4-Retirar\n5-Visualizar");
 		} // while

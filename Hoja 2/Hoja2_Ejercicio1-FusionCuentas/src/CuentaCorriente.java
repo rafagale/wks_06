@@ -7,22 +7,18 @@ public class CuentaCorriente {
 	private String numCuenta;
 	private Double saldo;
 	private String nombreCliente;
-	private static int totalCuentas=1;
+	private static int totalCuentas = 1;
 
 	public CuentaCorriente() {
-
 	}
 
 	public CuentaCorriente(Double saldo, String nombreCuenta) {
-		this.numCuenta=""+totalCuentas;
+		this.numCuenta = "" + totalCuentas;
 		this.saldo = saldo;
 		this.nombreCliente = nombreCuenta;
-		totalCuentas++; 
-	}// Constructor
+		totalCuentas++;
+	}// Constructor con parámetros
 
-	/**
-	 * @return the totalCuentas
-	 */
 	public static int getTotalCuentas() {
 		return totalCuentas;
 	}
@@ -35,15 +31,16 @@ public class CuentaCorriente {
 		return saldo;
 	}
 
-	public void ingresaEfectivo(double cantidad) {
-		saldo += cantidad;
-	}// Ingresar
 
 
 	public String getNombreCuenta() {
 		return nombreCliente;
 	}
 
+	public void ingresaEfectivo(double cantidad) {
+		saldo += cantidad;
+	}// Ingresar
+	
 	public boolean retiraEfectivo(double cantidad) {
 		if (cantidad <= saldo) {
 			saldo -= cantidad;
@@ -55,25 +52,31 @@ public class CuentaCorriente {
 
 	@Override
 	public String toString() {
-		return "CuentaCorriente [numCuenta=" + numCuenta + ", saldo=" + saldo + "€, nombreCliente=" + nombreCliente + "]";
+		return "CuentaCorriente [numCuenta=" + numCuenta + ", saldo=" + saldo + "€, nombreCliente=" + nombreCliente
+				+ "]";
 	}
 
 	public void cerrarCuenta() {
-		nombreCliente = nombreCliente + "(CERRADA)";
+		nombreCliente += "(CERRADA)";
 		saldo = 0.0;
-		totalCuentas--; 
-	}
+		totalCuentas--;
+	} // cerrarCuenta
 
 	public static CuentaCorriente fusiona(CuentaCorriente unaCuenta, CuentaCorriente otraCuenta) {
-		CuentaCorriente cuentaFusionada = null;
-		if (unaCuenta.getNombreCuenta().equals(otraCuenta.getNombreCuenta())) {
-			cuentaFusionada.saldo = unaCuenta.getSaldo() + otraCuenta.getSaldo();
+		Double saldoDeFusion;
+		if (unaCuenta.nombreCliente.equals(otraCuenta.nombreCliente)) {
+			if (!unaCuenta.numCuenta.equals(otraCuenta.numCuenta)) {
+				saldoDeFusion = (unaCuenta.saldo + otraCuenta.saldo);
+				CuentaCorriente cuentaFusionada = new CuentaCorriente(saldoDeFusion, unaCuenta.nombreCliente);
+				cuentaFusionada.numCuenta = "" + (totalCuentas-1);
+				unaCuenta.cerrarCuenta();
+				otraCuenta.cerrarCuenta();
+				return cuentaFusionada;
+			} else {
+				return null;
+			}
 		}
-		return cuentaFusionada;
+		return null;
 	}// fusiona
-
-	public void setSaldo(Double saldo) {
-		this.saldo = saldo;
-	}
 
 }// Class
