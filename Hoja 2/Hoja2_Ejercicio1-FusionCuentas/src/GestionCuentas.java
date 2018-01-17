@@ -16,33 +16,40 @@ public class GestionCuentas {
 		opcion = pedirEntero("1-Crear una cuenta\n2-Fusionar dos cuentas\n3-Ingresar\n4-Retirar\n5-Visualizar");
 		while (opcion != 0) {
 			switch (opcion) {
-			case 1: //Crear cuenta
+			case 1: // Crear cuenta
 				if (CuentaCorriente.getTotalCuentasAbiertas() == 10) {
 					System.out.println("Limite de cuentas alcanzado");
 				} else {
 					dineroInicial = pedirDouble("Saldo inicial ");
 					nombreCliente = pedirString("Nombre del cliente ");
-					if (CuentaCorriente.getTotalCuentasCreadas()>1) {
-						cuentas[CuentaCorriente.getTotalCuentasAbiertas()] = new CuentaCorriente(dineroInicial, nombreCliente);	
+					if (CuentaCorriente.getTotalCuentasCreadas() > 1) {
+						cuentas[CuentaCorriente.getTotalCuentasCreadas() - 1] = new CuentaCorriente(dineroInicial,
+								nombreCliente);
 					} else {
-						cuentas[CuentaCorriente.getTotalCuentasCreadas()] = new CuentaCorriente(dineroInicial, nombreCliente);	
+						cuentas[CuentaCorriente.getTotalCuentasCreadas()] = new CuentaCorriente(dineroInicial,
+								nombreCliente);
 					}
-					System.out.println("Cuentas creadas: "+CuentaCorriente.getTotalCuentasCreadas());					
+
+					System.out.println("Cuentas creadas: " + CuentaCorriente.getTotalCuentasCreadas());
 				}
-				System.out.println("Ahora hay " + (CuentaCorriente.getTotalCuentasAbiertas() - 1) + " cuentas abiertas");
+				System.out
+						.println("Ahora hay " + (CuentaCorriente.getTotalCuentasAbiertas() - 1) + " cuentas abiertas");
 				break;
-			case 2: //fusionar cuenta
+			case 2: // fusionar cuenta
 				System.out.println("Qué cuentas quieres fusionar?");
 				a = pedirEntero("Introduce la primera cuenta");
 				b = pedirEntero("Introduce la segunda cuenta");
-				if (cuentas[a - 1].getNombreCuenta().indexOf("CERRADA") == -1 || cuentas[b - 1].getNombreCuenta().indexOf("CERRADA") == -1) {
-					cuentas[CuentaCorriente.getTotalCuentasCreadas()] = CuentaCorriente.fusiona(cuentas[a - 1], cuentas[b - 1]);
-					System.out.println("Ahora hay " + (CuentaCorriente.getTotalCuentasAbiertas() - 1) + " cuentas abiertas");
+				if (cuentas[a - 1].getNombreCuenta().indexOf("CERRADA") == -1
+						|| cuentas[b - 1].getNombreCuenta().indexOf("CERRADA") == -1) {
+					cuentas[CuentaCorriente.getTotalCuentasAbiertas() - 1] = CuentaCorriente.fusiona(cuentas[a - 1],
+							cuentas[b - 1]);
+					System.out.println(
+							"Ahora hay " + (CuentaCorriente.getTotalCuentasAbiertas() - 1) + " cuentas abiertas");
 				} else {
 					System.out.println("Una o varias de las cuentas que intentas fusionar estan cerradas");
 				}
 				break;
-			case 3: //Ingresar
+			case 3: // Ingresar
 				n = pedirEntero("Introduce la cuenta en la que quieres ingresas dinero");
 				if (cuentas[n - 1].getNombreCuenta().indexOf("CERRADA") == -1) {
 					dinero = pedirDouble("Introduce la cantidad a ingresar");
@@ -52,7 +59,7 @@ public class GestionCuentas {
 					System.out.println("La cuenta esta cerrada");
 				}
 				break;
-			case 4: //Retirar
+			case 4: // Retirar
 				n = pedirEntero("Introduce la cuenta en la que quieres retirar dinero");
 				if (cuentas[n - 1].getNombreCuenta().indexOf("CERRADA") == -1) {
 					dinero = pedirDouble("Introduce la cantidad a retirar");
@@ -60,7 +67,8 @@ public class GestionCuentas {
 						System.out.println("Se ha retirado " + dinero + "€ en la cuenta");
 					} else {
 						System.out.println("No hay tanto dinero en la cuenta");
-						System.out.println("Tienes" + cuentas[n].getSaldo() + "€ y estas intentando sacar " + dinero + "€");
+						System.out.println(
+								"Tienes" + cuentas[n].getSaldo() + "€ y estas intentando sacar " + dinero + "€");
 					}
 				} else {
 					System.out.println("La cuenta esta cerrada");
@@ -74,7 +82,7 @@ public class GestionCuentas {
 						System.out.println("Reservado #" + (i + 1));
 					}
 				}
-				System.out.println("Cuentas activas: "+(CuentaCorriente.getTotalCuentasAbiertas()-1));
+				System.out.println("Cuentas activas: " + (CuentaCorriente.getTotalCuentasAbiertas() - 1));
 				break;
 			default:
 				mostrarBillete();

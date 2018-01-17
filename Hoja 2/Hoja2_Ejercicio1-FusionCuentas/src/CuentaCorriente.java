@@ -9,6 +9,7 @@ public class CuentaCorriente {
 	private String nombreCliente;
 	private static int totalCuentasAbiertas = 1;
 	private static int totalCuentasCreadas = 0;
+
 	public CuentaCorriente() {
 	}
 
@@ -39,7 +40,7 @@ public class CuentaCorriente {
 	public void ingresaEfectivo(double cantidad) {
 		saldo += cantidad;
 	}// Ingresar
-	
+
 	public boolean retiraEfectivo(double cantidad) {
 		if (cantidad <= saldo) {
 			saldo -= cantidad;
@@ -51,7 +52,8 @@ public class CuentaCorriente {
 
 	@Override
 	public String toString() {
-		return "CuentaCorriente [numCuenta=" + numCuenta + ", saldo=" + saldo + "€, nombreCliente=" + nombreCliente			+ "]";
+		return "CuentaCorriente [numCuenta=" + numCuenta + ", saldo=" + saldo + "€, nombreCliente=" + nombreCliente
+				+ "]";
 	}
 
 	private void cerrarCuenta() {
@@ -73,7 +75,11 @@ public class CuentaCorriente {
 			if (!unaCuenta.numCuenta.equals(otraCuenta.numCuenta)) {
 				saldoDeFusion = (unaCuenta.saldo + otraCuenta.saldo);
 				CuentaCorriente cuentaFusionada = new CuentaCorriente(saldoDeFusion, unaCuenta.nombreCliente);
-				cuentaFusionada.numCuenta = "" + (totalCuentasCreadas);
+				if (totalCuentasCreadas <= 0) {
+					cuentaFusionada.numCuenta = "" + (totalCuentasCreadas + 1);
+				} else {
+					cuentaFusionada.numCuenta = "" + (totalCuentasCreadas);
+				}
 				totalCuentasCreadas++;
 				unaCuenta.cerrarCuenta();
 				otraCuenta.cerrarCuenta();
@@ -84,6 +90,5 @@ public class CuentaCorriente {
 		}
 		return null;
 	}// fusiona
-	
 
 }// Class
