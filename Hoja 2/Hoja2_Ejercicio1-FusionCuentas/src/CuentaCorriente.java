@@ -7,20 +7,21 @@ public class CuentaCorriente {
 	private String numCuenta;
 	private Double saldo;
 	private String nombreCliente;
-	private static int totalCuentas = 1;
-
+	private static int totalCuentasAbiertas = 1;
+	private static int totalCuentasCreadas = 0;
 	public CuentaCorriente() {
 	}
 
 	public CuentaCorriente(Double saldo, String nombreCuenta) {
-		this.numCuenta = "" + totalCuentas;
+		this.numCuenta = "" + totalCuentasAbiertas;
 		this.saldo = saldo;
 		this.nombreCliente = nombreCuenta;
-		totalCuentas++;
+		totalCuentasAbiertas++;
+		totalCuentasCreadas++;
 	}// Constructor con parámetros
 
-	public static int getTotalCuentas() {
-		return totalCuentas;
+	public static int getTotalCuentasAbiertas() {
+		return totalCuentasAbiertas;
 	}
 
 	public String getNumCuenta() {
@@ -30,8 +31,6 @@ public class CuentaCorriente {
 	public double getSaldo() {
 		return saldo;
 	}
-
-
 
 	public String getNombreCuenta() {
 		return nombreCliente;
@@ -55,11 +54,18 @@ public class CuentaCorriente {
 		return "CuentaCorriente [numCuenta=" + numCuenta + ", saldo=" + saldo + "€, nombreCliente=" + nombreCliente			+ "]";
 	}
 
-	public void cerrarCuenta() {
+	private void cerrarCuenta() {
 		nombreCliente += "(CERRADA)";
 		saldo = 0.0;
-		totalCuentas--;
+		totalCuentasAbiertas--;
 	} // cerrarCuenta
+
+	/**
+	 * @return the totalCuentasCreadas
+	 */
+	public static int getTotalCuentasCreadas() {
+		return totalCuentasCreadas;
+	}
 
 	public static CuentaCorriente fusiona(CuentaCorriente unaCuenta, CuentaCorriente otraCuenta) {
 		Double saldoDeFusion;
@@ -67,7 +73,8 @@ public class CuentaCorriente {
 			if (!unaCuenta.numCuenta.equals(otraCuenta.numCuenta)) {
 				saldoDeFusion = (unaCuenta.saldo + otraCuenta.saldo);
 				CuentaCorriente cuentaFusionada = new CuentaCorriente(saldoDeFusion, unaCuenta.nombreCliente);
-				cuentaFusionada.numCuenta = "" + (totalCuentas-1);
+				totalCuentasCreadas++;
+				cuentaFusionada.numCuenta = "" + totalCuentasCreadas;
 				unaCuenta.cerrarCuenta();
 				otraCuenta.cerrarCuenta();
 				return cuentaFusionada;
@@ -77,5 +84,6 @@ public class CuentaCorriente {
 		}
 		return null;
 	}// fusiona
+	
 
 }// Class
