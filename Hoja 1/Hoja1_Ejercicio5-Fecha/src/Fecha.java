@@ -1,6 +1,5 @@
 
 public class Fecha {
-
 	private int dia;
 	private int mes;
 	private int anio;
@@ -231,4 +230,4 @@ public class Fecha {
 		return diasTotales;
 	} // dias totales
 
-}// Class
+}
