@@ -23,7 +23,7 @@ public class GestionCuentas {
 					dineroInicial = pedirDouble("Saldo inicial ");
 					nombreCliente = pedirString("Nombre del cliente ");
 					if (CuentaCorriente.getTotalCuentasCreadas()>1) {
-						cuentas[CuentaCorriente.getTotalCuentasAbiertas] = new CuentaCorriente(dineroInicial, nombreCliente);	
+						cuentas[CuentaCorriente.getTotalCuentasAbiertas()] = new CuentaCorriente(dineroInicial, nombreCliente);	
 					} else {
 						cuentas[CuentaCorriente.getTotalCuentasCreadas()] = new CuentaCorriente(dineroInicial, nombreCliente);	
 					}
@@ -74,7 +74,7 @@ public class GestionCuentas {
 						System.out.println("Reservado #" + (i + 1));
 					}
 				}
-				System.out.println(CuentaCorriente.getTotalCuentasAbiertas()-1);
+				System.out.println("Cuentas activas: "+(CuentaCorriente.getTotalCuentasAbiertas()-1));
 				break;
 			default:
 				mostrarBillete();
