@@ -22,8 +22,12 @@ public class GestionCuentas {
 				} else {
 					dineroInicial = pedirDouble("Saldo inicial ");
 					nombreCliente = pedirString("Nombre del cliente ");
-					cuentas[CuentaCorriente.getTotalCuentasCreadas()] = new CuentaCorriente(dineroInicial, nombreCliente);
-					
+					if (CuentaCorriente.getTotalCuentasCreadas()>1) {
+						cuentas[CuentaCorriente.getTotalCuentasAbiertas] = new CuentaCorriente(dineroInicial, nombreCliente);	
+					} else {
+						cuentas[CuentaCorriente.getTotalCuentasCreadas()] = new CuentaCorriente(dineroInicial, nombreCliente);	
+					}
+					System.out.println("Cuentas creadas: "+CuentaCorriente.getTotalCuentasCreadas());					
 				}
 				System.out.println("Ahora hay " + (CuentaCorriente.getTotalCuentasAbiertas() - 1) + " cuentas abiertas");
 				break;

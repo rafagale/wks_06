@@ -13,7 +13,7 @@ public class CuentaCorriente {
 	}
 
 	public CuentaCorriente(Double saldo, String nombreCuenta) {
-		this.numCuenta = "" + totalCuentasAbiertas;
+		this.numCuenta = "" + totalCuentasCreadas;
 		this.saldo = saldo;
 		this.nombreCliente = nombreCuenta;
 		totalCuentasAbiertas++;
@@ -73,8 +73,8 @@ public class CuentaCorriente {
 			if (!unaCuenta.numCuenta.equals(otraCuenta.numCuenta)) {
 				saldoDeFusion = (unaCuenta.saldo + otraCuenta.saldo);
 				CuentaCorriente cuentaFusionada = new CuentaCorriente(saldoDeFusion, unaCuenta.nombreCliente);
+				cuentaFusionada.numCuenta = "" + (totalCuentasCreadas);
 				totalCuentasCreadas++;
-				cuentaFusionada.numCuenta = "" + totalCuentasCreadas;
 				unaCuenta.cerrarCuenta();
 				otraCuenta.cerrarCuenta();
 				return cuentaFusionada;
