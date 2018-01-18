@@ -8,11 +8,7 @@ public class GestionCuentas {
 		String nombreCliente;
 		// Maximo de 10 cuentas (todas null)
 		CuentaCorriente[] cuentas = new CuentaCorriente[10];
-		for (int i = 0; i < cuentas.length; i++) {
-			if (i < CuentaCorriente.getTotalCuentasAbiertas() - 1) {
-				System.out.println((cuentas[i]));
-			}
-		}
+		System.out.println("El banco tiene capacidad para 10 cuentas tanto abiertas como cerradas\n");
 		opcion = pedirEntero("1-Crear una cuenta\n2-Fusionar dos cuentas\n3-Ingresar\n4-Retirar\n5-Visualizar");
 		while (opcion != 0) {
 			switch (opcion) {
@@ -22,29 +18,18 @@ public class GestionCuentas {
 				} else {
 					dineroInicial = pedirDouble("Saldo inicial ");
 					nombreCliente = pedirString("Nombre del cliente ");
-					if (CuentaCorriente.getTotalCuentasCreadas() > 1) {
-						cuentas[CuentaCorriente.getTotalCuentasCreadas() - 1] = new CuentaCorriente(dineroInicial,
-								nombreCliente);
-					} else {
-						cuentas[CuentaCorriente.getTotalCuentasCreadas()] = new CuentaCorriente(dineroInicial,
-								nombreCliente);
-					}
-
-					System.out.println("Cuentas creadas: " + CuentaCorriente.getTotalCuentasCreadas());
+					// La primera cuenta va en el indice 0
+					cuentas[CuentaCorriente.getTotalCuentasCreadas()] = new CuentaCorriente(dineroInicial,nombreCliente);
 				}
-				System.out
-						.println("Ahora hay " + (CuentaCorriente.getTotalCuentasAbiertas() - 1) + " cuentas abiertas");
+				mostrarInfo();
 				break;
 			case 2: // fusionar cuenta
 				System.out.println("Qué cuentas quieres fusionar?");
 				a = pedirEntero("Introduce la primera cuenta");
 				b = pedirEntero("Introduce la segunda cuenta");
-				if (cuentas[a - 1].getNombreCuenta().indexOf("CERRADA") == -1
-						|| cuentas[b - 1].getNombreCuenta().indexOf("CERRADA") == -1) {
-					cuentas[CuentaCorriente.getTotalCuentasAbiertas() - 1] = CuentaCorriente.fusiona(cuentas[a - 1],
-							cuentas[b - 1]);
-					System.out.println(
-							"Ahora hay " + (CuentaCorriente.getTotalCuentasAbiertas() - 1) + " cuentas abiertas");
+				if (cuentas[a - 1].getNombreCuenta().indexOf("CERRADA") == -1|| cuentas[b - 1].getNombreCuenta().indexOf("CERRADA") == -1) {
+					cuentas[CuentaCorriente.getTotalCuentasCreadas()] = CuentaCorriente.fusiona(cuentas[a - 1], cuentas[b - 1]);
+					mostrarInfo();
 				} else {
 					System.out.println("Una o varias de las cuentas que intentas fusionar estan cerradas");
 				}
@@ -67,8 +52,7 @@ public class GestionCuentas {
 						System.out.println("Se ha retirado " + dinero + "€ en la cuenta");
 					} else {
 						System.out.println("No hay tanto dinero en la cuenta");
-						System.out.println(
-								"Tienes" + cuentas[n].getSaldo() + "€ y estas intentando sacar " + dinero + "€");
+						System.out.println("Tienes" + cuentas[n - 1].getSaldo() + "€ y estas intentando sacar " + dinero + "€");
 					}
 				} else {
 					System.out.println("La cuenta esta cerrada");
@@ -82,16 +66,33 @@ public class GestionCuentas {
 						System.out.println("Reservado #" + (i + 1));
 					}
 				}
-				System.out.println("Cuentas activas: " + (CuentaCorriente.getTotalCuentasAbiertas() - 1));
+				mostrarInfo();
+				break;
+			case 6: // Cerrar
+				n = pedirEntero("Introduce la cuenta que quieras cerrar");
+				if (cuentas[n - 1].getNombreCuenta().indexOf("CERRADA") == -1) {
+					cuentas[n - 1].cerrarCuenta();
+					System.out.println("Cuenta cerrada");
+				} else {
+					System.out.println("La cuenta ya esta cerrada");
+				}
 				break;
 			default:
 				mostrarBillete();
 				System.out.println("Elige una opcion correcta");
 			}// switch
-			opcion = pedirEntero("1-Crear una cuenta\n2-Fusionar dos cuentas\n3-Ingresar\n4-Retirar\n5-Visualizar");
+			opcion = pedirEntero("1-Crear una cuenta\n2-Fusionar dos cuentas\n3-Ingresar\n4-Retirar\n5-Visualizar\n6-Cerrar una cuenta");
 		} // while
 
 	}// main
+
+	/**
+	 * 
+	 */
+	public static void mostrarInfo() {
+		System.out.println("Cuentas creadas: " + CuentaCorriente.getTotalCuentasCreadas());
+		System.out.println("Ahora hay " + (CuentaCorriente.getTotalCuentasAbiertas() - 1) + " cuentas abiertas/activas");
+	}
 
 	public static double pedirDouble(String mensaje) {
 		Double num;

@@ -14,7 +14,7 @@ public class CuentaCorriente {
 	}
 
 	public CuentaCorriente(Double saldo, String nombreCuenta) {
-		this.numCuenta = "" + totalCuentasCreadas;
+		this.numCuenta = "0" + (totalCuentasCreadas + 1);
 		this.saldo = saldo;
 		this.nombreCliente = nombreCuenta;
 		totalCuentasAbiertas++;
@@ -52,12 +52,11 @@ public class CuentaCorriente {
 
 	@Override
 	public String toString() {
-		return "CuentaCorriente [numCuenta=" + numCuenta + ", saldo=" + saldo + "€, nombreCliente=" + nombreCliente
-				+ "]";
+		return "CuentaCorriente [numCuenta=" + numCuenta + ", saldo=" + saldo + "€, nombreCliente=" + nombreCliente	+ "]";
 	}
 
-	private void cerrarCuenta() {
-		nombreCliente += "(CERRADA)";
+	public void cerrarCuenta() {
+		nombreCliente += "*[CERRADA]*";
 		saldo = 0.0;
 		totalCuentasAbiertas--;
 	} // cerrarCuenta
@@ -75,12 +74,10 @@ public class CuentaCorriente {
 			if (!unaCuenta.numCuenta.equals(otraCuenta.numCuenta)) {
 				saldoDeFusion = (unaCuenta.saldo + otraCuenta.saldo);
 				CuentaCorriente cuentaFusionada = new CuentaCorriente(saldoDeFusion, unaCuenta.nombreCliente);
-				if (totalCuentasCreadas <= 0) {
-					cuentaFusionada.numCuenta = "" + (totalCuentasCreadas + 1);
-				} else {
-					cuentaFusionada.numCuenta = "" + (totalCuentasCreadas);
-				}
-				totalCuentasCreadas++;
+				// Numero de cuenta correspondiente a las cuentas creadas
+				// y no a las activas para que coincidan los indices
+				// y los numeros de cuenta
+				cuentaFusionada.numCuenta = "0" + (totalCuentasCreadas);
 				unaCuenta.cerrarCuenta();
 				otraCuenta.cerrarCuenta();
 				return cuentaFusionada;
