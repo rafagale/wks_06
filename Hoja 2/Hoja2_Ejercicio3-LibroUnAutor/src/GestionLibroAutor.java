@@ -8,58 +8,60 @@ public class GestionLibroAutor {
 		Double precio;
 		String libro, titulo;
 		String[] nombres = { "Arturo Perez-Reverte", "Echenique", "Adolf", "Rosa Diez" };
-		String[] emails = { "cuñao@vox.es", "voyenmoto@sillaruedas.com", "III_Reich@germany.com", "rosita_69@hotmail.es" };
-		String[] titulos = { "Soy muy culto", "De 0 a 100km/h en 3s", "mein kampf", "Aprende a leer con Teo" };
+		String[] emails = { "cuñao@vox.es", "voyenmoto@sillaruedas.com", "III_Reich@germany.com","rosita_69@hotmail.es" };
+		String[] titulos = { "Soy muy culto", "De 0 a 100km/h en 3s", "Mein Kampf", "Aprende a leer con Teo"," Caligrafia Santillana", "El futuro de nuestra mente", "Breve historia de mi vida","El bonobo y los diez mandamientos", "La cuenta atrás", "El sello indeleble" };
 		Double[] precios = { 500.0, 50.0, 14.88, 0.20 };
 		String[] generos = { "hombre", "hombre", "hombre", "mujer" };
 
 		Libro[] arrayLibros = new Libro[10];
 		Autor[] autores = new Autor[4];
 
-		//int numRandom = (int) Math.floor(Math.random() * 4);
-
 		// Crear autores
 		for (int i = 0; i < autores.length; i++) {
 			autores[i] = new Autor(nombres[i], emails[i], generos[i]);
 		}
-		
-		System.out.println("Hay 4 libros");
+
+		System.out.println("Hay 10 libros");
 		opcion = pedirEntero("1-Crear libros\n2-Modificar autor\n3-Modificar libro\n4-Ver libros\n5-Ver autores\n0-Salir");
 		while (opcion != 0) {
+			int numRandom4 = (int) Math.floor(Math.random() * 4);
+			int numRandom10 = (int) Math.floor(Math.random() * 10);
 			switch (opcion) {
 			case 1: // Crear libros
 				cantidad = pedirEntero("Cantidad de libros a crear?");
-				if (Libro.getContadorLibros() == 4) {
+				if (Libro.getContadorLibros() == 10) {
 					System.out.println("Limite de libros alcanzado");
+				} else if (Libro.getContadorLibros() >= 4) {
+					arrayLibros[Libro.getContadorLibros()] = new Libro(titulos[Libro.getContadorLibros()], autores[numRandom4], precios[numRandom4], cantidad);
 				} else {
 					arrayLibros[Libro.getContadorLibros()] = new Libro(titulos[Libro.getContadorLibros()], autores[Libro.getContadorLibros()], precios[Libro.getContadorLibros()], cantidad);
 				}
 				break;
 			case 2:
 				for (int i = 0; i < autores.length; i++) {
-					System.out.println("#" +(i+1) +"--->" +autores[i].cadenaAutor());
+					System.out.println("#" + (i + 1) + "--->" + autores[i].cadenaAutor());
 				}
 				n = pedirEntero("Que autor quieres modificar");
 				modificacion = pedirString("Escribe su nuevo correo");
-				autores[n-1].setEmail(modificacion);
-				
+				autores[n - 1].setEmail(modificacion);
+
 				break;
 			case 3:
 				try {
 					for (int i = 0; i < arrayLibros.length; i++) {
 						if (arrayLibros[i] != null) {
-							System.out.println(("#" +(i+1) +"--->" +arrayLibros[i].cadenaLibro()));
+							System.out.println(("#" + (i + 1) + "--->" + arrayLibros[i].cadenaLibro()));
 						} else {
 							System.out.println("Vacio");
 						}
 					}
 					n = pedirEntero("Que libro quieres modificar");
 					precio = pedirDouble("Escribe su nuevo precio");
-					arrayLibros[n-1].setPrecio(precio);
+					arrayLibros[n - 1].setPrecio(precio);
 				} catch (Exception e) {
 					System.out.println("No has creado ningun libro todavia");
 				}
-				
+
 				break;
 			case 4:
 				System.out.println("Ahora hay estos libros: ");
@@ -73,7 +75,7 @@ public class GestionLibroAutor {
 				for (int i = 0; i < autores.length; i++) {
 					if (autores[i] != null) {
 						System.out.println((autores[i].cadenaAutor()));
-					} 
+					}
 				}
 				break;
 
@@ -99,7 +101,7 @@ public class GestionLibroAutor {
 		s1 = sc.nextLine();
 		return s1;
 	}// Pedir string
-	
+
 	public static double pedirDouble(String mensaje) {
 		Double num;
 		Scanner sc = new Scanner(System.in);
