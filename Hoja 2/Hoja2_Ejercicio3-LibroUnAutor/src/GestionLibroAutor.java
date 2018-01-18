@@ -62,11 +62,10 @@ public class GestionLibroAutor {
 				
 				break;
 			case 4:
+				System.out.println("Ahora hay estos libros: ");
 				for (int i = 0; i < arrayLibros.length; i++) {
 					if (arrayLibros[i] != null) {
 						System.out.println((arrayLibros[i].cadenaLibro()));
-					} else {
-						System.out.println("Reservado #" + (i + 1));
 					}
 				}
 				break;
@@ -74,9 +73,7 @@ public class GestionLibroAutor {
 				for (int i = 0; i < autores.length; i++) {
 					if (autores[i] != null) {
 						System.out.println((autores[i].cadenaAutor()));
-					} else {
-						System.out.println("Reservado #" + (i + 1));
-					}
+					} 
 				}
 				break;
 
