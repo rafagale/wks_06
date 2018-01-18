@@ -1,7 +1,8 @@
+import java.util.Arrays;
 
 public class Libro {
 	private String titulo;
-	private Autor autor;
+	private Autor autores[];
 	private Double precio;
 	private Integer cantidad;
 	private static int contadorLibros = 0;
@@ -10,17 +11,17 @@ public class Libro {
 		return contadorLibros;
 	}
 
-	public Libro(String titulo, Autor autor, Double precio) {
+	public Libro(String titulo, Autor[] autores, Double precio) {
 		this.titulo = titulo;
-		this.autor = autor;
+		this.autores = autores;
 		this.precio = precio;
 		contadorLibros++;
 	}
 
-	public Libro(String titulo, Autor autor, Double precio, Integer cantidad) {
+	public Libro(String titulo, Autor[] autores, Double precio, Integer cantidad) {
 		this.titulo = titulo;
-		this.autor = autor;
-		this.precio = precio*cantidad;
+		this.autores = autores;
+		this.precio = precio;
 		this.cantidad = cantidad;
 		contadorLibros++;
 	}
@@ -45,13 +46,14 @@ public class Libro {
 		return titulo;
 	}
 
-	public Autor getAutor() {
-		return autor;
+
+	public Autor[] getAutores() {
+		return autores;
 	}
 
 	public String cadenaLibro() {
-		return "Libro [titulo=" + titulo + "]\n" + autor.cadenaAutor() + ", precio=" + precio + "€, cantidad="
-				+ cantidad + "]\n******************************************************************************";
+		return "Libro [titulo=" + titulo + "]\n" + Arrays.toString(autores) + ", precio=" + precio
+				+ ", cantidad=" + cantidad + "]\n******************************************************************************";
 	}
 
 }

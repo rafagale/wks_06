@@ -51,6 +51,8 @@ public class GestionLibroAutor {
 					for (int i = 0; i < arrayLibros.length; i++) {
 						if (arrayLibros[i] != null) {
 							System.out.println(("#" + (i + 1) + "--->" + arrayLibros[i].cadenaLibro()));
+						} else {
+							System.out.println("Vacio");
 						}
 					}
 					n = pedirEntero("Que libro quieres modificar");
@@ -58,7 +60,7 @@ public class GestionLibroAutor {
 					arrayLibros[n - 1].setPrecio(precio);
 					cantidad = pedirEntero("Escribe su nueva cantidad");
 					arrayLibros[n - 1].setCantidad(cantidad);
-				} catch (NullPointerException e) {
+				} catch (Exception e) {
 					System.out.println("No has creado ningun libro todavia");
 				}
 
