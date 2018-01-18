@@ -20,7 +20,7 @@ public class Libro {
 	public Libro(String titulo, Autor autor, Double precio, Integer cantidad) {
 		this.titulo = titulo;
 		this.autor = autor;
-		this.precio = precio;
+		this.precio = precio*cantidad;
 		this.cantidad = cantidad;
 		contadorLibros++;
 	}
