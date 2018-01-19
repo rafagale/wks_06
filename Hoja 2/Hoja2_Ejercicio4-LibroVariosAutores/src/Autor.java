@@ -30,6 +30,11 @@ public class Autor {
 		return nombre;
 	}
 
+	@Override
+	public String toString() {
+		return "Autor [nombre=" + nombre + ", email=" + email + ", genero=" + genero + "]";
+	}
+
 	public char getGenero() {
 		return genero;
 	}

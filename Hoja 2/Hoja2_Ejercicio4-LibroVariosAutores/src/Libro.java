@@ -50,7 +50,7 @@ public class Libro {
 	public Autor[] getAutores() {
 		return autores;
 	}
-
+	//Añadir toString en la clase Autor
 	public String cadenaLibro() {
 		return "Libro [titulo=" + titulo + "]\n" + Arrays.toString(autores) + ", precio=" + precio
 				+ ", cantidad=" + cantidad + "]\n******************************************************************************";
