@@ -3,7 +3,7 @@ public class Autor {
 	private String nombre;
 	private String email;
 	private char genero;
-	
+	private static int contadorAutores = 0;
 	public Autor(String nombre, String email, String genero) {
 		this.nombre = nombre;
 		this.email = email;
@@ -12,6 +12,7 @@ public class Autor {
 		} else if (genero.toLowerCase().equals("mujer")){
 			this.genero='M';
 		}
+		contadorAutores++;
 	}//Constructor
 	
 	public String cadenaAutor(){
@@ -37,6 +38,10 @@ public class Autor {
 
 	public char getGenero() {
 		return genero;
+	}
+
+	public static int getContadorAutores() {
+		return contadorAutores;
 	}
 
 
