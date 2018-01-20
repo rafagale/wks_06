@@ -38,7 +38,11 @@ public class GestionLibroAutor2_SinArrays {
 							genero = pedirString("Genero(hombre/mujer)");
 						} while (!genero.toLowerCase().equals("hombre") && !genero.toLowerCase().equals("mujer"));
 						arrayAutores[Libro.getContadorLibros()] = new Autor(nombre, email, genero);
-						arrayAutores[Libro.getContadorLibros()]=listaAutores[Autor.getContadorAutores()][Libro.getContadorLibros()];
+						try {
+							listaAutores[Autor.getContadorAutores()][Libro.getContadorLibros()]=arrayAutores[Libro.getContadorLibros()];
+						} catch (Exception e) {
+							System.out.println("Libro #" +Libro.getContadorLibros() +" creado");
+						}	
 					} else {
 						//Se redimensiona el array de autores a "numeroAutores"
 						arrayAutores = new Autor[numeroAutores]; 
@@ -52,8 +56,12 @@ public class GestionLibroAutor2_SinArrays {
 						}
 					}
 					arrayLibros[Libro.getContadorLibros()] = new Libro(titulo, arrayAutores, precio, cantidad);
-					arrayAutores[Libro.getContadorLibros()]=listaAutores[Autor.getContadorAutores()][Libro.getContadorLibros()];
-				}
+					try {
+						listaAutores[Autor.getContadorAutores()][Libro.getContadorLibros()]=arrayAutores[Libro.getContadorLibros()];
+					} catch (Exception e) {
+						System.out.println("Libro #" +Libro.getContadorLibros() +" creado");
+					}
+								}
 				break;
 			case 2:
 				for (int i = 0; i < arrayAutores.length; i++) {
@@ -93,10 +101,16 @@ public class GestionLibroAutor2_SinArrays {
 				}
 				break;
 			case 5:
-				for (int i = 0; i < listaAutores.length; i++) {
-					System.out.println();
-					for (int j = 0; j < listaAutores.length; j++) {
-						System.out.println(listaAutores[i][j]);	
+				try {
+					for (int i = 0; i < listaAutores.length; i++) {
+						System.out.println();
+						for (int j = 0; j < listaAutores.length; j++) {
+							System.out.println(listaAutores[i][j]);	
+						}
+					}
+				} catch (Exception e) {
+					for (int i = 0; i < arrayAutores.length; i++) {
+							System.out.println(arrayAutores[i]);
 					}
 				}
 				break;
