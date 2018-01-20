@@ -30,7 +30,7 @@ public class GestionLibroAutor2_SinArrays {
 					precio = pedirDouble("Introduce el precio del libro");
 					numeroAutores = pedirEntero("Cuantos autores va a tener este libro?");
 					if (numeroAutores == 1) {
-						//Se redimensiona el array de autores a 1
+						// Se redimensiona el array de autores a 1
 						arrayAutores = new Autor[1];
 						nombre = pedirString("Nombre autor");
 						email = pedirString("Email autor");
@@ -38,12 +38,12 @@ public class GestionLibroAutor2_SinArrays {
 							genero = pedirString("Genero(hombre/mujer)");
 						} while (!genero.toLowerCase().equals("hombre") && !genero.toLowerCase().equals("mujer"));
 						arrayAutores[Libro.getContadorLibros()] = new Autor(nombre, email, genero);
-						System.out.println("Libro #" +Libro.getContadorLibros() +" creado");
-							//listaAutores[Autor.getContadorAutores()][Libro.getContadorLibros()]=arrayAutores[Libro.getContadorLibros()];
-
+						System.out.println("Libro #" + Libro.getContadorLibros() + " creado");
+						listaAutores[Autor.getContadorAutores()][Libro.getContadorLibros()] = arrayAutores[Libro
+								.getContadorLibros()];
 					} else {
-						//Se redimensiona el array de autores a "numeroAutores"
-						arrayAutores = new Autor[numeroAutores]; 
+						// Se redimensiona el array de autores a "numeroAutores"
+						arrayAutores = new Autor[numeroAutores];
 						for (int i = 0; i < numeroAutores; i++) {
 							nombre = pedirString("Nombre autor");
 							email = pedirString("Email autor");
@@ -52,13 +52,12 @@ public class GestionLibroAutor2_SinArrays {
 							} while (!genero.toLowerCase().equals("hombre") && !genero.toLowerCase().equals("mujer"));
 							arrayAutores[i] = new Autor(nombre, email, genero);
 						}
+						arrayLibros[Libro.getContadorLibros()] = new Libro(titulo, arrayAutores, precio, cantidad);
+						System.out.println("Libro #" + Libro.getContadorLibros() + " creado");
+						listaAutores[Autor.getContadorAutores()][Libro.getContadorLibros()] = arrayAutores[Libro
+								.getContadorLibros()];
 					}
-					arrayLibros[Libro.getContadorLibros()] = new Libro(titulo, arrayAutores, precio, cantidad);
-					System.out.println("Libro #" +Libro.getContadorLibros() +" creado");
-
-						//listaAutores[Autor.getContadorAutores()][Libro.getContadorLibros()]=arrayAutores[Libro.getContadorLibros()];
-				
-								}
+				}
 				break;
 			case 2:
 				for (int i = 0; i < arrayAutores.length; i++) {
@@ -98,18 +97,21 @@ public class GestionLibroAutor2_SinArrays {
 				}
 				break;
 			case 5:
-/*
-					for (int i = 0; i < listaAutores.length; i++) {
-						System.out.println();
-						for (int j = 0; j < listaAutores.length; j++) {
-							System.out.println(listaAutores[i][j]);	
-						}
-					}*/
 
-					for (int i = 0; i < arrayAutores.length; i++) {
-							System.out.println(arrayAutores[i]);
+				for (int i = 0; i < listaAutores.length; i++) {
+					System.out.println();
+					for (int j = 0; j < listaAutores.length; j++) {
+						if (listaAutores[i][j]!= null) {
+							System.out.println(listaAutores[i][j]);
+						}
 					}
-				
+				}
+
+				/*
+				 * for (int i = 0; i < arrayAutores.length; i++) {
+				 * System.out.println(arrayAutores[i]); }
+				 */
+
 				break;
 
 			default:
