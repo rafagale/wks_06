@@ -1,3 +1,6 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.Scanner;
 
 public class GestionCuentas {
@@ -106,21 +109,26 @@ public class GestionCuentas {
 				.println("Ahora hay " + (CuentaCorriente.getTotalCuentasAbiertas() - 1) + " cuentas abiertas/activas");
 	}
 
-	public static double pedirDouble(String mensaje) {
-		Double num;
-		Scanner sc = new Scanner(System.in);
-		System.out.println(mensaje);
-		num = sc.nextDouble();
-		return num;
-	}// Pedir double
-
-	public static int pedirEntero(String mensaje) {
-		int num;
-		Scanner sc = new Scanner(System.in);
-		System.out.println(mensaje);
-		num = sc.nextInt();
-		return num;
-	}// Pedir int
+	static public int pedirEntero(final String mensaje) {
+		BufferedReader dataIn = new BufferedReader(new InputStreamReader(System.in));
+		int numero=0;
+		boolean error = true;
+		while (error) {
+			try {
+				System.out.println(mensaje);
+				numero = Integer.parseInt(dataIn.readLine());
+				error=false;
+			} catch (IOException e) {
+				System.out.println("Vuelve a introducir el dato, por favor");
+				error = true;
+			} catch(NumberFormatException e){
+				System.out.println("El dato introducido no es entero");
+				System.out.println("Vuelve a introducir el dato, por favor: ");
+				error=true;
+			}
+		}
+		return numero;
+	}//Pedir entero
 
 	public static String pedirString(String mensaje) {
 		String s1;
@@ -129,6 +137,27 @@ public class GestionCuentas {
 		s1 = sc.nextLine();
 		return s1;
 	}// Pedir string
+
+	static public double pedirDouble(final String mensaje) {
+		BufferedReader dataIn = new BufferedReader(new InputStreamReader(System.in));
+		double numero=0;
+		boolean error = true;
+		while (error) {
+			try {
+				System.out.println(mensaje);
+				numero = Double.parseDouble(dataIn.readLine());
+				error=false;
+			} catch (IOException e) {
+				System.out.println("Vuelve a introducir el dato, por favor: ");
+				error = true;
+			} catch(NumberFormatException e){
+				System.out.println("El dato introducido no es decimal");
+				System.out.println("Vuelve a introducir el dato, por favor: ");
+				error=true;
+			}
+		}
+		return numero;
+	}//Pedir double
 
 	public static void mostrarBillete() {
 		System.out.println("XXXXXXXXXXXXXXXXXXFEDERAL RESERVE NOTEXXXXXXXXXXXXXXXXXXX");

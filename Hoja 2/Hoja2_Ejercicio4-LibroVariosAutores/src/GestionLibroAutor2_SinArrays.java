@@ -1,3 +1,6 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.Arrays;
 import java.util.Scanner;
 /**
@@ -114,13 +117,26 @@ public class GestionLibroAutor2_SinArrays {
 		} // while
 	}// main
 
-	public static int pedirEntero(String mensaje) {
-		int num;
-		Scanner sc = new Scanner(System.in);
-		System.out.println(mensaje);
-		num = sc.nextInt();
-		return num;
-	}// Pedir int
+	static public int pedirEntero(final String mensaje) {
+		BufferedReader dataIn = new BufferedReader(new InputStreamReader(System.in));
+		int numero=0;
+		boolean error = true;
+		while (error) {
+			try {
+				System.out.println(mensaje);
+				numero = Integer.parseInt(dataIn.readLine());
+				error=false;
+			} catch (IOException e) {
+				System.out.println("Vuelve a introducir el dato, por favor");
+				error = true;
+			} catch(NumberFormatException e){
+				System.out.println("El dato introducido no es entero");
+				System.out.println("Vuelve a introducir el dato, por favor: ");
+				error=true;
+			}
+		}
+		return numero;
+	}//Pedir entero
 
 	public static String pedirString(String mensaje) {
 		String s1;

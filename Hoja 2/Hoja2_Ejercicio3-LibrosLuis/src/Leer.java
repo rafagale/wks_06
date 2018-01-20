@@ -47,52 +47,50 @@
 		 * @param texto
 		 * @return
 		 */
-		static public int pedirEntero(final String texto) {
+		static public int pedirEntero(final String mensaje) {
 			BufferedReader dataIn = new BufferedReader(new InputStreamReader(System.in));
-			int dato=0;
+			int numero=0;
 			boolean error = true;
 			while (error) {
 				try {
-					mostrarEnPantalla(texto);
-					dato = Integer.parseInt(dataIn.readLine());
+					System.out.println(mensaje);
+					numero = Integer.parseInt(dataIn.readLine());
 					error=false;
 				} catch (IOException e) {
-					mostrarEnPantalla("Vuelve a introducir el dato, por favor");
+					System.out.println("Vuelve a introducir el dato, por favor");
 					error = true;
 				} catch(NumberFormatException e){
-					mostrarEnPantalla("El dato introducido no es entero");
-					mostrarEnPantalla("Vuelve a introducir el dato, por favor: ");
+					System.out.println("El dato introducido no es entero");
+					System.out.println("Vuelve a introducir el dato, por favor: ");
 					error=true;
 				}
 			}
-			return dato;
-
-		}
+			return numero;
+		}//Pedir entero
 		
 		/**
 		 * @param texto
 		 * @return
 		 */
-		static public double pedirDouble(final String texto) {
+		static public double pedirDouble(final String mensaje) {
 			BufferedReader dataIn = new BufferedReader(new InputStreamReader(System.in));
-			double dato=0;
+			double numero=0;
 			boolean error = true;
 			while (error) {
 				try {
-					mostrarEnPantalla(texto);
-					dato = Double.parseDouble(dataIn.readLine());
+					System.out.println(mensaje);
+					numero = Double.parseDouble(dataIn.readLine());
 					error=false;
 				} catch (IOException e) {
-					mostrarEnPantalla("Vuelve a introducir el dato, por favor: ");
+					System.out.println("Vuelve a introducir el dato, por favor: ");
 					error = true;
 				} catch(NumberFormatException e){
-					mostrarEnPantalla("El dato introducido no es decimal");
-					mostrarEnPantalla("Vuelve a introducir el dato, por favor: ");
+					System.out.println("El dato introducido no es decimal");
+					System.out.println("Vuelve a introducir el dato, por favor: ");
 					error=true;
 				}
 			}
-			return dato;
-
+			return numero;
 		}
 		/**
 		 * @param texto
