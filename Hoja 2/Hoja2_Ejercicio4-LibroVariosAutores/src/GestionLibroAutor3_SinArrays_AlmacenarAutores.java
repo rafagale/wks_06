@@ -3,8 +3,12 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Arrays;
 import java.util.Scanner;
-
-public class GestionLibroAutor2_SinArrays_AlmacenarAutores {
+/**
+ * 
+ * @author Rafa
+ * @see No guarda los autores, solo los del ultimo libro creado
+ */
+public class GestionLibroAutor3_SinArrays_AlmacenarAutores {
 
 	public static void main(String[] args) {
 		int opcion, cantidad, n, numeroAutores;
@@ -43,8 +47,8 @@ public class GestionLibroAutor2_SinArrays_AlmacenarAutores {
 						arrayAutores[Libro.getContadorLibros()] = new Autor(nombre, email, genero);
 						arrayLibros[Libro.getContadorLibros()] = new Libro(titulo, arrayAutores, precio, cantidad);
 						System.out.println("Libro #" + Libro.getContadorLibros() + " creado");
-						listaAutores[Autor.getContadorAutores()][Libro.getContadorLibros()] = arrayAutores[Libro
-								.getContadorLibros()-1];
+						listaAutores[Autor.getContadorAutores()-1][Libro.getContadorLibros()-1] = arrayAutores[Autor
+								.getContadorAutores()-1];
 					} else {
 						// Se redimensiona el array de autores a "numeroAutores"
 						arrayAutores = new Autor[numeroAutores];
@@ -58,7 +62,7 @@ public class GestionLibroAutor2_SinArrays_AlmacenarAutores {
 						}
 						arrayLibros[Libro.getContadorLibros()] = new Libro(titulo, arrayAutores, precio, cantidad);
 						System.out.println("Libro #" + Libro.getContadorLibros() + " creado");
-						listaAutores[Autor.getContadorAutores()][Libro.getContadorLibros()] = arrayAutores[Libro
+						listaAutores[Autor.getContadorAutores()-1][Libro.getContadorLibros()-1] = arrayAutores[Libro
 								.getContadorLibros()-1];
 					}
 				}
@@ -103,14 +107,16 @@ public class GestionLibroAutor2_SinArrays_AlmacenarAutores {
 			case 5:
 
 				for (int i = 0; i < listaAutores.length; i++) {
-					System.out.println();
+					if (listaAutores[i][Autor.getContadorAutores()]!= null) {
+						System.out.println();
+					}
 					for (int j = 0; j < listaAutores.length; j++) {
 						if (listaAutores[i][j]!= null) {
-							System.out.println(listaAutores[i][j]);
+							System.out.printf("%s",listaAutores[i][j]);
 						}
 					}
 				}
-
+				System.out.println();
 				/*
 				 * for (int i = 0; i < arrayAutores.length; i++) {
 				 * System.out.println(arrayAutores[i]); }

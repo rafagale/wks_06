@@ -91,7 +91,7 @@
 				}
 			}
 			return numero;
-		}
+		}//Pedir double
 		/**
 		 * @param texto
 		 * @return

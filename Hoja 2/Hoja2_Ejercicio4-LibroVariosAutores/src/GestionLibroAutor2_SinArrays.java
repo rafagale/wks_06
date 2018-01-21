@@ -44,9 +44,9 @@ public class GestionLibroAutor2_SinArrays {
 						do {
 							genero = pedirString("Genero(hombre/mujer)");
 						} while (!genero.toLowerCase().equals("hombre") && !genero.toLowerCase().equals("mujer"));
-						arrayAutores[Libro.getContadorLibros()] = new Autor(nombre, email, genero);
+							arrayAutores[Autor.getContadorAutores()] = new Autor(nombre, email, genero);
 						arrayLibros[Libro.getContadorLibros()] = new Libro(titulo, arrayAutores, precio, cantidad);
-						System.out.println("Libro #" + (Libro.getContadorLibros()+1) + " creado");
+						System.out.println("Libro #" + (Libro.getContadorLibros()) + " creado");
 					} else {
 						// Se redimensiona el array de autores a "numeroAutores"
 						arrayAutores = new Autor[numeroAutores];
@@ -59,7 +59,7 @@ public class GestionLibroAutor2_SinArrays {
 							arrayAutores[i] = new Autor(nombre, email, genero);
 						}
 						arrayLibros[Libro.getContadorLibros()] = new Libro(titulo, arrayAutores, precio, cantidad);
-						System.out.println("Libro #" + (Libro.getContadorLibros()+1) + " creado");
+						System.out.println("Libro #" + (Libro.getContadorLibros()) + " creado");
 					}
 				}
 				break;
@@ -146,11 +146,24 @@ public class GestionLibroAutor2_SinArrays {
 		return s1;
 	}// Pedir string
 
-	public static double pedirDouble(String mensaje) {
-		Double num;
-		Scanner sc = new Scanner(System.in);
-		System.out.println(mensaje);
-		num = sc.nextDouble();
-		return num;
-	}// Pedir double
+	static public double pedirDouble(final String mensaje) {
+		BufferedReader dataIn = new BufferedReader(new InputStreamReader(System.in));
+		double numero=0;
+		boolean error = true;
+		while (error) {
+			try {
+				System.out.println(mensaje);
+				numero = Double.parseDouble(dataIn.readLine());
+				error=false;
+			} catch (IOException e) {
+				System.out.println("Vuelve a introducir el dato, por favor: ");
+				error = true;
+			} catch(NumberFormatException e){
+				System.out.println("El dato introducido no es decimal");
+				System.out.println("Vuelve a introducir el dato, por favor: ");
+				error=true;
+			}
+		}
+		return numero;
+	}//Pedir double
 }// Class
