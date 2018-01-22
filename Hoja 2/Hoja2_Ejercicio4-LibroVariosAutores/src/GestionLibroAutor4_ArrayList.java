@@ -17,13 +17,14 @@ public class GestionLibroAutor4_ArrayList {
 		String modificacion;
 		Double precio;
 		String libro, titulo, nombre, email, genero;
-		
+
 		ArrayList<Libro> libros = new ArrayList<>();
 		ArrayList<Autor> autores = new ArrayList<>();
-		
+
 		Autor autor = null;
 		Libro librox = null;
-		opcion = pedirEntero("1-Crear libro\n2-Modificar autores ultimo libro\n3-Modificar libro\n4-Ver libros\n5-Ver autores\n0-Salir");
+		opcion = pedirEntero(
+				"1-Crear libro\n2-Modificar autores ultimo libro\n3-Modificar libro\n4-Ver libros\n5-Ver autores\n0-Salir");
 		while (opcion != 0) {
 			switch (opcion) {
 			case 1: // Crear libros
@@ -31,7 +32,7 @@ public class GestionLibroAutor4_ArrayList {
 				cantidad = pedirEntero("Cantidad de libros a crear?");
 				titulo = pedirString("Introduce el titulo del libro");
 				precio = pedirDouble("Introduce el precio del libro");
-				
+
 				for (int i = 0; i < numeroAutores; i++) {
 					nombre = pedirString("Nombre autor");
 					email = pedirString("Email autor");
@@ -39,28 +40,31 @@ public class GestionLibroAutor4_ArrayList {
 						genero = pedirString("Genero(hombre/mujer)");
 					} while (!genero.toLowerCase().equals("hombre") && !genero.toLowerCase().equals("mujer"));
 					autor = new Autor(nombre, email, genero);
+					autores.add(autor);
 				}
-				
+
 				Autor[] arrayAutores = new Autor[autores.size()];
 				arrayAutores = autores.toArray(arrayAutores);
-				autores.add(autor);
 
-				librox = new Libro(titulo, arrayAutores, precio, cantidad);	
-				libros.add(librox);
+				librox = new Libro(titulo, arrayAutores, precio, cantidad);
+				for (int i = 0; i < Libro.getContadorLibros(); i++) {
+					libros.add(librox);
+				}
+
 				break;
 			case 2:// Modificar autor
-				
+
 				break;
 			case 3: // Modificar libro
-				
+
 				break;
 			case 4: // Visualizar libros
-				System.out.println(librox);
+				System.out.println(librox.cadenaLibroVariosAutores());
 				break;
 			case 5: // Visualizar autores
 				System.out.println(autores);
 				break;
-				
+
 			default:
 				System.out.println("Elige una opcion correcta");
 			}// switch
