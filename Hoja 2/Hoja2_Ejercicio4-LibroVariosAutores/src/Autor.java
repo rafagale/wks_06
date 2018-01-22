@@ -4,9 +4,10 @@ public class Autor {
 	private String email;
 	private char genero;
 	private static int contadorAutores = 0;
+	
 	public Autor(String nombre, String email, String genero) {
 		this.nombre = nombre;
-		this.email = email;
+		this.email = email +"@gmail.com";
 		if (genero.toLowerCase().equals("hombre")) {
 			this.genero='H';
 		} else if (genero.toLowerCase().equals("mujer")){

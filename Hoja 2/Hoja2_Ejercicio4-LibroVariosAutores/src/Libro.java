@@ -46,6 +46,11 @@ public class Libro {
 		return titulo;
 	}
 
+	@Override
+	public String toString() {
+		return "Libro [titulo=" + titulo + ", autores=" + Arrays.toString(autores) + ", precio=" + precio
+				+ ", cantidad=" + cantidad + "]";
+	}
 
 	public Autor[] getAutores() {
 		return autores;
