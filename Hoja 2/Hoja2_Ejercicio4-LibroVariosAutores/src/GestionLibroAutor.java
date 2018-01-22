@@ -60,7 +60,7 @@ public class GestionLibroAutor {
 				try {
 					for (int i = 0; i < arrayLibros.length; i++) {
 						if (arrayLibros[i] != null) {
-							System.out.println(("#" + (i + 1) + "--->" + arrayLibros[i].cadenaLibro()));
+							System.out.println(("#" + (i + 1) + "--->" + arrayLibros[i].cadenaLibroVariosAutores()));
 						} else {
 							System.out.println("Vacio");
 						}
@@ -79,7 +79,7 @@ public class GestionLibroAutor {
 				System.out.println("Ahora hay estos libros: ");
 				for (int i = 0; i < arrayLibros.length; i++) {
 					if (arrayLibros[i] != null) {
-						System.out.println((arrayLibros[i].cadenaLibro()));
+						System.out.println((arrayLibros[i].cadenaLibroVariosAutores()));
 					}
 				}
 				break;

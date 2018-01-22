@@ -9,7 +9,7 @@ import java.*;
  * 
  * @author Rafa
  */
-public class GestionLibroAutor3_ArrayList {
+public class GestionLibroAutor3_ArraysConArrayList {
 
 	public static void main(String[] args) {
 		int opcion, cantidad, n, numeroAutores;
@@ -62,7 +62,7 @@ public class GestionLibroAutor3_ArrayList {
 				try {
 					for (int i = 0; i < arrayLibros.length; i++) {
 						if (arrayLibros[i] != null) {
-							System.out.println(("#" + (i + 1) + "--->" + arrayLibros[i].cadenaLibro()));
+							System.out.println(("#" + (i + 1) + "--->" + arrayLibros[i].cadenaLibroVariosAutores()));
 						} else {
 							System.out.println("Vacio");
 						}
@@ -81,7 +81,7 @@ public class GestionLibroAutor3_ArrayList {
 				System.out.println("Ahora hay estos libros: ");
 				for (int i = 0; i < arrayLibros.length; i++) {
 					if (arrayLibros[i] != null) {
-						System.out.println((arrayLibros[i].cadenaLibro()));
+						System.out.println((arrayLibros[i].cadenaLibroVariosAutores()));
 					}
 				}
 				break;

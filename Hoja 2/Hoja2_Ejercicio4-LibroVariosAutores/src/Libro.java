@@ -3,6 +3,7 @@ import java.util.Arrays;
 public class Libro {
 	private String titulo;
 	private Autor autores[];
+	private Autor autor;
 	private Double precio;
 	private Integer cantidad;
 	private static int contadorLibros = 0;
@@ -25,7 +26,13 @@ public class Libro {
 		this.cantidad = cantidad;
 		contadorLibros++;
 	}
-
+	public Libro(String titulo, Autor autor, Double precio, Integer cantidad) {
+		this.titulo = titulo;
+		this.autor = autor;
+		this.precio = precio;
+		this.cantidad = cantidad;
+		contadorLibros++;
+	}
 	public Double getPrecio() {
 		return precio;
 	}
@@ -45,18 +52,23 @@ public class Libro {
 	public String getTitulo() {
 		return titulo;
 	}
-
-	@Override
-	public String toString() {
-		return "Libro [titulo=" + titulo + ", autores=" + Arrays.toString(autores) + ", precio=" + precio
-				+ ", cantidad=" + cantidad + "]";
-	}
-
+	
 	public Autor[] getAutores() {
 		return autores;
 	}
+	@Override
+	public String toString() {
+		return "Libro [titulo=" + titulo + "]\n" + "["+autor + "], precio=" + precio
+				+ ", cantidad=" + cantidad + "]\n******************************************************************************";
+	}
+	public String cadenaUnAutor() {
+		return "Libro [titulo=" + titulo + "]\n" + "["+autor + "], precio=" + precio
+				+ ", cantidad=" + cantidad + "]\n******************************************************************************";
+	}
+
+
 	//Añadir toString en la clase Autor
-	public String cadenaLibro() {
+	public String cadenaLibroVariosAutores() {
 		return "Libro [titulo=" + titulo + "]\n" + "{"+Arrays.toString(autores) + "}, precio=" + precio
 				+ ", cantidad=" + cantidad + "]\n******************************************************************************";
 	}
