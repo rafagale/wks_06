@@ -12,14 +12,14 @@ import java.util.Scanner;
 public class GestionLibroAutor2_Teclado {
 
 	public static void main(String[] args) {
-		int opcion, cantidad, n, numeroAutores;
+		int opcion, cantidad, n, numeroAutores, indiceAutores, indiceLibros;
 		String modificacion;
 		Double precio;
 		String libro, titulo, nombre, email, genero;
-
+		indiceAutores=Autor.getContadorAutores();
+		indiceLibros=Libro.getContadorLibros();
 		Libro[] arrayLibros = new Libro[10];
 		Autor[] arrayAutores = new Autor[4];
-		Autor[] aux = new Autor[10];
 		
 		
 		System.out.println("Hay 10 libros");
@@ -40,9 +40,9 @@ public class GestionLibroAutor2_Teclado {
 					} while (!genero.toLowerCase().equals("hombre") && !genero.toLowerCase().equals("mujer"));
 				}//for
 				
-				arrayLibros[Libro.getContadorLibros()] = new Libro(titulo, arrayAutores, precio, cantidad);
-				System.out.println("Libro #" + Libro.getContadorLibros() + " creado");
-				System.out.println("Contador de autoress= " +Autor.getContadorAutores());
+				arrayLibros[indiceLibros] = new Libro(titulo, arrayAutores, precio, cantidad);
+				System.out.println("Libro #" + indiceLibros + " creado");
+				System.out.println("Contador de autoress= " +indiceAutores);
 				break;
 			case 2:
 				for (int i = 0; i < arrayAutores.length; i++) {
@@ -75,7 +75,7 @@ public class GestionLibroAutor2_Teclado {
 				break;
 			case 4:
 				System.out.println("Ahora hay estos libros: ");
-				for (int i = 0; i < Autor.getContadorAutores(); i++) {
+				for (int i = 0; i < indiceAutores; i++) {
 					if (arrayLibros[i] != null) {
 						System.out.println(arrayLibros[i].cadenaLibro());
 					}

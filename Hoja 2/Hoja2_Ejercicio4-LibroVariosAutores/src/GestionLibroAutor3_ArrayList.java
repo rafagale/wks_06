@@ -53,14 +53,10 @@ public class GestionLibroAutor3_ArrayList {
 				for (int i = 0; i < listaAutores.size(); i++) {
 					System.out.println(Arrays.deepToString(listaAutores.get(i)));
 				}
-				for (int i = 0; i < arrayAutores.length; i++) {
-					if (arrayAutores[i] != null) {
-						System.out.println("#" + (i + 1) + "--->" + arrayAutores[i].cadenaAutor());
-						n = pedirEntero("Elige autor");
+					n = pedirEntero("Elige autor");
 						modificacion = pedirString("Escribe su nuevo correo");
-						arrayAutores[n - 1].setEmail(modificacion);
-					}
-				}
+						listaAutores.set(n-1, arrayAutores);
+
 				break;
 			case 3: // Modificar libro
 				try {
