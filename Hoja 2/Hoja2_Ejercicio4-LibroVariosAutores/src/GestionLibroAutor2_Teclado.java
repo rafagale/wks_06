@@ -3,6 +3,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Arrays;
 import java.util.Scanner;
+
 /**
  * 
  * @author Rafa
@@ -18,11 +19,9 @@ public class GestionLibroAutor2_Teclado {
 
 		Libro[] arrayLibros = new Libro[10];
 		Autor[] arrayAutores = new Autor[4];
-		Autor[][] listaAutores = new Autor[10][10];
-		for (int i = 0; i < arrayAutores.length; i++) {
-
-		}
-
+		Autor[] aux = new Autor[10];
+		
+		
 		System.out.println("Hay 10 libros");
 		opcion = pedirEntero(
 				"1-Crear libro\n2-Modificar autores ultimo libro\n3-Modificar libro\n4-Ver libros\n5-Ver autores ultimo libro\n0-Salir");
@@ -30,42 +29,20 @@ public class GestionLibroAutor2_Teclado {
 			switch (opcion) {
 			case 1: // Crear libros
 				cantidad = pedirEntero("Cantidad de libros a crear?");
-				if (Libro.getContadorLibros() == 10) {
-					System.out.println("Limite de libros alcanzado");
-				} else {
-					titulo = pedirString("Introduce el titulo del libro");
-					precio = pedirDouble("Introduce el precio del libro");
-					numeroAutores = pedirEntero("Cuantos autores va a tener este libro?");
-					if (numeroAutores == 1) {
-						// Se redimensiona el array de autores a 1
-						arrayAutores = new Autor[1];
-						nombre = pedirString("Nombre autor");
-						email = pedirString("Email autor");
-						do {
-							genero = pedirString("Genero(hombre/mujer)");
-						} while (!genero.toLowerCase().equals("hombre") && !genero.toLowerCase().equals("mujer"));
-						arrayAutores[Libro.getContadorLibros()] = new Autor(nombre, email, genero);
-						arrayLibros[Libro.getContadorLibros()] = new Libro(titulo, arrayAutores, precio, cantidad);
-						System.out.println("Libro #" + Libro.getContadorLibros() + " creado");
-						listaAutores[Autor.getContadorAutores()-1][Libro.getContadorLibros()-1] = arrayAutores[Autor
-								.getContadorAutores()-1];
-					} else {
-						// Se redimensiona el array de autores a "numeroAutores"
-						arrayAutores = new Autor[numeroAutores];
-						for (int i = 0; i < numeroAutores; i++) {
-							nombre = pedirString("Nombre autor");
-							email = pedirString("Email autor");
-							do {
-								genero = pedirString("Genero(hombre/mujer)");
-							} while (!genero.toLowerCase().equals("hombre") && !genero.toLowerCase().equals("mujer"));
-							arrayAutores[i] = new Autor(nombre, email, genero);
-						}
-						arrayLibros[Libro.getContadorLibros()] = new Libro(titulo, arrayAutores, precio, cantidad);
-						System.out.println("Libro #" + Libro.getContadorLibros() + " creado");
-						listaAutores[Autor.getContadorAutores()-1][Libro.getContadorLibros()-1] = arrayAutores[Libro
-								.getContadorLibros()-1];
-					}
-				}
+				titulo = pedirString("Introduce el titulo del libro");
+				precio = pedirDouble("Introduce el precio del libro");
+				numeroAutores = pedirEntero("Cuantos autores va a tener este libro?");
+				for (int i = 0; i < numeroAutores; i++) {
+					nombre = pedirString("Nombre autor");
+					email = pedirString("Email autor");
+					do {
+						genero = pedirString("Genero(hombre/mujer)");
+					} while (!genero.toLowerCase().equals("hombre") && !genero.toLowerCase().equals("mujer"));
+				}//for
+				
+				arrayLibros[Libro.getContadorLibros()] = new Libro(titulo, arrayAutores, precio, cantidad);
+				System.out.println("Libro #" + Libro.getContadorLibros() + " creado");
+				System.out.println("Contador de autoress= " +Autor.getContadorAutores());
 				break;
 			case 2:
 				for (int i = 0; i < arrayAutores.length; i++) {
@@ -98,30 +75,18 @@ public class GestionLibroAutor2_Teclado {
 				break;
 			case 4:
 				System.out.println("Ahora hay estos libros: ");
-				for (int i = 0; i < arrayLibros.length; i++) {
+				for (int i = 0; i < Autor.getContadorAutores(); i++) {
 					if (arrayLibros[i] != null) {
-						System.out.println((arrayLibros[i].cadenaLibro()));
+						System.out.println(arrayLibros[i].cadenaLibro());
 					}
 				}
 				break;
 			case 5:
-
-				for (int i = 0; i < listaAutores.length; i++) {
-					if (listaAutores[i][Autor.getContadorAutores()]!= null) {
-						System.out.println();
-					}
-					for (int j = 0; j < listaAutores.length; j++) {
-						if (listaAutores[i][j]!= null) {
-							System.out.printf("%s",listaAutores[i][j]);
-						}
+				for (int i = 0; i < arrayAutores.length; i++) {
+					if (arrayAutores[i] != null) {
+						System.out.println(arrayAutores[i]);
 					}
 				}
-				System.out.println();
-				/*
-				 * for (int i = 0; i < arrayAutores.length; i++) {
-				 * System.out.println(arrayAutores[i]); }
-				 */
-
 				break;
 
 			default:
@@ -134,24 +99,24 @@ public class GestionLibroAutor2_Teclado {
 
 	static public int pedirEntero(final String mensaje) {
 		BufferedReader dataIn = new BufferedReader(new InputStreamReader(System.in));
-		int numero=0;
+		int numero = 0;
 		boolean error = true;
 		while (error) {
 			try {
 				System.out.println(mensaje);
 				numero = Integer.parseInt(dataIn.readLine());
-				error=false;
+				error = false;
 			} catch (IOException e) {
 				System.out.println("Vuelve a introducir el dato, por favor");
 				error = true;
-			} catch(NumberFormatException e){
+			} catch (NumberFormatException e) {
 				System.out.println("El dato introducido no es entero");
 				System.out.println("Vuelve a introducir el dato, por favor: ");
-				error=true;
+				error = true;
 			}
 		}
 		return numero;
-	}//Pedir entero
+	}// Pedir entero
 
 	public static String pedirString(String mensaje) {
 		String s1;
@@ -163,22 +128,22 @@ public class GestionLibroAutor2_Teclado {
 
 	static public double pedirDouble(final String mensaje) {
 		BufferedReader dataIn = new BufferedReader(new InputStreamReader(System.in));
-		double numero=0;
+		double numero = 0;
 		boolean error = true;
 		while (error) {
 			try {
 				System.out.println(mensaje);
 				numero = Double.parseDouble(dataIn.readLine());
-				error=false;
+				error = false;
 			} catch (IOException e) {
 				System.out.println("Vuelve a introducir el dato, por favor: ");
 				error = true;
-			} catch(NumberFormatException e){
+			} catch (NumberFormatException e) {
 				System.out.println("El dato introducido no es decimal");
 				System.out.println("Vuelve a introducir el dato, por favor: ");
-				error=true;
+				error = true;
 			}
 		}
 		return numero;
-	}//Pedir double
+	}// Pedir double
 }// Class

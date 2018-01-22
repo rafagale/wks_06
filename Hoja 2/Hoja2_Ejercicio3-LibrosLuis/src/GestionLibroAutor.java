@@ -11,7 +11,7 @@ public class GestionLibroAutor {
 		Libro libros[] = new Libro[10];
 		Scanner tcl = new Scanner(System.in);
 		boolean fin = false;
-		int cuantosLibros = 0, queLibro = 0;
+		int cuantosLibros = 0, queLibro = 0, numAutores=0, nulos=0;
 		int opcion, k;
 
 		// TODO Auto-generated method stub
@@ -27,6 +27,31 @@ public class GestionLibroAutor {
 			opcion = Leer.pedirEntero("------- Escoja la opcion deseada -------");
 			switch (opcion) {
 			case 1:
+				cuantosLibros=Leer.pedirEntero("¿Cuantos libros quieres crear?");
+				Autor auxiliar[] = new Autor[100];
+				for (int z =0 ; z < cuantosLibros; z++){
+					numAutores=Leer.pedirEntero("¿Cuantos autores tiene el libro?");
+					for (int c =0; c < numAutores; c++){
+						String nombre=Leer.pedirCadena("¿Como es su nombre?");
+						if (autores[c].getNombre().equals(nombre)){
+							 auxiliar[c]=autores[c];
+						}
+						
+						if (autores[c]==null){
+							nulos++;
+						}
+						
+						if(nulos != 0) {
+							
+						}else {
+							System.out.println("Error no caben mas autores en vetor");
+						}
+						
+							
+					}
+				}
+			
+			/*case 1:
 				cuantosLibros = Leer.pedirEntero("¿Cuantos libros quieres crear?");
 				if (cuantosLibros >= libros.length) {
 					System.out.println("Error:solo se pueden crear 10 libros");
@@ -40,7 +65,7 @@ public class GestionLibroAutor {
 					}
 				}
 
-				break;
+				break;*/
 			case 2:
 				if (cuantosLibros != 0) {
 					Leer.mostrarEnPantalla("Has creado" + cuantosLibros + "Libros");
