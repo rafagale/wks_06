@@ -42,7 +42,7 @@ public class GestionLibroAutores {
 				} 
 				
 																	//Se pasa el array entero como
-																	// parametro
+																	// parametro (32)
 				libros[Libro.getContadorLibros()] = new Libro(titulo, autores, precio, cantidad);
 				System.out.println("Libro #" + Libro.getContadorLibros() + " creado");
 				System.out.println("Contador de autores = " + Autor.getContadorAutores());
