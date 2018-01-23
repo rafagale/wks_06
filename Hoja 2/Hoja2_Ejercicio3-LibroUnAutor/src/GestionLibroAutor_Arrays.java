@@ -27,8 +27,6 @@ public class GestionLibroAutor_Arrays {
 				titulo = pedirString("Introduce el titulo del libro");
 				precio = pedirDouble("Introduce el precio del libro");
 				cantidad = pedirEntero("Cantidad de libros a crear?");
-				// Instanciar siempre?
-
 				nombre = pedirString("Nombre autor");
 				email = pedirString("Email autor");
 				do {
