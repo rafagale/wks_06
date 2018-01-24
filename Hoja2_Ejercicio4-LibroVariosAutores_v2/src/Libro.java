@@ -3,7 +3,7 @@ import java.util.Arrays;
 public class Libro {
 	private String titulo;
 	private Autor autores[];
-	private Autor autor;
+	//private Autor autor;
 	private Double precio;
 	private Integer cantidad;
 	private static int contadorLibros = 0;
@@ -47,7 +47,7 @@ public class Libro {
 
 	@Override
 	public String toString() {
-		return "Libro [titulo=" + titulo + ", {autores=" + Arrays.toString(autores) + "}, precio="
+		return "Libro [titulo=" + titulo + ", {Autores=" + Arrays.toString(autores) + "}, precio="
 				+ precio + "€, cantidad=" + cantidad + "]";
 	}
 
@@ -57,7 +57,7 @@ public class Libro {
 				+ ", cantidad=" + cantidad + "]\n******************************************************************************";
 	}*/
 	public String cadenaLibroVariosAutores() {
-		return "Libro [titulo=" + titulo + "]\n" + "{"+autor.cadenaAutor() + "}, precio=" + precio
+		return "Libro [titulo=" + titulo + "]\n" + "{Autores=" + Arrays.toString(autores) + "}, precio=" + precio
 				+ ", cantidad=" + cantidad + "]\n******************************************************************************";
 	}
 
