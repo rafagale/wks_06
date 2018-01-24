@@ -17,14 +17,14 @@ public class GestionLibroAutor_ConArrays {
 		String[] generos = { "hombre", "mujer" };
 
 		Libro[] arrayLibros = new Libro[10];
-		Autor[][] arrayAutores = new Autor[4][2];
+		Autor[] arrayAutores = new Autor[4];
 
 		// Matriz de autores
-		for (int i = 0; i < arrayAutores.length; i++) {
+/*		for (int i = 0; i < arrayAutores.length; i++) {
 			for (int j = 0; j < 2; j++) {
-				arrayAutores[i][j] = new Autor(nombres[(int) Math.floor(Math.random() * 4)], emails[(int) Math.floor(Math.random() * 4)], generos[(int) Math.floor(Math.random() * 2)]);	
+				arrayAutores[i] = new Autor(nombres[(int) Math.floor(Math.random() * 4)], emails[(int) Math.floor(Math.random() * 4)], generos[(int) Math.floor(Math.random() * 2)]);	
 			}
-		}
+		}*/
 		
 		
 		System.out.println("Hay 10 libros");
@@ -47,20 +47,19 @@ public class GestionLibroAutor_ConArrays {
 			case 2:
 				for (int i = 0; i < arrayAutores.length; i++) {
 					for (int j = 0; j < 2; j++) {
-						System.out.println("#" + (i+1) +"," +(j + 1) + "--->" + arrayAutores[i][j].cadenaAutor());
+						System.out.println("#" + (i+1) +"," +(j + 1) + "--->" + arrayAutores[i].cadenaAutor());
 					}
 				}
 				n = pedirEntero("Primer identificador autor");
-				m = pedirEntero("Segundo identificador autor");
 				modificacion = pedirString("Escribe su nuevo correo");
-				arrayAutores[n - 1][m - 1].setEmail(modificacion);
+				arrayAutores[n - 1].setEmail(modificacion);
 
 				break;
 			case 3: //Modificar libro
 				try {
 					for (int i = 0; i < arrayLibros.length; i++) {
 						if (arrayLibros[i] != null) {
-							System.out.println(("#" + (i + 1) + "--->" + arrayLibros[i].cadenaLibroVariosAutores()));
+							System.out.println(("#" + (i + 1) + "--->" + arrayLibros[i].cadenaLibro()));
 						} else {
 							System.out.println("Vacio");
 						}
@@ -79,7 +78,7 @@ public class GestionLibroAutor_ConArrays {
 				System.out.println("Ahora hay estos libros: ");
 				for (int i = 0; i < arrayLibros.length; i++) {
 					if (arrayLibros[i] != null) {
-						System.out.println((arrayLibros[i].cadenaLibroVariosAutores()));
+						System.out.println((arrayLibros[i].cadenaLibro()));
 					}
 				}
 				break;
@@ -87,7 +86,7 @@ public class GestionLibroAutor_ConArrays {
 				for (int i = 0; i < arrayAutores.length; i++) {
 					System.out.println("------------Duo-----------");
 					for (int j = 0; j < 2; j++) {
-						System.out.println(arrayAutores[i][j]);
+						System.out.println(arrayAutores[i].cadenaAutor());
 					}
 				}
 				break;
