@@ -12,10 +12,7 @@ import java.util.Scanner;
 public class GestionLibroAutores {
 
 	public static void main(String[] args) {
-		int opcion, maxAutores, maxLibros;//, cantidad, n, numeroAutores ;
-		/*String modificacion;
-		Double precio;
-		String libro, titulo, nombre, email, genero;*/
+		int opcion, maxAutores, maxLibros;
 
 		maxAutores = pedirEntero("Cuantos autores?");
 		maxLibros = pedirEntero("Libros maximos?");
@@ -29,7 +26,8 @@ public class GestionLibroAutores {
 		while (opcion != 0) {
 			switch (opcion) {
 			case 1: // Crear libros
-				autores = crearLibros(libros, listaAutores);
+				autores = crearAutores(listaAutores);
+				crearLibro(libros, autores);
 				break;
 			case 2: // Modificar autores
 				modificarAutores(listaAutores);
@@ -51,35 +49,69 @@ public class GestionLibroAutores {
 		} // while
 	}// main
 
-	private static Autor[] crearLibros(Libro[] libros, Autor[] listaAutores) {
+	private static void crearLibro(Libro[] libros, Autor[] autores) {
 		int cantidad;
-		int numeroAutores;
 		Double precio;
 		String titulo;
+		titulo = pedirTitulo(libros);
+		precio = pedirDouble("Introduce el precio del libro");
+		cantidad = pedirEntero("Cantidad de libros a crear?");
+		libros[Libro.getContadorLibros()] = new Libro(titulo, autores, precio, cantidad);
+		System.out.println("Libro #" + Libro.getContadorLibros() + " creado");
+	}
+
+	private static String pedirTitulo(Libro[] libros) {
+		String titulo;
+		if (Libro.getContadorLibros() > 0) {
+			titulo = pedirString("Introduce el titulo del libro");
+			while (existeTitulo(libros, titulo)) {
+				titulo = pedirString("Introduce un titulo nuevo");
+			}
+		} else {
+			titulo = pedirString("Introduce el titulo del libro");
+		}
+		return titulo;
+	}
+
+	private static boolean existeTitulo(Libro[] libros, String titulo) {
+		boolean existe = false;
+		for (int i = 0; i < libros.length; i++) {
+			if (libros[i] != null) {
+				if (libros[i].getTitulo().equals(titulo)) {
+					existe = true;
+				}
+			}
+		}
+		return existe;
+	}
+
+	private static Autor[] crearAutores(Autor[] listaAutores) {
+		Autor[] autores;
+		int numeroAutores;
 		String nombre;
 		String email;
 		String genero;
-		Autor[] autores;
-		titulo = pedirString("Introduce el titulo del libro");
+		int indiceAutor;
 		numeroAutores = pedirEntero("Cuantos autores va a tener este libro?");
-		precio = pedirDouble("Introduce el precio del libro");
-		cantidad = pedirEntero("Cantidad de libros a crear?");
-		// Instanciar un array nuevo para cada libro
 		autores = new Autor[numeroAutores];
 		for (int i = 0; i < autores.length; i++) {
 			nombre = pedirString("Nombre autor");
 			email = pedirString("Email autor");
-			do {
-				genero = pedirString("Genero(hombre/mujer)");
-			} while (!genero.toLowerCase().equals("hombre") && !genero.toLowerCase().equals("mujer"));
+			genero = pedirGenero();
 			autores[i] = new Autor(nombre, email, genero);
 			// Guardar los autores en un otro array
 			listaAutores[Autor.getContadorAutores()] = autores[i];
 		}
-		libros[Libro.getContadorLibros()] = new Libro(titulo, autores, precio, cantidad);
-		System.out.println("Libro #" + Libro.getContadorLibros() + " creado");
 		System.out.println("Contador de autores = " + Autor.getContadorAutores());
 		return autores;
+	}
+
+	private static String pedirGenero() {
+		String genero;
+		do {
+			genero = pedirString("Genero(hombre/mujer)");
+		} while (!genero.toLowerCase().equals("hombre") && !genero.toLowerCase().equals("mujer"));
+		return genero;
 	}
 
 	private static void modificarAutores(Autor[] listaAutores) {
