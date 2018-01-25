@@ -7,21 +7,24 @@ public class ListaDePaises {
 	 * vector. Los nombres se almacenarán en elementos consecutivos del vector.
 	 */
 	private Integer numeroPaises;
-	private String[] nombrePais;
+	private String[] paises;
 	public static int contadorPaises = 0;
 
 	public ListaDePaises(Integer numeroPaises) {
 		this.numeroPaises = numeroPaises;
-		this.nombrePais = nombrePais;
+		paises = new String[numeroPaises];
 	}
 
-	public String[] getNombrePais() {
-		return nombrePais;
+
+	public String[] getPaises() {
+		return paises;
 	}
 
-	public void setNombrePais(String[] nombrePais) {
-		this.nombrePais = nombrePais;
+
+	public void setPaises(String[] paises) {
+		this.paises = paises;
 	}
+
 
 	public static int getContadorPaises() {
 		return contadorPaises;
@@ -63,8 +66,8 @@ public class ListaDePaises {
 	}
 
 	public static boolean estaLlena() {
-		Si ya no se puede guardar ningún nombre más devuelve true, en caso
-		contrario devuelve false
+		//Si ya no se puede guardar ningún nombre más devuelve true, en caso
+		//contrario devuelve false
 		return;
 	}
 }
