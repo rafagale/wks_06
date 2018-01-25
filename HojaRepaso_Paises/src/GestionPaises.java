@@ -7,7 +7,7 @@ public class GestionPaises {
 	public static void main(String[] args) {
 		int opcion, numeroPaises=0;
 		String nombrePais;
-		ListaDePaises[] paises = null;
+		ListaDePaises paises = null;
 
 		do {
 			if (paises == null) {
@@ -24,7 +24,7 @@ public class GestionPaises {
 			switch (opcion) {
 			case 1:
 				numeroPaises = pedirEntero("Cuantos paises quieres almacenar?");
-				paises = new ListaDePaises[numeroPaises];
+				paises = new ListaDePaises(numeroPaises);
 				break;
 			case 2:
 				nombrePais = pedirString("Introduce un nombre");
@@ -35,7 +35,7 @@ public class GestionPaises {
 				}
 				break;
 			case 3:
-
+				
 				break;
 			case 4:
 
