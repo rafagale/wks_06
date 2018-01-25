@@ -21,7 +21,7 @@ public class Libro {
 
 	public String cadenaLibro() {
 		String cadena = "Libro [titulo = " + titulo + ",\n" + "Autor [nombre = " + autor.getNombre() + ", email = "
-				+ autor.getEmail() + ", genero = " + autor.getGenero() + "m]\n" + "precio = " + precio + "cantidad = "
+				+ autor.getEmail() + ", genero = " + autor.getGenero() + "]\n" + "precio = " + precio + " cantidad = "
 				+ cantidad + "]";
 		return cadena;
 	}

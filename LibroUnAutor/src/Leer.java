@@ -41,8 +41,7 @@ public class Leer {
 		return dato;
 
 	}
-	 
-
+	
 	/**
 	 * @param texto
 	 * @return
@@ -68,9 +67,6 @@ public class Leer {
 		return dato;
 
 	}
-	
-	
-	
 	
 	/**
 	 * @param texto
