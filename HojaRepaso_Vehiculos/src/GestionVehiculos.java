@@ -63,7 +63,7 @@ public class GestionVehiculos {
 
 	}// main
 
-	private static void modificar(Vehiculo coche) {
+	private static void modificar(Vehiculo tartana) {
 		int n;
 		int modificacionInt;
 		double modificacionDouble;
@@ -72,20 +72,20 @@ public class GestionVehiculos {
 		case 1:
 			modificacionInt = pedirEntero("Nuevo numero de ruedas?");
 			do {
-				coche.setNumeroDeRuedas(modificacionInt);
+				tartana.setNumeroDeRuedas(modificacionInt);
 			} while (modificacionInt < 0);
 			break;
 		case 2:
 			modificacionDouble = pedirDouble("Velocidad actual?");
-			coche.setVelocidadActual(modificacionDouble);
+			tartana.setVelocidadActual(modificacionDouble);
 			break;
 		case 3:
 			modificacionDouble = pedirDouble("Velocidad maxima?");
-			coche.setVelocidadMax(modificacionDouble);
+			tartana.setVelocidadMax(modificacionDouble);
 			break;
 		case 4:
 			modificacionDouble = pedirDouble("Peso nuevo?");
-			coche.setPeso(modificacionDouble);
+			tartana.setPeso(modificacionDouble);
 		}
 	}
 
