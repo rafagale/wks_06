@@ -26,26 +26,39 @@ public class GestionPaises {
 				numeroPaises = pedirEntero("Cuantos paises quieres almacenar?");
 				paises = new ListaDePaises(numeroPaises);
 				break;
-			case 2:
+			case 2: //Añadir
 				nombrePais = pedirString("Introduce un nombre");
-				for (int i = 0; i < numeroPaises; i++) {
-					if (paises[i].equals(nombrePais)) {
-						
-					}
+				if (paises.anadir(nombrePais)) {
+					System.out.println(nombrePais + " ha sido añadido a la lista");
+				} else if (paises.estaLlena()) {
+					System.out.println("La lista esta llena");
+				} else {
+					System.out.println(nombrePais + " ya está en la lista");
 				}
 				break;
-			case 3:
-				
+			case 3: //Borrar
+				nombrePais = pedirString("Introduce un nombre");
+				if (paises.borrar(nombrePais)) {
+					System.out.println("Llamando a Kim Jong-un...");
+					System.out.println(nombrePais + " ha sido exterminado");
+				}
 				break;
-			case 4:
-
+			case 4: //Listar todos
+				System.out.println(paises);
 				break;
-			case 5:
-
+			case 5: //Borrar todos
+				String confirma;
+				confirma = pedirString("Seguro que quieres vaciar la lista? (y/n)");
+				if (confirma.toLowerCase().equals("y")) {
+					paises.vaciarLista();
+					System.out.println("Lista borrada");
+				} else {
+					System.out.println("No se ha vaciado la lista");
+				}
 				break;
 
 			default:
-				break;
+				System.out.println("Elige una opcion valida");
 			}// switch
 		} while (opcion != 0);
 
