@@ -152,11 +152,6 @@ public class ListaDePaises {
 		int contador = 0;
 		String[] paisesAuxiliar;
 		
-		for (int i = 0; i < paises.length; i++) {
-			if (paises[i] != null) {
-				contador++;
-			}
-		}
 		paisesAuxiliar = new String[paises.length];
 		for (int i = 0; i < paises.length; i++) {
 			if (paises[i] != null) {
