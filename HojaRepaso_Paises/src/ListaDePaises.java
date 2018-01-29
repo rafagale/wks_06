@@ -15,6 +15,7 @@ public class ListaDePaises {
 		paises = new String[numeroPaises];
 	}
 
+	
 	public String[] getPaises() {
 		return paises;
 	}

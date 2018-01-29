@@ -72,11 +72,11 @@ public class ListaDePaises {
 		}
 		System.out.println(posicionNombre);
 		if (borrado) {
-			//Si es ultimo
-			if (posicionNombre == contadorPaises-1) {
-				paises[posicionNombre]=null;
+			// Si es ultimo
+			if (posicionNombre == contadorPaises - 1) {
+				paises[posicionNombre] = null;
 				contadorPaises--;
-				//si esta en medio
+				// si esta en medio
 			} else {
 				System.out.println("Medio");
 				for (int i = posicionNombre; i < paises.length; i++) {
@@ -84,12 +84,12 @@ public class ListaDePaises {
 						try {
 							paises[i] = paises[i + 1];
 							if (estaLlena()) {
-								paises[paises.length-1]=null;
+								paises[paises.length - 1] = null;
 							}
 						} catch (Exception e) {
 							System.out.println("**********************************************Lista llena");
 						}
-						
+
 					}
 				}
 				contadorPaises--;
@@ -146,5 +146,19 @@ public class ListaDePaises {
 			listaLLena = true;
 		}
 		return listaLLena;
+	}
+
+	public void expandir() {
+		int contador = 0;
+		for (int i = 0; i < paises.length; i++) {
+			if (paises[i] != null) {
+				// Cuenta los elementos no null
+				contador++;
+			}
+		}
+		
+		if (contador == (maxElementos()/2)){
+				paises = new String[contador*3];
+		}
 	}
 }// Class
