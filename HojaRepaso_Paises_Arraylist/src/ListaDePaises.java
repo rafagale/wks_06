@@ -108,6 +108,13 @@ public class ListaDePaises {
 		// Devuelve el nombre que se encuentra en la posición pasada como
 		// parámetro (la primera es la posición 0). Devuelve null si no es una
 		// posición válida.
+		for (int i = 0; i < paises.length; i++) {
+			if (paises[posicion] != null) {
+				posicion = i;
+			} else {
+				return "null";
+			}
+		}
 		return paises[posicion];
 	}// mostrar
 

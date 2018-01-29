@@ -5,7 +5,7 @@ import java.io.InputStreamReader;
 public class GestionPaises {
 
 	public static void main(String[] args) {
-		int opcion, numeroPaises=0, n;
+		int opcion, numeroPaises=0;
 		String nombrePais;
 		ListaDePaises paises = null;
 
@@ -56,10 +56,7 @@ public class GestionPaises {
 					System.out.println("No se ha vaciado la lista");
 				}
 				break;
-			case 6: //ver uno
-				n = pedirEntero("Selecciona una posicion");
-				System.out.println(paises.mostrar(n));
-				break;
+
 			default:
 				System.out.println("Elige una opcion valida");
 			}// switch
