@@ -12,13 +12,13 @@ public class GestionPaises {
 		do {
 			if (paises == null) {
 				opcion = pedirEntero("1- Crear lista\n" + "2- Añadir nombre\n" + "3- Borrar un nombre\n"
-						+ "4- Listar todos los nombres\n" + "5- Borrar todos los nombres\n" + "6- Salir.");
+						+ "4- Listar todos los nombres\n" + "5- Borrar todos los nombres\n" + "6- Expandir la lista");
 				while (opcion < 0 || opcion > 1) {
 					opcion = pedirEntero("\nCrea la lista para hacer eso");
 				}
 			} else {
 				opcion = pedirEntero("2- Añadir nombre\n" + "3- Borrar un nombre\n" + "4- Listar todos los nombres\n"
-						+ "5- Borrar todos los nombres\n" + "6- Salir.");
+						+ "5- Borrar todos los nombres\n" +  "6- Expandir la lista");
 			}
 
 			switch (opcion) {
@@ -54,6 +54,12 @@ public class GestionPaises {
 					System.out.println("Lista borrada");
 				} else {
 					System.out.println("No se ha vaciado la lista");
+				}
+				break;
+			case 6: //Expandir
+				if (paises.estaLlena()) {
+					paises.expandir();
+					System.out.println("Se ha expandido la lista de paises.");
 				}
 				break;
 

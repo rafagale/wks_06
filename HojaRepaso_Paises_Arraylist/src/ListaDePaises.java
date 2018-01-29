@@ -150,15 +150,25 @@ public class ListaDePaises {
 
 	public void expandir() {
 		int contador = 0;
+		String[] paisesAuxiliar;
+		
 		for (int i = 0; i < paises.length; i++) {
 			if (paises[i] != null) {
-				// Cuenta los elementos no null
 				contador++;
 			}
 		}
-		
-		if (contador == (maxElementos()/2)){
-				paises = new String[contador*3];
+		paisesAuxiliar = new String[paises.length];
+		for (int i = 0; i < paises.length; i++) {
+			if (paises[i] != null) {
+				paisesAuxiliar[i] = paises[i];
+			}
 		}
-	}
+		paises = new String[paises.length * 2];
+		for (int i = 0; i < paisesAuxiliar.length; i++) {
+			if (paisesAuxiliar[i] != null) {
+				paises[i] = paisesAuxiliar[i];
+			}
+		}
+	}	
+	
 }// Class
