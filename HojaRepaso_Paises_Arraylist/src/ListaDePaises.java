@@ -66,33 +66,20 @@ public class ListaDePaises {
 				posicionNombre = i;
 			}
 		}
+		contadorPaises--;
 		System.out.println(posicionNombre);
 		if (borrado) {
-			// Si es ultimo
-			if (posicionNombre == contadorPaises - 1) {
-				paises[posicionNombre] = null;
-				contadorPaises--;
-				// si esta en medio
-			} else {
-				System.out.println("Medio");
-				for (int i = posicionNombre; i < paises.length; i++) {
-					if (paises[i] != null) {
-						try {
-							paises[i] = paises[i + 1];
-							if (estaLlena()) {
-								paises[paises.length - 1] = null;
-							}
-						} catch (Exception e) {
-							System.out.println("**********************************************Lista llena");
-						}
-
-					}
-				}
-				contadorPaises--;
+			// si el pais se ha borrado, se mueven todos los elementos de la
+			// derecha una posicion a la izquierda
+			for (int i = posicionNombre; i < (paises.length - 1); i++) {
+				paises[i] = paises[i + 1];
+				paises[i + 1] = null;
 			}
+			return borrado;
+		} else {
+			return borrado;
 		}
-		return borrado;
-	}
+	}// Borrar
 
 	public void vaciarLista() {
 		for (int i = 0; i < paises.length; i++) {
@@ -135,7 +122,7 @@ public class ListaDePaises {
 			listaLLena = true;
 		}
 		return listaLLena;
-	}
+	}// estaLlena
 
 	public void expandir() {
 		// Copia el array de paises actual a uno auxiliar para posteriormente
@@ -147,7 +134,7 @@ public class ListaDePaises {
 				paisesAuxiliar[i] = paises[i];
 			}
 		}
-		
+
 		paises = new String[paises.length * 2];
 
 		for (int i = 0; i < paisesAuxiliar.length; i++) {
