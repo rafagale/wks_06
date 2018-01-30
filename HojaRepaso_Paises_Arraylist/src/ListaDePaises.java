@@ -66,9 +66,10 @@ public class ListaDePaises {
 				posicionNombre = i;
 			}
 		}
-		contadorPaises--;
+
 		System.out.println(posicionNombre);
 		if (borrado) {
+			contadorPaises--;
 			// si el pais se ha borrado, se mueven todos los elementos de la
 			// derecha una posicion a la izquierda
 			for (int i = posicionNombre; i < (paises.length - 1); i++) {
