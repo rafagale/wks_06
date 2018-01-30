@@ -8,7 +8,7 @@ public class GestionPaises {
 		int opcion, numeroPaises = 0, n;
 		String nombrePais;
 		ListaDePaises paises = null;
-
+		
 		do {
 			if (paises == null) {
 				opcion = pedirEntero("1- Crear lista\n" + "2- Añadir nombre\n" + "3- Borrar un nombre\n"

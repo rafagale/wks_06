@@ -31,11 +31,13 @@ public class Vehiculo {
 	 * @param vehiculo
 	 */
 	public void copia(Vehiculo vehiculo) {
-		vehiculo.numeroDeRuedas = this.numeroDeRuedas;
-		vehiculo.velocidadMax = this.velocidadMax;
-		vehiculo.velocidadActual = this.velocidadActual;
-		vehiculo.peso = this.peso;
+		vehiculo.numeroDeRuedas = this.numeroDeRuedas.intValue();
+		vehiculo.velocidadMax = this.velocidadMax.doubleValue();
+		vehiculo.velocidadActual = this.velocidadActual.doubleValue();
+		vehiculo.peso = this.peso.doubleValue();
 	}// copia
+	
+		
 
 	@Override
 	public String toString() {

@@ -12,7 +12,7 @@ public class GestionVehiculos {
 		System.out.println("Hay " + Vehiculo.contadorVehiculos + " vehiculos");
 
 		opcion = pedirEntero(
-				"1-Visualizar vehiculos\n2-Comprobar si son iguales\n3-Copiar\n4-Modificar valores\n5-Salir");
+				"1-Visualizar vehiculos\n2-Comprobar si son iguales\n3-Copiar\n4-Modificar valores\n0-Salir");
 		while (opcion != 0) {
 			switch (opcion) {
 			case 1:
@@ -58,7 +58,7 @@ public class GestionVehiculos {
 				break;
 			}// Switch
 			opcion = pedirEntero(
-					"1-Visualizar vehiculos\n2-Comprobar si son iguales\n3-Copiar\n4-Modificar valores\n5-Salir");
+					"1-Visualizar vehiculos\n2-Comprobar si son iguales\n3-Copiar\n4-Modificar valores\n0-Salir");
 		} // While
 
 	}// main
