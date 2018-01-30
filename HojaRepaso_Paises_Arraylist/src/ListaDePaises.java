@@ -62,14 +62,15 @@ public class ListaDePaises {
 		// borrado.
 		for (int i = 0; i < paises.length; i++) {
 			if (paises[i] != null && paises[i].equals(nombre)) {
+				paises[i]=null;
 				borrado = true;
 				posicionNombre = i;
+				contadorPaises--;
 			}
 		}
 
 		System.out.println(posicionNombre);
 		if (borrado) {
-			contadorPaises--;
 			// si el pais se ha borrado, se mueven todos los elementos de la
 			// derecha una posicion a la izquierda
 			for (int i = posicionNombre; i < (paises.length - 1); i++) {

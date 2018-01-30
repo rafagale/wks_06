@@ -56,7 +56,7 @@ public class ListaDePaises {
 		return existencia;
 	}
 
-	public boolean borrar(String nombre) {
+/*	public boolean borrar(String nombre) {
 		boolean borrado = false;
 		int posicionNombre = 0;
 		// Devuelve true si ha podido borrar el nombre que recibe en el
@@ -70,10 +70,62 @@ public class ListaDePaises {
 				posicionNombre = i;
 			}
 		}
+		System.out.println(posicionNombre);
+		if (borrado) {
+			// Si es ultimo
+			if (posicionNombre == contadorPaises - 1) {
+				paises[posicionNombre] = null;
+				contadorPaises--;
+				// si es el primero
+			} else if (paises[0].equals(nombre)) {
+				for (int i = posicionNombre; i < paises.length; i++) {
+					if (paises[i] != null) {
+						paises[i] = paises[i + 1];
+						if (estaLlena()) {
+							paises[paises.length - 1] = null;
+						}
+						
+					}
+				}
+				contadorPaises--;
+			} else {
+				// medio
+				System.out.println("Medio");
+				for (int i = posicionNombre; i < paises.length; i++) {
+					if (paises[i] != null) {
+						paises[i] = paises[i + 1];
+						if (estaLlena()) {
+							paises[paises.length - 1] = null;
+						}
+					}
+				}
+				contadorPaises--;
+			}
+
+		}
+		return borrado;
+	}*/
+
+	
+	public boolean borrar(String nombre) {
+		boolean borrado = false;
+		int posicionNombre = 0;
+		// Devuelve true si ha podido borrar el nombre que recibe en el
+		// parámetro y false en caso contrario. Al borrar un nombre hay que
+		// desplazar un lugar a la izquierda
+		// todos los elementos que quedan a la derecha del nombre que se ha
+		// borrado.
+		for (int i = 0; i < paises.length; i++) {
+			if (paises[i] != null && paises[i].equals(nombre)) {
+				paises[i]=null;
+				borrado = true;
+				posicionNombre = i;
+				contadorPaises--;
+			}
+		}
 
 		System.out.println(posicionNombre);
 		if (borrado) {
-			contadorPaises--;
 			// si el pais se ha borrado, se mueven todos los elementos de la
 			// derecha una posicion a la izquierda
 			for (int i = posicionNombre; i < (paises.length - 1); i++) {
@@ -85,7 +137,6 @@ public class ListaDePaises {
 			return borrado;
 		}
 	}// Borrar
-
 	public void vaciarLista() {
 		for (int i = 0; i < paises.length; i++) {
 			paises[i] = null;
