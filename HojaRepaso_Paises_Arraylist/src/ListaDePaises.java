@@ -15,10 +15,6 @@ public class ListaDePaises {
 		paises = new String[numeroPaises];
 	}
 
-	public String[] getPaises() {
-		return paises;
-	}
-
 	public void setPaises(String[] paises) {
 		this.paises = paises;
 	}
@@ -108,13 +104,6 @@ public class ListaDePaises {
 		// Devuelve el nombre que se encuentra en la posición pasada como
 		// parámetro (la primera es la posición 0). Devuelve null si no es una
 		// posición válida.
-		for (int i = 0; i < paises.length; i++) {
-			if (paises[posicion] != null) {
-				posicion = i;
-			} else {
-				return "null";
-			}
-		}
 		return paises[posicion];
 	}// mostrar
 
@@ -149,21 +138,23 @@ public class ListaDePaises {
 	}
 
 	public void expandir() {
-		int contador = 0;
-		String[] paisesAuxiliar;
-		
-		paisesAuxiliar = new String[paises.length];
+		// Copia el array de paises actual a uno auxiliar para posteriormente
+		// volverlo a copiar en uno con con el doble de capacidad
+		String[] paisesAuxiliar = new String[paises.length];
+
 		for (int i = 0; i < paises.length; i++) {
 			if (paises[i] != null) {
 				paisesAuxiliar[i] = paises[i];
 			}
 		}
+
 		paises = new String[paises.length * 2];
+
 		for (int i = 0; i < paisesAuxiliar.length; i++) {
 			if (paisesAuxiliar[i] != null) {
 				paises[i] = paisesAuxiliar[i];
 			}
 		}
-	}	
-	
+	}// expandir
+
 }// Class

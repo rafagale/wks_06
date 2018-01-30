@@ -5,20 +5,21 @@ import java.io.InputStreamReader;
 public class GestionPaises {
 
 	public static void main(String[] args) {
-		int opcion, numeroPaises=0;
+		int opcion, numeroPaises = 0, n;
 		String nombrePais;
 		ListaDePaises paises = null;
 
 		do {
 			if (paises == null) {
 				opcion = pedirEntero("1- Crear lista\n" + "2- Añadir nombre\n" + "3- Borrar un nombre\n"
-						+ "4- Listar todos los nombres\n" + "5- Borrar todos los nombres\n" + "6- Expandir la lista");
+						+ "4- Listar todos los nombres\n" + "5- Borrar todos los nombres\n" + "6- Expandir la lista\n"
+						+ "7- Mostrar un elemento");
 				while (opcion < 0 || opcion > 1) {
 					opcion = pedirEntero("\nCrea la lista para hacer eso");
 				}
 			} else {
 				opcion = pedirEntero("2- Añadir nombre\n" + "3- Borrar un nombre\n" + "4- Listar todos los nombres\n"
-						+ "5- Borrar todos los nombres\n" +  "6- Expandir la lista");
+						+ "5- Borrar todos los nombres\n" + "6- Expandir la lista\n" + "7- Mostrar un elemento");
 			}
 
 			switch (opcion) {
@@ -26,7 +27,7 @@ public class GestionPaises {
 				numeroPaises = pedirEntero("Cuantos paises quieres almacenar?");
 				paises = new ListaDePaises(numeroPaises);
 				break;
-			case 2: //Añadir
+			case 2: // Añadir
 				nombrePais = pedirString("Introduce un nombre");
 				if (paises.anadir(nombrePais)) {
 					System.out.println(nombrePais + " ha sido añadido a la lista");
@@ -36,17 +37,17 @@ public class GestionPaises {
 					System.out.println(nombrePais + " ya está en la lista");
 				}
 				break;
-			case 3: //Borrar
+			case 3: // Borrar
 				nombrePais = pedirString("Introduce un nombre");
 				if (paises.borrar(nombrePais)) {
 					System.out.println("Llamando a Kim Jong-un...");
 					System.out.println(nombrePais + " ha sido exterminado");
 				}
 				break;
-			case 4: //Listar todos
+			case 4: // Listar todos
 				System.out.println(paises);
 				break;
-			case 5: //Borrar todos
+			case 5: // Borrar todos
 				String confirma;
 				confirma = pedirString("Seguro que quieres vaciar la lista? (y/n)");
 				if (confirma.toLowerCase().equals("y")) {
@@ -56,21 +57,26 @@ public class GestionPaises {
 					System.out.println("No se ha vaciado la lista");
 				}
 				break;
-			case 6: //Expandir
+			case 6: // Expandir
 				if (paises.estaLlena()) {
 					paises.expandir();
 					System.out.println("Se ha expandido la lista de paises.");
+				} else {
+					System.out.println("Llena la lista antes de expandirla.");
 				}
 				break;
-
+			case 7: // Mostrar
+				System.out.println(paises);
+				System.out.println("La primera posicion es 0");
+				n = pedirEntero("Selecciona un número");
+				System.out.println(paises.mostrar(n));
+				break;
 			default:
 				System.out.println("Elige una opcion valida");
 			}// switch
 		} while (opcion != 0);
 
 	}// main
-
-
 
 	static public int pedirEntero(final String mensaje) {
 		BufferedReader dataIn = new BufferedReader(new InputStreamReader(System.in));
