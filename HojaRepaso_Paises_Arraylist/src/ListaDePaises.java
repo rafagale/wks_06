@@ -62,7 +62,7 @@ public class ListaDePaises {
 		// borrado.
 		for (int i = 0; i < paises.length; i++) {
 			if (paises[i] != null && paises[i].equals(nombre)) {
-				paises[i]=null;
+				paises[i] = null;
 				borrado = true;
 				posicionNombre = i;
 				contadorPaises--;
@@ -129,21 +129,20 @@ public class ListaDePaises {
 	public void expandir() {
 		// Copia el array de paises actual a uno auxiliar para posteriormente
 		// volverlo a copiar en uno con con el doble de capacidad
-		String[] paisesAuxiliar = new String[paises.length];
-
-		for (int i = 0; i < paises.length; i++) {
-			if (paises[i] != null) {
-				paisesAuxiliar[i] = paises[i];
-			}
-		}
-
-		paises = new String[paises.length * 2];
-
-		for (int i = 0; i < paisesAuxiliar.length; i++) {
-			if (paisesAuxiliar[i] != null) {
-				paises[i] = paisesAuxiliar[i];
-			}
-		}
+		/*
+		 * String[] paisesAuxiliar = new String[paises.length];
+		 * 
+		 * for (int i = 0; i < paises.length; i++) { if (paises[i] != null) {
+		 * paisesAuxiliar[i] = paises[i]; } }
+		 * 
+		 * paises = new String[paises.length * 2];
+		 * 
+		 * for (int i = 0; i < paisesAuxiliar.length; i++) { if
+		 * (paisesAuxiliar[i] != null) { paises[i] = paisesAuxiliar[i]; }
+		 * 
+		 * }
+		 */
+		paises = Arrays.copyOf(paises, paises.length * 2);
 	}// expandir
 
 }// Class
