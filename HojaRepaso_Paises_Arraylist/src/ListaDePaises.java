@@ -129,6 +129,7 @@ public class ListaDePaises {
 	public void expandir() {
 		// Copia el array de paises actual a uno auxiliar para posteriormente
 		// volverlo a copiar en uno con con el doble de capacidad
+		
 		/*
 		 * String[] paisesAuxiliar = new String[paises.length];
 		 * 
