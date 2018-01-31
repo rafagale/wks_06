@@ -1,5 +1,12 @@
 
 public class Calculadora {
+	
+	public Calculadora(Integer num1, Integer num2) {
+		super();
+		this.num1 = num1;
+		this.num2 = num2;
+	}
+
 	private Integer num1, num2;
 
 	public int suma() {

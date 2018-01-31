@@ -4,27 +4,29 @@ import org.junit.Test;
 
 public class CalculadoraTest {
 
+
+
 	@Test
-	public void suma() {
-		Calculadora  calcu = new Calculadora();
-		int num1, num2;
+	public void testSuma() {
+		int a=1, b=1;
+		Calculadora calcu = new Calculadora(a, b);
 		int resultado = calcu.suma();
 		assertEquals(resultado, 2);
 	}
-	
+
 	@Test
-	public void resta() {
-		
+	public void testResta() {
+		fail();
 	}
-	
+
 	@Test
-	public void multi() {
-		
+	public void testmulti() {
+		fail();
 	}
-	
+
 	@Test
-	public void divide() {
-		
+	public void testDivide() {
+		fail();
 	}
 
 }
