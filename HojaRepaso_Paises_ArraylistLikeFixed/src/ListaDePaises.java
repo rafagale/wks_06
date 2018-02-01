@@ -8,11 +8,12 @@ public class ListaDePaises {
 	 */
 	private Integer numeroPaises;
 	private String[] paises;
-	private int contadorPaises = 0;
+	private int contadorPaises;
 
 	public ListaDePaises(Integer numeroPaises) {
 		this.numeroPaises = numeroPaises;
 		paises = new String[numeroPaises];
+		contadorPaises = 0;
 	}
 
 	public int getContadorPaises() {
