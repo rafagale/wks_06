@@ -35,7 +35,7 @@ public class GestionPaises {
 				}
 				break;
 			case 2: // Añadir
-				nombrePais = lista[nombreRandom.nextInt(10)];
+				nombrePais = lista[nombreRandom.nextInt(11)];
 				if (paises.anadir(nombrePais)) {
 					System.out.println("El pais " + nombrePais + " ha sido añadido a la lista");
 				} else {
