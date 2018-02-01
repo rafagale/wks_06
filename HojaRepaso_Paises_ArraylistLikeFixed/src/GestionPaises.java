@@ -27,8 +27,12 @@ public class GestionPaises {
 
 			switch (opcion) {
 			case 1:
-				numeroPaises = pedirEntero("Cuantos paises quieres almacenar?");
-				paises = new ListaDePaises(numeroPaises);
+				if (paises !=null) {
+					System.out.println("Ya hay una lista creada");
+				} else {
+					numeroPaises = pedirEntero("Cuantos paises quieres almacenar?");
+					paises = new ListaDePaises(numeroPaises);
+				}
 				break;
 			case 2: // Añadir
 				nombrePais = lista[nombreRandom.nextInt(10)];
