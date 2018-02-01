@@ -31,6 +31,7 @@ public class Principal {
 			for (z=1;z<=8;z++){
 				dni=dni+(char)(azar.nextInt(10)+48);
 			}
+			dni+=(char)(azar.nextInt(24)+65);
 			personas[t] =new Persona(nombre[azar.nextInt(nombre.length)],
 					azar.nextInt(10)+40,azar.nextInt(50)+150,dni);
 		}
