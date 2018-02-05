@@ -10,45 +10,42 @@ public class GestionEmpleadosJefes {
 	 * que es jefe.
 	 */
 	public static void main(String[] args) {
-		Empleado[] empleados = null;
-		Jefe[] jefes = null;
 		int num;
-		String nombre;
+		String nombre, titulo, dpto;
 		double sueldo;
-		
-		
-		
-		num=Teclado.pedirEntero("Cuantos empleados quieres crear?");
-		empleados = new Empleado[num];
+
+		num = Teclado.pedirEntero("Cuantos empleados quieres crear?");
+		Empleado[] empleados = new Empleado[num];
 		for (int i = 0; i < empleados.length; i++) {
 			nombre = Teclado.pedirString("Introduce un nombre");
-			empleados[i].setNombre(nombre);
 			sueldo = Teclado.pedirDouble("Introduce un SUELDO");
-			empleados[i].setSueldo(sueldo);
+			empleados[i] = new Empleado(nombre, sueldo);
 		}
-		
-		num=Teclado.pedirEntero("Cuantos jefes quieres crear?");
-		jefes = new Jefe[num];
+
+		num = Teclado.pedirEntero("Cuantos jefes quieres crear? Tambien son empleados");
+		Jefe[] jefes = new Jefe[num];
 		for (int i = 0; i < jefes.length; i++) {
 			nombre = Teclado.pedirString("Introduce un nombre");
-			jefes[i].setNombre(nombre);
-			sueldo = Teclado.pedirDouble("Introduce un SUELDO");
-			jefes[i].setSueldo(sueldo);
-			nombre = Teclado.pedirString("Introduce Titulo");
-			jefes[i].setTitulo(nombre);
-			nombre = Teclado.pedirString("Introduce un nombre de departamento");
-			jefes[i].setNombreDpto(nombre);
+			sueldo = Teclado.pedirDouble("Introduce un sueldo");
+			titulo = Teclado.pedirString("Introduce Titulo");
+			dpto = Teclado.pedirString("Introduce un nombre de departamento");
+			jefes[i] = new Jefe(nombre, sueldo, titulo, dpto);
 		}
-		
-		
-		System.out.println("JEFES*-*******************************************************************");
+		visualizar("Jefes");
 		for (int i = 0; i < jefes.length; i++) {
-			System.out.println(jefes[i]);
+			System.out.println("Jefe #" + (i + 1) + jefes[i]);
 		}
-		System.out.println("Empleados*-*******************************************************************");
+		visualizar("Empleados");
 		for (int i = 0; i < empleados.length; i++) {
-			System.out.println(empleados[i]);
+			System.out.println("Empleado #" + (i + 1) + empleados[i]);
 		}
+
 	}// main
+
+	public static void visualizar(String nombre) {
+		System.out.println("\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\");
+		System.out.println("***********" + nombre + "*******************");
+		System.out.println("///////////////////////////////////////");
+	}
 
 }// Class
