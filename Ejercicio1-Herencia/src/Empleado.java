@@ -1,7 +1,7 @@
 
 public class Empleado {
-	protected String nombre;
-	protected Double sueldo;
+	private String nombre;
+	private Double sueldo;
 	
 	public Empleado(String nombre, Double sueldo) {
 		this.nombre = nombre;

@@ -11,7 +11,9 @@ public class Jefe extends Empleado {
 
 	@Override
 	public String toString() {
-		return " [Nombre: " + nombre + ", Sueldo: " + sueldo + "€, Titulo: " + titulo + ", Nombre departamento: " + nombreDpto + "]";
+		return "Jefe ["+super.toString() + "titulo=" + titulo + ", nombreDpto=" + nombreDpto + ", toString()=" + "]";
 	}
+
+
 	
 }
