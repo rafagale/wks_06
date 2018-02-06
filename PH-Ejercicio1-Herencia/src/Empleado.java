@@ -8,17 +8,15 @@ public class Empleado {
 		this.sueldo = sueldo;
 	}//Constructor
 
+	
+	
 	public String getNombre() {
 		return nombre;
 	}
 
-
-
 	public Double getSueldo() {
 		return sueldo;
 	}
-
-
 
 	@Override
 	public String toString() {

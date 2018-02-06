@@ -9,11 +9,12 @@ public class Jefe extends Empleado {
 		this.nombreDpto = nombreDpto;
 	}// Constructor
 
+	
 	@Override
 	public String toString() {
-		return "Jefe ["+super.toString() + "titulo=" + titulo + ", nombreDpto=" + nombreDpto + ", toString()=" + "]";
+		return "Jefe [" + super.toString() + "titulo=" + titulo + ", nombreDpto=" + nombreDpto + ", toString()=" + "]";
 	}
 
 
-	
+
 }
