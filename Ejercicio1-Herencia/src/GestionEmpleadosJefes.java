@@ -13,9 +13,13 @@ public class GestionEmpleadosJefes {
 		int num;
 		String nombre, titulo, dpto;
 		double sueldo;
-
+		Empleado[] empleados = null;
+		Jefe[] jefes = null;
+		
+		Empleado unJefe = new Jefe("Torete", 5000.0, "Carnicero", "Transportes");
+		
 		num = Teclado.pedirEntero("Cuantos empleados quieres crear?");
-		Empleado[] empleados = new Empleado[num];
+		empleados = new Empleado[num];
 		for (int i = 0; i < empleados.length; i++) {
 			nombre = Teclado.pedirString("Introduce un nombre");
 			sueldo = Teclado.pedirDouble("Introduce un SUELDO");
@@ -23,7 +27,7 @@ public class GestionEmpleadosJefes {
 		}
 
 		num = Teclado.pedirEntero("Cuantos jefes quieres crear? Tambien son empleados");
-		Jefe[] jefes = new Jefe[num];
+		jefes = new Jefe[num];
 		for (int i = 0; i < jefes.length; i++) {
 			nombre = Teclado.pedirString("Introduce un nombre");
 			sueldo = Teclado.pedirDouble("Introduce un sueldo");
@@ -32,6 +36,7 @@ public class GestionEmpleadosJefes {
 			jefes[i] = new Jefe(nombre, sueldo, titulo, dpto);
 		}
 		visualizar("Jefes");
+		System.out.println("Jefe random: "+unJefe);
 		for (int i = 0; i < jefes.length; i++) {
 			System.out.println("Jefe #" + (i + 1) + jefes[i]);
 		}
