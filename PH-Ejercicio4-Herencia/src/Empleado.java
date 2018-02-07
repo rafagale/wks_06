@@ -16,7 +16,7 @@ public class Empleado extends Empresa {
 		this.nombre = nombre;
 		this.edad = edad;
 		this.sueldoBase = 1000;
-		this.incrementoSueldo = sueldoBase*incrementoSueldo/100;
+		this.incrementoSueldo = this.sueldoBase.intValue()*incrementoSueldo.intValue()/100;
 	}
 	public void setSueldoBase(Integer sueldoBase) {
 		this.sueldoBase = sueldoBase;
@@ -31,4 +31,5 @@ public class Empleado extends Empresa {
 		return "Empleado [nombre=" + nombre + ", edad=" + edad + ", sueldoBase=" + sueldoBase + ", incrementoSueldo="
 				+ incrementoSueldo + ", " + super.toString() + "]";
 	}
+	
 }
