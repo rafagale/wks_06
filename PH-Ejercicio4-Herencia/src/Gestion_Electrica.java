@@ -22,7 +22,6 @@ public class Gestion_Electrica {
 			case 3: // Visualizar los datos de todos los empleados.
 				System.out.println(empleado1);
 				System.out.println(jefe1);
-				System.err.println("Pobres");
 				break;
 
 			default:
