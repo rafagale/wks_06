@@ -13,17 +13,13 @@ public class Empleado {
 		sueldoBase = 1000;
 	}
 
-
-
 	public static void setSueldoBase(Integer sueldoBase) {
 		Empleado.sueldoBase = sueldoBase;
 	}
 
-
-
-	public int getSueldoReal() {
-		int sueldoReal;
-		sueldoReal = sueldoBase * (1 + porcentaje / 100);
+	public Double getSueldoReal() {
+		double sueldoReal;
+		sueldoReal = sueldoBase * (1 + (double)porcentaje / 100);
 		return sueldoReal;
 	}
 
@@ -47,15 +43,8 @@ public class Empleado {
 		return nombreEmpresa;
 	}
 
-
-
-	@Override
-	public String toString() {
-		return "Empleado [nombre=" + nombre + ", edad=" + edad + ", porcentaje=" + porcentaje + "]";
-	}
-	
-	
 	public String visualizar() {
-		return "Empleado [nombre=" + nombre + ", edad=" + edad + ", porcentaje=" + porcentaje + "]";
+		return "Empleado [nombre=" + nombre + ", edad=" + edad + ", porcentaje=" + porcentaje + ", sueldo real = "
+				+ getSueldoReal() + "]";
 	}
 }
