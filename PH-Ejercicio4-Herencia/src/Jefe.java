@@ -1,30 +1,39 @@
 
 public class Jefe extends Empleado {
-	private Integer plusJefe;
-	private Integer numeroDepartamento;
-	/**
-	 * @param nombreEmpresa
-	 * @param nombre
-	 * @param edad
-	 * @param sueldoBase
-	 * @param incrementoSueldo
-	 * @param plusJefe
-	 * @param numeroDepartamento
-	 */
-	public Jefe(String nombreEmpresa, String nombre, Integer edad, Integer sueldoBase, Integer incrementoSueldo,
-			Integer plusJefe, Integer numeroDepartamento) {
-		super(nombreEmpresa, nombre, edad, sueldoBase, incrementoSueldo);
-		this.plusJefe = 250;
-		this.numeroDepartamento = numeroDepartamento;
+	private static Integer plusJefe;
+	private String departamento;
+
+
+
+	public Jefe(String nombre, Integer edad, Integer porcentaje, String departamento) {
+		super(nombre, edad, porcentaje);
+		this.departamento = departamento;
+		plusJefe = 250;
 	}
+
+
+	public static Integer getPlusJefe() {
+		return plusJefe;
+	}
+
+
+	public static void setPlusJefe(Integer plusJefe) {
+		Jefe.plusJefe = plusJefe;
+	}
+
+	public String getDepartamento() {
+		return departamento;
+	}
+
+
 	@Override
 	public String toString() {
-		return "Jefe [plusJefe=" + plusJefe + ", numeroDepartamento=" + numeroDepartamento + ", "
-				+ super.toString() + "]";
-	}
-	public void setPlusJefe(Integer plusJefe) {
-		this.plusJefe = plusJefe;
+		return "Jefe [departamento=" + departamento + ", toString()=" + super.toString() + "]";
 	}
 	
+	@Override
+	public String visualizar(){
+		return "Jefe [departamento=" + departamento + ", toString()=" + super.visualizar() + "]";
+	}
 
 }
