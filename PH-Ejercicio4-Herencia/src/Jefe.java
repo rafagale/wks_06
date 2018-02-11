@@ -31,7 +31,7 @@ public class Jefe extends Empleado {
 	
 	@Override
 	public String visualizar() {
-		return "Jefe" + super.visualizar() + "[departamento=" + departamento + ", plus " + plusJefe + "Sueldo total: " +getSueldoReal() +"]";
+		return "Jefe " + super.visualizar() + "[departamento=" + departamento + ", plus " + plusJefe + "Sueldo total: " +getSueldoReal() +"]";
 	}
 
 }

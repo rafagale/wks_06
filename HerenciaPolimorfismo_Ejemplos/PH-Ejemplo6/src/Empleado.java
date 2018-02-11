@@ -1,4 +1,3 @@
-import utilidades.Leer;
 
 public class Empleado {
 	private String nombre;

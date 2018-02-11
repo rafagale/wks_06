@@ -1,4 +1,3 @@
-import utilidades.Leer;
 
 public class Jefe extends Empleado {
 	private String departJefe;

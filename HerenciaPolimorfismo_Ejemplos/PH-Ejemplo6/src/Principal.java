@@ -1,4 +1,3 @@
-import utilidades.Leer;
 
 public class Principal {
 	public static void main(String[] args) {
