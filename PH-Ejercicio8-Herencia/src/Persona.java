@@ -5,7 +5,7 @@ public interface Persona {
 	public String nombreEmpresa="Endesa";
 
 	//Es abstract aunque no lo ponga
-	public void pedirTodosDatos(String nombre, Integer edad);
+	public void pedirTodosDatos();
 
 	public void visualizarTodosDatos();
 	

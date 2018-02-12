@@ -19,11 +19,11 @@ public class Empleado implements Persona{
 	public void setEdadEmpleado(Integer edadEmpleado) {
 		this.edadEmpleado = edadEmpleado;
 	}
-
+	
 	@Override
-	public void pedirTodosDatos(String nombre, Integer edad) {
-		this.nombreEmpleado = nombre;
-		this.edadEmpleado = edad;
+	public void pedirTodosDatos() {
+		nombreEmpleado = Teclado.pedirString("Nombre del empleado?");
+		edadEmpleado = Teclado.pedirEntero("Edad del empleado?");
 	}
 	
 	@Override
