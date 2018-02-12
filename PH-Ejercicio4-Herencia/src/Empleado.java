@@ -5,12 +5,18 @@ public class Empleado {
 	private Integer porcentaje;
 	private static Integer sueldoBase;
 	final private static String nombreEmpresa = "Eléctrica, SA";
+	private static Integer contaEmpleados=0;
+
+	public static Integer getContaEmpleados() {
+		return contaEmpleados;
+	}
 
 	public Empleado(String nombre, Integer edad, Integer porcentaje) {
 		this.nombre = nombre;
 		this.edad = edad;
 		this.porcentaje = porcentaje;
 		sueldoBase = 1000;
+		contaEmpleados++;
 	}
 
 	public static void setSueldoBase(Integer sueldoBase) {

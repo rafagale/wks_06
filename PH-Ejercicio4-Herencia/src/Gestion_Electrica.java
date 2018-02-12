@@ -21,6 +21,7 @@ public class Gestion_Electrica {
 			case 3: // Visualizar los datos de todos los empleados.
 				System.out.println(empleado1.visualizar());
 				System.out.println(jefe1.visualizar());
+				System.out.println("Hay " +Empleado.getContaEmpleados() + " empleados y " +Jefe.getContaJefes() + " de ellos son jefes");
 				break;
 			default:
 				break;

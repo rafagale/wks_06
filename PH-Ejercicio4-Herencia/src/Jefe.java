@@ -2,11 +2,17 @@
 public class Jefe extends Empleado {
 	private static Integer plusJefe;
 	private String departamento;
-
+	private static Integer contaJefes=0;
+	
 	public Jefe(String nombre, Integer edad, Integer porcentaje, String departamento) {
 		super(nombre, edad, porcentaje);
 		this.departamento = departamento;
 		plusJefe = 250;
+		contaJefes++;
+	}
+
+	public static Integer getContaJefes() {
+		return contaJefes;
 	}
 
 	public static Integer getPlusJefe() {
