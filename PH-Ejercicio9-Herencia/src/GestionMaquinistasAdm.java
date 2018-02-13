@@ -17,25 +17,26 @@ public class GestionMaquinistasAdm {
 		numero = Teclado.pedirEntero("Cuantos maquinistas quieres crear?");
 		Empleado maquinistas[] = new Maquinista[numero];
 		for (int i = 0; i < maquinistas.length; i++) {
-			empleados[i] = new Maquinista(nombres[rand.nextInt(nombres.length)], rand.nextInt(30) + 25,
+			maquinistas[i] = new Maquinista(nombres[rand.nextInt(nombres.length)], rand.nextInt(30) + 25,
 					rand.nextInt(10), rand.nextInt(10) + 5);
 		}
 
 		numero = Teclado.pedirEntero("Cuantos administrativos quieres crear?");
 		Empleado adminstrativos[] = new Administrativo[numero];
 		for (int i = 0; i < adminstrativos.length; i++) {
-			empleados[i] = new Administrativo(nombres[rand.nextInt(nombres.length)], rand.nextInt(30) + 25,
+			adminstrativos[i] = new Administrativo(nombres[rand.nextInt(nombres.length)], rand.nextInt(30) + 25,
 					estudios[rand.nextInt(estudios.length)], rand.nextInt(100));
 		}
 
 		System.out.println(visualizarNumeroEmpleados());
 
-		/*
-		 * Visualiza los datos de cada uno de ellos (por grupos). Para ello se
-		 * usará un único método preparado para recibir los datos de un grupo de
-		 * trabajadores con el fin de visualizar sus datos.
-		 */
+		System.out.println("\n--------------------Empleados rasos------------------");
 		visualizarDatos(empleados);
+		System.out.println("---------------------Maquinistas---------------------");
+		visualizarDatos(maquinistas);
+		System.out.println("--------------------Administrativos------------------");
+		visualizarDatos(adminstrativos);
+
 	}// main
 
 	public static void visualizarDatos(Object trabajadores[]) {
@@ -43,12 +44,20 @@ public class GestionMaquinistasAdm {
 		Maquinista maq;
 		Administrativo adm;
 		for (int i = 0; i < trabajadores.length; i++) {
-			if (trabajadores[i] instanceof Maquinista) {
+			if (trabajadores[i] instanceof Empleado) {
+				emp = (Empleado) trabajadores[i];
+				System.out.println(emp.visualizar());
+			} else if (trabajadores[i] instanceof Maquinista) {
 				maq = (Maquinista) trabajadores[i];
+				System.out.println(maq.visualizar());
+			} else if (trabajadores[i] instanceof Administrativo) {
+				adm = (Administrativo) trabajadores[i];
+				System.out.println(adm.visualizar());
+			} else {
+				System.out.println("No es dato de tipo empleado, maquinista o administrativo");
 			}
 		}
-
-	}
+	}// visualizarDatos
 
 	public static String visualizarNumeroEmpleados() {
 		return "Hay un total de: " + Empleado.getContaEmpleados() + " empleados, de los cuales "
