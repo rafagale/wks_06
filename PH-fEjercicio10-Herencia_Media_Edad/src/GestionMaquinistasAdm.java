@@ -59,8 +59,29 @@ public class GestionMaquinistasAdm {
 		}
 		System.out.println("Edad media: " + (double) suma / conta);
 	}// visualizarEdadMedia
+	
 
-	public static void visualizarDatos(Object trabajadores[]) {
+	public static void visualizarDatos( Empleado[] trabajadores) {
+		for (int i = 0; i < trabajadores.length; i++) {
+				System.out.println(trabajadores[i].visualizar());
+		}
+	}// visualizarDatos
+	
+	
+	//Otra forma
+/*	public static void visualizarEdadMedia(Empleado []trabajadores) {
+		int conta = 0;
+		int suma = 0;
+		for (int i = 0; i < trabajadores.length; i++) {
+				suma += trabajadores[i].getEdad();
+				conta++;
+		}
+		System.out.println("Edad media: " + (double) suma / conta);
+	}// visualizarEdadMedia
+*/
+
+	
+/*	public static void visualizarDatos(Object trabajadores[]) {
 		Empleado emp;
 		for (int i = 0; i < trabajadores.length; i++) {
 			if (trabajadores[i] instanceof Empleado) {
@@ -71,6 +92,7 @@ public class GestionMaquinistasAdm {
 			}
 		}
 	}// visualizarDatos
+*/	
 
 	public static String visualizarNumeroEmpleados() {
 		return "Hay un total de: " + Empleado.getContaEmpleados() + " empleados, de los cuales "

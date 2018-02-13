@@ -39,7 +39,14 @@ public class GestionMaquinistasAdm {
 
 	}// main
 
-	public static void visualizarDatos(Object trabajadores[]) {
+	
+	public static void visualizarDatos( Empleado[] trabajadores) {
+		for (int i = 0; i < trabajadores.length; i++) {
+				System.out.println(trabajadores[i].visualizar());
+		}
+	}
+	
+	/*public static void visualizarDatos(Object trabajadores[]) {
 		Empleado emp;
 		Maquinista maq;
 		Administrativo adm;
@@ -58,7 +65,7 @@ public class GestionMaquinistasAdm {
 			}
 		}
 	}// visualizarDatos
-
+*/
 	public static String visualizarNumeroEmpleados() {
 		return "Hay un total de: " + Empleado.getContaEmpleados() + " empleados, de los cuales "
 				+ Maquinista.getContaMaquinistas() + " son maquinistas, " + Administrativo.getContaAdministrativos()
