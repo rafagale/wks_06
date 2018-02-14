@@ -5,7 +5,7 @@ public class GestionMaquinistasAdm {
 	public static void main(String[] args) {
 		int numero;
 		String nombres[] = { "Pepe", "Juan", "Amancio", "Mariano", "Soraya", "Esperanza", "Francisco", "Lucia" };
-		String estudios[] = { "Telecomunicaciones", "Peluqueria", "Sin estudios" };
+		String estudios[] = { "Telecomunicaciones", "Peluqueria", "Sin estudios", "Futbolista", "Depredador", "Barrendero", "Piloto del Air Force One" };
 		Random rand = new Random();
 
 		numero = Teclado.pedirEntero("Cuantos empleados normales quieres crear?");
