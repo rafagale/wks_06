@@ -5,14 +5,27 @@ public class Pila {
 	private Integer numeroDeCosas;
 	private static int contaCosas = 0;
 
-	
 	public Pila(Integer numeroDeCosas) {
 		this.numeroDeCosas = numeroDeCosas;
 		monton = new Integer[numeroDeCosas];
 	}
 
-	public boolean 
-	
+	public void apilar(int valor) {
+
+	}
+
+	public void desaapilar(int valor) {
+
+	}
+
+	public boolean estaLlena(){
+		if (contaCosas == monton.length){
+			return true;
+		} else{
+			return false;
+		}
+	}
+
 	public void copy(Pila copia) {
 
 	}
