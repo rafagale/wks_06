@@ -68,7 +68,7 @@ public class GestionMaquinistasAdm {
 			suma += trabajadores[i].getEdad();
 			conta++;
 		}
-		System.out.println("Edad media: " + (double) suma / conta);
+		System.out.println("Edad media : " + (double) suma / conta);
 	}// visualizarEdadMedia
 	
 	public static void visualizarDatos( Empleado[] trabajadores) {
