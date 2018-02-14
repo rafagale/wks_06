@@ -25,6 +25,8 @@ public class GestionMaquinistasAdm {
 		Empleado adminstrativos[] = new Administrativo[numero];
 		for (int i = 0; i < adminstrativos.length; i++) {
 			adminstrativos[i] = new Administrativo(nombres[rand.nextInt(nombres.length)], rand.nextInt(30) + 25,
+																									//Entre 25 y 54
+																									//(max-min+1)+min
 					estudios[rand.nextInt(estudios.length)], rand.nextInt(100));
 		}
 
