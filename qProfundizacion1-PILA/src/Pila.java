@@ -41,8 +41,8 @@ public class Pila {
 	}// estaVacia
 
 	public Pila copy(Pila unaPila) {
-		int [] unosDatos;
-		Arrays.copyOf(datos, 500);
+		int[] unosDatos;
+		unosDatos = Arrays.copyOf(datos, datos.length);
 		return unaPila;
 	}
 
