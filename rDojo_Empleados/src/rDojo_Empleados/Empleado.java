@@ -8,7 +8,7 @@ public class Empleado {
 	private Fecha fechaNacimiento;
 	private Integer numeroEmpleado;
 	private static Integer siguiente;
-	private static Float salarioBase=1000f;
+	private static Float salarioBase = 1000f;
 	private Fecha fechaIngreso;
 
 	public Empleado(String nombre, Fecha fechaNacimiento, Integer numeroEmpleado, Fecha fechaIngreso) {
@@ -16,18 +16,25 @@ public class Empleado {
 		this.fechaNacimiento = fechaNacimiento;
 		this.numeroEmpleado = numeroEmpleado;
 		this.fechaIngreso = fechaIngreso;
-		siguiente++;
+		siguiente++; //Contador
 	}
 
-	public Integer edadEmpleado(Fecha edad) {
-		// Fechahoy-fechanacimiento /365
-		
+	public Integer edadEmpleado(Fecha fechaNacimiento) {
+		Integer edadEmpleado;
+		edadEmpleado = llamar al metodo de la clase Fecha para restar fechas
+
 		return 1;
 	}
 
-	public Float calculoNomina() {
+	
 
-		// Fechahoy-fechanacimiento /365
+	@Override
+	public String toString() {
+		return "Empleado [nombre=" + nombre + ", fechaNacimiento=" + fechaNacimiento + ", numeroEmpleado="
+				+ numeroEmpleado + ", fechaIngreso=" + fechaIngreso + "]";
+	}
+
+	public Float calculoNomina() {
 		return salarioBase;
 	}
 
