@@ -11,17 +11,18 @@ public class Pila {
 		cima = 0;
 	}
 
-	public int apilar() {
+	public void apilar() {
 		Random rand = new Random();
 		datos[cima] = rand.nextInt(9 - 1 + 1) + 1;
 		cima++;
-		return cima;
 	}
 
 	public int desApilar() {
-		datos[cima] = 0;
+		int ultimoElemento;
+		ultimoElemento = datos[cima];
+		datos[cima - 1] = 0;
 		cima--;
-		return cima;
+		return ultimoElemento;
 	}
 
 	public boolean estaLlena() {
@@ -40,30 +41,30 @@ public class Pila {
 		}
 	}// estaVacia
 
-	public Pila copy(Pila unaPila) {
-		int[] unosDatos;
-		unosDatos = Arrays.copyOf(datos, datos.length);
-		return unaPila;
+	public void copiarEn(Pila pilaNueva) {
+		pilaNueva.datos = this.datos;
+	}// Copia los datos de una pila a otra
+
+	public  String invertir() {
+		int[] aux = new int[datos.length];
+		for (int i = 0, j = aux.length - 1; i < datos.length; i++, j--) {
+			aux[i] = datos[j];
+		}
+		return Arrays.toString(aux);
 	}
 
-	public static int[] invArray(int[] array) {
-		int aux;
-		for (int i = 0; i < array.length / 2; i++) {
-			aux = array[i];
-			array[i] = array[array.length - 1 - i];
-			array[array.length - 1 - i] = aux;
+	public String borrar() {
+		for (int i = 0; i < datos.length; i++) {
+			datos[i] = 0;
 		}
-		return array;
+		return "Pila borrada";
 	}
 
-	public String borrar(Pila unaPila) {
-		if (unaPila.estaVacia()) {
-			datos[500] = datos[0];
-			return "Pila borrada";
-		} else {
-			return "Pila no borrada";
-		}
+	@Override
+	public String toString() {
+		return "Pila: " + Arrays.toString(datos);
 	}
+
 	/*
 	 * Invertir una PILA (INV), es decir, el elemento cima pasa a ser el último
 	 * y así sucesivamente hasta que el último esté el primero, es decir, en la
