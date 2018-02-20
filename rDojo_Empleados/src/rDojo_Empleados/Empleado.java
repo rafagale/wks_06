@@ -17,7 +17,7 @@ public class Empleado {
 		this.fechaNacimiento = fechaNacimiento;
 		this.numeroEmpleado = numeroEmpleado;
 		this.fechaIngreso = fechaIngreso;
-		siguiente++; // Contador
+		siguiente++; // ContadorEmpleados
 	}
 
 	public Integer edadEmpleado(Fecha fechaNacimiento) {
@@ -49,8 +49,7 @@ public class Empleado {
 
 	@Override
 	public String toString() {
-		return "Empleado [nombre=" + nombre + ", fechaNacimiento=" + fechaNacimiento + ", numeroEmpleado="
-				+ numeroEmpleado + ", fechaIngreso=" + fechaIngreso + "]";
+		return "Nombre: " + nombre + ", fechaNacimiento:" + fechaNacimiento + ", nº emp: "+ numeroEmpleado + ", fechaIngreso: " + fechaIngreso +", ";
 	}
 
 }

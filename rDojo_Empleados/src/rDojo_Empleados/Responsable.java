@@ -8,15 +8,15 @@ public class Responsable extends Empleado {
 	private String departamento;
 	private Integer personasACargo;
 	private static Float plusResponsabilidad = 250f;
-
-
-
+	private static int contaResp = 0;
+	
 	public Responsable(String nombre, Fecha fechaNacimiento, Integer numeroEmpleado, Fecha fechaIngreso, Float bono,
 			String departamento, Integer personasACargo) {
 		super(nombre, fechaNacimiento, numeroEmpleado, fechaIngreso);
 		this.bono = bono;
 		this.departamento = departamento;
 		this.personasACargo = personasACargo;
+		contaResp++;
 	}
 
 	public Float calculoNomina() {
@@ -25,9 +25,8 @@ public class Responsable extends Empleado {
 
 	@Override
 	public String toString() {
-		return "Responsable [bono=" + bono + ", departamento=" + departamento + ", personasACargo=" + personasACargo
-				+ ", toString()=" + super.toString() + "]";
+		return super.toString() + " bono:" + bono + ", departamento:" + departamento + ", personasACargo="
+				+ personasACargo + " (Responsable)";
 	}
-
 
 }

@@ -7,12 +7,14 @@ public class Administrativo extends Empleado {
 	private static Float plusAntiguedad = 300f;
 	private String departamento;
 	private Responsable jefe;
-
+	private static int contaAdm = 0;
+	
 	public Administrativo(String nombre, Fecha fechaNacimiento, Integer numeroEmpleado, Fecha fechaIngreso,
 			String departamento, Responsable jefe) {
 		super(nombre, fechaNacimiento, numeroEmpleado, fechaIngreso);
 		this.departamento = departamento;
 		this.jefe = jefe;
+		contaAdm++;
 	}
 
 	public Float calculoNomina() {
@@ -28,8 +30,7 @@ public class Administrativo extends Empleado {
 
 	@Override
 	public String toString() {
-		return "Administrativo [departamento=" + departamento + ", jefe=" + jefe + ", toString()=" + super.toString()
-				+ "]";
+		return super.toString() +" departamento: " + departamento + ", jefe: " + jefe + " (Administrativo) ";
 	}
 
 	public Float getPlusAnteiguedad() {

@@ -32,14 +32,14 @@ public class gestionEmpresa {
 			switch (opcion) {
 			case 1:
 				n = Leer.pedirEntero("Cuantos administrativos quieres crear?");
+				//Poner los contadores correspondientes
+				// Personas a cargo??
 				for (int i = Empleado.getSiguiente() ; i < (Empleado.getSiguiente()+ n); i++) {
 					currantes[i] = new Administrativo(nombres[rand.nextInt(nombres.length)], fechaNacimiento,
 							rand.nextInt(30) + 25, fechaIngreso, departamentos[rand.nextInt(departamentos.length)],
 							(Responsable) currantes[0]);
 					System.out.println("c");
 				}
-				
-				
 				break;
 			case 2:
 				n = Leer.pedirEntero("Cuantos responsables quieres crear?");
