@@ -46,6 +46,9 @@ public class Pila {
 	}// Copia los datos de una pila a otra
 
 	public  String invertir() {
+/*		 * Invertir una PILA (INV), es decir, el elemento cima pasa a ser el último
+		 * y así sucesivamente hasta que el último esté el primero, es decir, en la
+		 * cima. La pila inicial desaparece y hay que crear un nuevo objeto pila.*/
 		int[] aux = new int[datos.length];
 		for (int i = 0, j = aux.length - 1; i < datos.length; i++, j--) {
 			aux[i] = datos[j];
@@ -66,9 +69,7 @@ public class Pila {
 	}
 
 	/*
-	 * Invertir una PILA (INV), es decir, el elemento cima pasa a ser el último
-	 * y así sucesivamente hasta que el último esté el primero, es decir, en la
-	 * cima. La pila inicial desaparece y hay que crear un nuevo objeto pila.
+
 	 * Borrar toda la PILA. Método que nos indica con un boolean si la PILA esta
 	 * vacía o no
 	 */
