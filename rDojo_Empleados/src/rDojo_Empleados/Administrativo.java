@@ -17,7 +17,8 @@ public class Administrativo extends Empleado {
 
 	public Float calculoNomina() {
 		Integer antiwedad;
-		antiwedad = fechaActual - fechaIngreso;
+		Fecha fechaActual;
+		antiwedad = fechaActual.valorFecha() - Empleado.getFechaIngreso().valorFecha();
 		return Empleado.getSalarioBase() + (plusAntiguedad * antiwedad);
 	}
 

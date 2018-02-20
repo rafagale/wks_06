@@ -21,44 +21,11 @@ public class Responsable extends Empleado {
 		return Empleado.getSalarioBase() + bono + (plusResponsabilidad * personasACargo);
 	}
 
-
-
 	@Override
 	public String toString() {
 		return "Responsable [bono=" + bono + ", departamento=" + departamento + ", personasACargo=" + personasACargo
 				+ ", toString()=" + super.toString() + "]";
 	}
 
-	public Float getBono() {
-		return bono;
-	}
-
-	public void setBono(Float bono) {
-		this.bono = bono;
-	}
-
-	public String getDepartamento() {
-		return departamento;
-	}
-
-	public void setDepartamento(String departamento) {
-		this.departamento = departamento;
-	}
-
-	public Integer getPersonasACargo() {
-		return personasACargo;
-	}
-
-	public void setPersonasACargo(Integer personasACargo) {
-		this.personasACargo = personasACargo;
-	}
-
-	public Float getPlusResponsabilidad() {
-		return plusResponsabilidad;
-	}
-
-	public void setPlusResponsabilidad(Float plusResponsabilidad) {
-		this.plusResponsabilidad = plusResponsabilidad;
-	}
 
 }

@@ -17,8 +17,8 @@ public class gestionEmpresa {
 		Random rand = new Random();
 
 		// Fechas
-		Fecha fechaNacimiento = new Fecha(rand.nextInt(15), rand.nextInt(12), rand.nextInt(2000));
-		Fecha fechaIngreso = new Fecha(rand.nextInt(15), rand.nextInt(12), rand.nextInt(2000));
+		Fecha fechaNacimiento = new Fecha(rand.nextInt(15), rand.nextInt(12), rand.nextInt(1990-1980)+5);
+		Fecha fechaIngreso = new Fecha(rand.nextInt(15), rand.nextInt(12), rand.nextInt(2000-1995+1)+3);
 
 		crearUnosTrabajadores(currantes, nombres, especialidad, departamentos, rand, fechaNacimiento, fechaIngreso);
 
