@@ -9,6 +9,8 @@ public class Responsable extends Empleado {
 	private Integer personasACargo;
 	private static Float plusResponsabilidad = 250f;
 
+
+
 	public Responsable(String nombre, Fecha fechaNacimiento, Integer numeroEmpleado, Fecha fechaIngreso, Float bono,
 			String departamento, Integer personasACargo) {
 		super(nombre, fechaNacimiento, numeroEmpleado, fechaIngreso);

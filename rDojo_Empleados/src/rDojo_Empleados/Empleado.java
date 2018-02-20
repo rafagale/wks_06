@@ -7,9 +7,10 @@ public class Empleado {
 	private String nombre;
 	private Fecha fechaNacimiento;
 	private Integer numeroEmpleado;
-	private static Integer siguiente;
+	private static Integer siguiente=0;
 	private static Float salarioBase = 1000f;
 	private Fecha fechaIngreso;
+	
 
 	public Empleado(String nombre, Fecha fechaNacimiento, Integer numeroEmpleado, Fecha fechaIngreso) {
 		this.nombre = nombre;
@@ -22,8 +23,8 @@ public class Empleado {
 	public Integer edadEmpleado(Fecha fechaNacimiento) {
 		Integer edadEmpleado;
 		Fecha fechaActual = new Fecha(20, 2, 2018);
-		edadEmpleado = fechaActual.difFechas(fechaNacimiento);
-		return edadEmpleado;
+		edadEmpleado = fechaNacimiento.difFechas(fechaActual);
+		return edadEmpleado/365;
 	}
 
 	public Float calculoNomina() {

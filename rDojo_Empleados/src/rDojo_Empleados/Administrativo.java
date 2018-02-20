@@ -16,13 +16,15 @@ public class Administrativo extends Empleado {
 	}
 
 	public Float calculoNomina() {
-		Integer antiwedad;
-		Fecha fechaActual;
-		antiwedad = fechaActual.valorFecha() - Empleado.getFechaIngreso().valorFecha();
-		return Empleado.getSalarioBase() + (plusAntiguedad * antiwedad);
+		Fecha fechaActual = new Fecha(20,2,2018);
+		Float sueldo;
+		Float antiwedad;
+		
+		antiwedad = (float)( getFechaIngreso().difFechas(fechaActual) / 365);
+		System.out.println(antiwedad);
+		sueldo=1000+(plusAntiguedad * antiwedad);
+		return sueldo;
 	}
-
-
 
 	@Override
 	public String toString() {

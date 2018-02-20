@@ -1,11 +1,13 @@
 package rDojo_Empleados;
 
+import utilidades.Fecha;
 import utilidades.Leer;
 
 public class Tecnico extends Empleado {
 	private String especialidad;
 	private Float plusEspecialidad;
 	private Responsable jefe;
+
 
 	public Tecnico(String nombre, Fecha fechaNacimiento, Integer numeroEmpleado, Fecha fechaIngreso,
 			String especialidad, Float plusEspecialidad, Responsable jefe) {
