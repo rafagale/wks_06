@@ -1,7 +1,5 @@
 package rDojo_Empleados;
 
-import utilidades.Fecha;
-import utilidades.Leer;
 
 public class Tecnico extends Empleado {
 	private String especialidad;

@@ -2,9 +2,6 @@ package rDojo_Empleados;
 
 import java.util.Random;
 
-import utilidades.Fecha;
-import utilidades.Leer;
-
 public class gestionEmpresa {
 
 	public static void main(String[] args) {

@@ -1,8 +1,5 @@
 package rDojo_Empleados;
 
-import utilidades.Fecha;
-import utilidades.Leer;
-
 public class Administrativo extends Empleado {
 	private static Float plusAntiguedad = 300f;
 	private String departamento;

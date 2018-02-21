@@ -1,8 +1,5 @@
 package rDojo_Empleados;
 
-import utilidades.Leer;
-import utilidades.Fecha;
-
 public class Empleado {
 	private String nombre;
 	private Fecha fechaNacimiento;
