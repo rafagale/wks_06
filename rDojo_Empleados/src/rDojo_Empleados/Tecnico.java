@@ -12,7 +12,7 @@ public class Tecnico extends Empleado {
 		this.especialidad = especialidad;
 		this.plusEspecialidad = plusEspecialidad;
 		this.jefe=jefe;
-		this.jefe.getCurrantes();
+		this.jefe.getCurrantes(); //suma una a personas a cargo del jefe pasado por parametro
 		contaTec++;
 	}
 

@@ -11,7 +11,7 @@ public class Administrativo extends Empleado {
 		super(nombre, fechaNacimiento, numeroEmpleado, fechaIngreso);
 		this.departamento = departamento;
 		this.jefe=jefe;
-		this.jefe.getCurrantes();
+		this.jefe.getCurrantes(); //suma una a personas a cargo del jefe pasado por parametro
 		contaAdm++;
 	}
 
