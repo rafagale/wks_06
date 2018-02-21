@@ -5,7 +5,7 @@ import java.util.Random;
 public class GestionEmpresa_Arrays {
 
 	public static void main(String[] args) {
-		int opcion, n, contadorEmp = 0;
+		int opcion, n, contadorEmp = 0, suJefe;
 
 		Float nomina = 0f;
 		Empleado[] currantes = new Empleado[20];
@@ -22,7 +22,8 @@ public class GestionEmpresa_Arrays {
 		Fecha fechaIngreso = new Fecha(rand.nextInt(29) + 1, rand.nextInt(11) + 1,
 				rand.nextInt(2000 - 1995 + 1) + 1995);
 
-		crearUnosTrabajadores(currantes, nombres, especialidad, departamentos, rand, fechaNacimiento, fechaIngreso, contadorEmp);
+		crearUnosTrabajadores(currantes, nombres, especialidad, departamentos, rand, fechaNacimiento, fechaIngreso,
+				contadorEmp);
 		System.out.println(Empleado.getSiguiente());
 		contadorEmp = Empleado.getSiguiente();
 		opcion = Leer.pedirEntero(
@@ -32,14 +33,19 @@ public class GestionEmpresa_Arrays {
 			case 1:
 				n = Leer.pedirEntero("Cuantos administrativos quieres crear?");
 				n += contadorEmp;
-				// Poner los contadores correspondientes
-				// Personas a cargo??
 				for (int i = contadorEmp; contadorEmp < n; i++) {
+					for (int j = 0; j < currantes.length; j++) {
+						if (currantes[j] instanceof Responsable) {
+							System.out.println("# " + j + currantes[j]);
+						}
+					}
+					suJefe = Leer.pedirEntero("Elige su jefe");
 					currantes[i] = new Administrativo(nombres[rand.nextInt(nombres.length)], fechaNacimiento,
 							rand.nextInt(30) + 25, fechaIngreso, departamentos[rand.nextInt(departamentos.length)],
-							(Responsable) currantes[0]);
+							(Responsable) currantes[suJefe]);
 					System.out.println("Administrativo #" + Empleado.getSiguiente() + " creado");
 					contadorEmp++;
+
 				}
 				break;
 			case 2:
@@ -57,9 +63,15 @@ public class GestionEmpresa_Arrays {
 				n = Leer.pedirEntero("Cuantos tecnicos quieres crear?");
 				n += contadorEmp;
 				for (int i = contadorEmp; contadorEmp < n; i++) {
+					for (int j = 0; j < currantes.length; j++) {
+						if (currantes[j] instanceof Responsable) {
+							System.out.println("# " + j + currantes[j]);
+						}
+					}
+					suJefe = Leer.pedirEntero("Elige su jefe");
 					currantes[i] = new Tecnico(nombres[rand.nextInt(nombres.length)], fechaNacimiento,
 							rand.nextInt(30) + 25, fechaIngreso, especialidad[rand.nextInt(especialidad.length)],
-							(float) (rand.nextInt(201) + 50), (Responsable) currantes[1]);
+							(float) (rand.nextInt(201) + 50), (Responsable) currantes[suJefe]);
 					System.out.println("Tecnico #" + Empleado.getSiguiente() + " creado");
 					contadorEmp++;
 				}
@@ -68,7 +80,7 @@ public class GestionEmpresa_Arrays {
 				for (int i = 0; i < currantes.length; i++) {
 					if (currantes[i] != null) {
 						System.out.println(currantes[i]);
-						System.out.println(currantes[i].edadEmpleado(fechaNacimiento) + " a�os");
+						System.out.println(currantes[i].edadEmpleado(fechaNacimiento) + " años");
 					}
 				}
 				break;
@@ -77,7 +89,7 @@ public class GestionEmpresa_Arrays {
 				for (int i = 0; i < currantes.length; i++) {
 					if (currantes[i] != null) {
 						System.out.print(currantes[i]);
-						System.out.println(" " + currantes[i].calculoNomina() + "�");
+						System.out.println(" " + currantes[i].calculoNomina() + "€");
 						// por separado
 						nomina += currantes[i].calculoNomina();
 						// currantes[i].calculoNomina() ;
