@@ -27,4 +27,12 @@ public class Responsable extends Empleado {
 				+ personasACargo + " (Responsable)";
 	}
 
+	public Integer getPersonasACargo() {
+		return personasACargo;
+	}
+
+	public static int getContaResp() {
+		return contaResp;
+	}
+
 }

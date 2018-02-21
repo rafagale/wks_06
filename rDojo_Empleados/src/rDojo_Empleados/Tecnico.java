@@ -25,6 +25,10 @@ public class Tecnico extends Empleado {
 		return super.toString() +" especialidad: " + especialidad + ", plusEspecialidad: " + plusEspecialidad + ", jefe: " + jefe +" (tecnico)";
 	}
 
+	public static int getContaTec() {
+		return contaTec;
+	}
+
 
 	
 }

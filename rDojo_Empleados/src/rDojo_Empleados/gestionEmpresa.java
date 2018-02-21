@@ -5,7 +5,8 @@ import java.util.Random;
 public class gestionEmpresa {
 
 	public static void main(String[] args) {
-		int opcion, n;
+		int opcion, n, contadorEmp=0;
+
 		Float nomina = 0f;
 		Empleado[] currantes = new Empleado[20];
 		String nombres[] = { "Pepe", "Juan", "Amancio", "Mariano", "Soraya", "Esperanza", "Francisco", "Lucia" };
@@ -21,38 +22,41 @@ public class gestionEmpresa {
 		Fecha fechaIngreso = new Fecha(rand.nextInt(29) + 1, rand.nextInt(11) + 1,
 				rand.nextInt(2000 - 1995 + 1) + 1995);
 
-		crearUnosTrabajadores(currantes, nombres, especialidad, departamentos, rand, fechaNacimiento, fechaIngreso);
+		crearUnosTrabajadores(currantes, nombres, especialidad, departamentos, rand, fechaNacimiento, fechaIngreso,
+				contadorEmp);
 		System.out.println(Empleado.getSiguiente());
+		contadorEmp = Empleado.getSiguiente();
 		opcion = Leer.pedirEntero(
 				"1-Crear administrativo\n2-Crear responsable \n3-Crear tenico\n4-Listar la plantilla\n5-Calcular la nomina de la plantilla\n0-Salir");
 		while (opcion != 0) {
 			switch (opcion) {
 			case 1:
 				n = Leer.pedirEntero("Cuantos administrativos quieres crear?");
-				//Poner los contadores correspondientes
+				// Poner los contadores correspondientes
 				// Personas a cargo??
-				for (int i = Empleado.getSiguiente() ; i < (Empleado.getSiguiente()+ n); i++) {
+				for (int i = contadorEmp; i < contadorEmp  + n; i++) {
 					currantes[i] = new Administrativo(nombres[rand.nextInt(nombres.length)], fechaNacimiento,
 							rand.nextInt(30) + 25, fechaIngreso, departamentos[rand.nextInt(departamentos.length)],
 							(Responsable) currantes[0]);
-					System.out.println("c");
+					System.out.println("Administrativo #" +Empleado.getSiguiente() +" creado");
 				}
 				break;
 			case 2:
 				n = Leer.pedirEntero("Cuantos responsables quieres crear?");
-				for (int i = Empleado.getSiguiente(); i < Empleado.getSiguiente()+ n; i++) {
+				for (int i = contadorEmp; i < contadorEmp  + n; i++) {
 					currantes[i] = new Responsable(nombres[rand.nextInt(nombres.length)], fechaNacimiento,
 							rand.nextInt(30) + 25, fechaIngreso, (float) (rand.nextInt(201) + 50),
 							departamentos[rand.nextInt(departamentos.length)], rand.nextInt(2));
-					System.out.println("c");
+					System.out.println("Responsable #" +Empleado.getSiguiente() +" creado");
 				}
 				break;
 			case 3:
 				n = Leer.pedirEntero("Cuantos tecnicos quieres crear?");
-				for (int i = Empleado.getSiguiente() ; i < Empleado.getSiguiente()+ n; i++) {
+				for (int i = contadorEmp; i < contadorEmp  + n; i++) {
 					currantes[i] = new Tecnico(nombres[rand.nextInt(nombres.length)], fechaNacimiento,
 							rand.nextInt(30) + 25, fechaIngreso, especialidad[rand.nextInt(especialidad.length)],
 							(float) (rand.nextInt(201) + 50), (Responsable) currantes[1]);
+					System.out.println("Tecnico #" +Empleado.getSiguiente() +" creado");
 				}
 				break;
 			case 4:
@@ -91,17 +95,19 @@ public class gestionEmpresa {
 	}// main
 
 	public static void crearUnosTrabajadores(Empleado[] currantes, String[] nombres, String[] especialidad,
-			String[] departamentos, Random rand, Fecha fechaNacimiento, Fecha fechaIngreso) {
+			String[] departamentos, Random rand, Fecha fechaNacimiento, Fecha fechaIngreso, int contadorEmp) {
 		for (int i = 0; i < 2; i++) {
 			currantes[i] = new Responsable(nombres[rand.nextInt(nombres.length)], fechaNacimiento,
 					rand.nextInt(30) + 25, fechaIngreso, (float) (rand.nextInt(201) + 50),
 					departamentos[rand.nextInt(departamentos.length)], rand.nextInt(2));
+			contadorEmp++;
 		}
 
 		for (int i = 2; i < 5; i++) {
 			currantes[i] = new Administrativo(nombres[rand.nextInt(nombres.length)], fechaNacimiento,
 					rand.nextInt(30) + 25, fechaIngreso, departamentos[rand.nextInt(departamentos.length)],
 					(Responsable) currantes[0]);
+			contadorEmp++;
 		}
 
 		for (int i = 5; i < 9; i++) {
@@ -109,7 +115,8 @@ public class gestionEmpresa {
 			currantes[i] = new Tecnico(nombres[rand.nextInt(nombres.length)], fechaNacimiento, rand.nextInt(30) + 25,
 					fechaIngreso, especialidad[rand.nextInt(especialidad.length)], (float) (rand.nextInt(201) + 50),
 					(Responsable) currantes[1]);
-		
+			contadorEmp++;
+
 		}
 	}
 

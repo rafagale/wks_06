@@ -25,6 +25,10 @@ public class Administrativo extends Empleado {
 		return sueldo;
 	}
 
+	public static int getContaAdm() {
+		return contaAdm;
+	}
+
 	@Override
 	public String toString() {
 		return super.toString() +" departamento: " + departamento + ", jefe: " + jefe + " (Administrativo) ";
