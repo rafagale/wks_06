@@ -20,7 +20,7 @@ public class Empleado {
 		return contaEmpleados;
 	}
 
-	public String visualizar() {
+	public String toString() {
 		return "Nombre: " + nombre + ", edad: " + edad + ", sueldo: " + sueldoBase;
 	}
 

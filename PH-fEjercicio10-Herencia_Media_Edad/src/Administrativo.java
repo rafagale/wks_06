@@ -1,14 +1,19 @@
+import rDojo_Empleados.Responsable;
 
 public class Administrativo extends Empleado {
 	private String estudiosAcademicos;
 	private Integer numPcAsignado;
+	private Responsable jefe;
 	private static Integer contaAdministrativos = 0;
 
-	public Administrativo(String nombre, Integer edad, String estudiosAcademicos, Integer numPcAsignado) {
+
+
+	public Administrativo(String nombre, Integer edad, String estudiosAcademicos, Integer numPcAsignado,
+			Responsable jefe) {
 		super(nombre, edad);
 		this.estudiosAcademicos = estudiosAcademicos;
 		this.numPcAsignado = numPcAsignado;
-		contaAdministrativos++;
+		this.jefe = jefe;
 	}
 
 	public static Integer getContaAdministrativos() {

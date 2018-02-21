@@ -10,7 +10,8 @@ public class Administrativo extends Empleado {
 			String departamento, Responsable jefe) {
 		super(nombre, fechaNacimiento, numeroEmpleado, fechaIngreso);
 		this.departamento = departamento;
-		this.jefe = jefe;
+		this.jefe=jefe;
+		this.jefe.getCurrantes();
 		contaAdm++;
 	}
 

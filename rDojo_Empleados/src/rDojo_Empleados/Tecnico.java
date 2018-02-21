@@ -1,6 +1,5 @@
 package rDojo_Empleados;
 
-
 public class Tecnico extends Empleado {
 	private String especialidad;
 	private Float plusEspecialidad;
@@ -12,7 +11,8 @@ public class Tecnico extends Empleado {
 		super(nombre, fechaNacimiento, numeroEmpleado, fechaIngreso);
 		this.especialidad = especialidad;
 		this.plusEspecialidad = plusEspecialidad;
-		this.jefe = jefe;
+		this.jefe=jefe;
+		this.jefe.getCurrantes();
 		contaTec++;
 	}
 
