@@ -71,12 +71,16 @@ public class gestionEmpresa {
 
 				for (int i = 0; i < currantes.length; i++) {
 					if (currantes[i] != null) {
-						System.out.println(currantes[i].calculoNomina());
-						// nomina += currantes[i].calculoNomina() +
+						System.out.print(currantes[i]);
+						System.out.println(" "+currantes[i].calculoNomina()+"€");
+						//por separado
+						nomina += currantes[i].calculoNomina();
 						// currantes[i].calculoNomina() ;
 						// System.out.println(nomina);
 					}
 				}
+				System.out.println();
+				System.out.println("El total es de " +nomina +"€");
 				// System.out.println(nomina +"€");
 				break;
 			case 6:
@@ -86,7 +90,6 @@ public class gestionEmpresa {
 			default:
 				break;
 			}
-			System.out.println(Empleado.getSiguiente());
 			opcion = Leer.pedirEntero(
 					"1-Crear administrativo\n2-Crear responsable \n3-Crear tenico\n4-Listar la plantilla\n5-Calcular la nomina de la plantilla\n0-Salir");
 

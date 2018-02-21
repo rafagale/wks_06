@@ -1,7 +1,7 @@
 package rDojo_Empleados;
 
 public class Administrativo extends Empleado {
-	private static Float plusAntiguedad = 300f;
+	private static Float plusAntiguedad = 50f;
 	private String departamento;
 	private Responsable jefe;
 	private static int contaAdm = 0;
@@ -18,9 +18,7 @@ public class Administrativo extends Empleado {
 		Fecha fechaActual = new Fecha(20,2,2018);
 		Float sueldo;
 		Float antiwedad;
-		
 		antiwedad = (float)( getFechaIngreso().difFechas(fechaActual) / 365);
-		System.out.println(antiwedad);
 		sueldo=1000+(plusAntiguedad * antiwedad);
 		return sueldo;
 	}

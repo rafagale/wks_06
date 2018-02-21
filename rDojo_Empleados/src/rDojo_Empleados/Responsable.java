@@ -28,6 +28,7 @@ public class Responsable extends Empleado {
 	}
 
 	public Integer getPersonasACargo() {
+		//To-do
 		return personasACargo;
 	}
 
