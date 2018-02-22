@@ -16,7 +16,6 @@ package rDojo_Empleados;
 			Random rand = new Random();
 
 			// Fechas
-			Fecha fechaActual = new Fecha(20, 2, 2018);
 			Fecha fechaNacimiento = new Fecha(rand.nextInt(29) + 1, rand.nextInt(11) + 1,
 					rand.nextInt(1990 - 1980 + 1) + 1980);
 			Fecha fechaIngreso = new Fecha(rand.nextInt(29) + 1, rand.nextInt(11) + 1,
@@ -77,34 +76,42 @@ package rDojo_Empleados;
 					}
 					break;
 				case 4:
-					for (int i = 0; i < currantes.length; i++) {
-						if (currantes[i] != null) {
-							System.out.print(currantes[i]);
-							System.out.print(" " + currantes[i].edadEmpleado(fechaNacimiento) + " años");
-							System.out.println();
-						}
-					}
+					visualizar(currantes, fechaNacimiento);
 					break;
 				case 5:
-					for (int i = 0; i < currantes.length; i++) {
-						if (currantes[i] != null) {
-							System.out.print(currantes[i]);
-							System.out.println(" " + currantes[i].calculoNomina() + "€");
-							// por separado
-							nomina += currantes[i].calculoNomina();
-						}
-					}
-					System.out.println();
-					System.out.println("El total es de " + nomina + "€");
-					System.out.println();
+					nomina = visualizarNomina(nomina, currantes);
 					break;
 				}
 				opcion = Leer.pedirEntero(
 						"1-Crear administrativo\n2-Crear responsable \n3-Crear tenico\n4-Listar la plantilla\n5-Calcular la nomina de la plantilla\n0-Salir");
-
 			}
 
 		}// main
+
+		public static void visualizar(Empleado[] currantes, Fecha fechaNacimiento) {
+			for (int i = 0; i < currantes.length; i++) {
+				if (currantes[i] != null) {
+					System.out.print(currantes[i]);
+					System.out.print(" " + currantes[i].edadEmpleado(fechaNacimiento) + " años");
+					System.out.println();
+				}
+			}
+		}
+
+		public static Float visualizarNomina(Float nomina, Empleado[] currantes) {
+			for (int i = 0; i < currantes.length; i++) {
+				if (currantes[i] != null) {
+					System.out.print(currantes[i]);
+					System.out.println(" " + currantes[i].calculoNomina() + "€");
+					// por separado
+					nomina += currantes[i].calculoNomina();
+				}
+			}
+			System.out.println();
+			System.out.println("El total es de " + nomina + "€");
+			System.out.println();
+			return nomina;
+		}
 
 		public static void crearUnosTrabajadores(Empleado[] currantes, String[] nombres, String[] especialidad,
 				String[] departamentos, Random rand, Fecha fechaNacimiento, Fecha fechaIngreso, int contadorEmp) {
