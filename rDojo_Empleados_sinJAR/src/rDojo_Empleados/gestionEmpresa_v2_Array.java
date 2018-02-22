@@ -1,7 +1,11 @@
 package rDojo_Empleados;
 
 import java.util.Random;
-
+/**
+ * 
+ * @author Rafa
+ *
+ */
 public class gestionEmpresa_v2_Array {
 
 	public static void main(String[] args) {
@@ -21,12 +25,19 @@ public class gestionEmpresa_v2_Array {
 		Fecha fechaIngreso = new Fecha(rand.nextInt(29) + 1, rand.nextInt(11) + 1,
 				rand.nextInt(2000 - 1995 + 1) + 1995);
 
+		// Crear trabajadores
 		crearUnosTrabajadores(currantes, nombres, especialidad, departamentos, rand, fechaNacimiento, fechaIngreso,
 				contadorEmp);
-		System.out.println(Empleado.getSiguiente());
+
+		// Visualizar
+		System.out.println("Hay: " + Empleado.getSiguiente() + " empleados");
+
+		// Igualar el contador local al de la clase
 		contadorEmp = Empleado.getSiguiente();
+
 		opcion = Leer.pedirEntero(
 				"1-Crear administrativo\n2-Crear responsable \n3-Crear tenico\n4-Listar la plantilla\n5-Calcular la nomina de la plantilla\n0-Salir");
+
 		while (opcion != 0) {
 			switch (opcion) {
 			case 1:
@@ -47,7 +58,6 @@ public class gestionEmpresa_v2_Array {
 								(Responsable) currantes[suJefe]);
 						System.out.println("Administrativo #" + Empleado.getSiguiente() + " creado");
 						contadorEmp++;
-
 					}
 				}
 				break;
@@ -108,7 +118,7 @@ public class gestionEmpresa_v2_Array {
 				System.out.println();
 			}
 		}
-	}
+	} // visualizar
 
 	public static Float visualizarNomina(Float nomina, Empleado[] currantes) {
 		for (int i = 0; i < currantes.length; i++) {
@@ -123,7 +133,7 @@ public class gestionEmpresa_v2_Array {
 		System.out.println("El total es de " + nomina + "€");
 		System.out.println();
 		return nomina;
-	}
+	} // visualizarNomina
 
 	public static void crearUnosTrabajadores(Empleado[] currantes, String[] nombres, String[] especialidad,
 			String[] departamentos, Random rand, Fecha fechaNacimiento, Fecha fechaIngreso, int contadorEmp) {
@@ -149,6 +159,6 @@ public class gestionEmpresa_v2_Array {
 			contadorEmp++;
 
 		}
-	}
+	} // crearUnosTrabajadores
 
 }// Class
