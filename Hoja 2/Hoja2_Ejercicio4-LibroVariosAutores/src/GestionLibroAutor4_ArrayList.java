@@ -122,4 +122,5 @@ public class GestionLibroAutor4_ArrayList {
 		}
 		return numero;
 	}// Pedir double
+	
 }// Class
