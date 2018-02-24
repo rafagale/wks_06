@@ -9,7 +9,7 @@ import java.util.Scanner;
  * @author Rafa
  * @see No guarda los autores, solo los del ultimo libro creado
  */
-public class GestionLibroAutor_Arrays {
+public class GestionLibroAutor_sinArrays {
 
 	public static void main(String[] args) {
 		int opcion, cantidad, n;
