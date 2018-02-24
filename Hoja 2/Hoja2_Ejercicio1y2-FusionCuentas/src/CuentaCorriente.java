@@ -86,6 +86,6 @@ public class CuentaCorriente {
 			}
 		}
 		return null;
-	}// fusiona
+	}// fusionar
 
 }// Class
