@@ -46,7 +46,7 @@ public class GestionMaquinistasAdm_v2 {
 		for (int i = 0; i < trabajadores.length; i++) {
 			System.out.println(trabajadores[i].visualizar());
 		}
-	}
+	}// crearEmpleados
 
 	/*
 	 * public static void visualizarDatos(Object trabajadores[]) { Empleado emp;
