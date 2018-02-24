@@ -21,14 +21,15 @@ public class Gestion_Electrica {
 			case 3: // Visualizar los datos de todos los empleados.
 				System.out.println(empleado1.visualizar());
 				System.out.println(jefe1.visualizar());
-				System.out.println("Hay " +Empleado.getContaEmpleados() + " empleados y " +Jefe.getContaJefes() + " de ellos son jefes");
+				System.out.println("Hay " + Empleado.getContaEmpleados() + " empleados y " + Jefe.getContaJefes()
+						+ " de ellos son jefes");
 				break;
 			default:
 				break;
-			}
+			}// switch
 			opcion = Teclado.pedirEntero(
 					"1-Modificar el sueldo base de los empleados\n2-Modificar plus de los jefes\n3-Visualizar todos los empleados");
-		}
+		} // while
 
 	}// main
 
