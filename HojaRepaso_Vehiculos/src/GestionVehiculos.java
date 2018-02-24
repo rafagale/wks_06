@@ -87,7 +87,7 @@ public class GestionVehiculos {
 			modificacionDouble = pedirDouble("Peso nuevo?");
 			tartana.setPeso(modificacionDouble);
 		}
-	}
+	}// modificar
 
 	private static void visualizar(Vehiculo coche, Vehiculo bici) {
 		System.out.println("Vehiculo #1");
