@@ -228,4 +228,5 @@ public class GestionLibroAutores {
 		}
 		return numero;
 	}// Pedir double
+	
 }// Class
