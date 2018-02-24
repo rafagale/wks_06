@@ -18,7 +18,6 @@ public class GestionLibroAutores {
 			} else {
 				// si los libros ya se han creado, el menu NO muestra la opcion
 				// de crearlos
-
 				do {
 					Leer.mostrarEnPantalla("\n2- Modificar autor.\n" + "3- Modificar libro.\n"
 							+ "4- Listado de libros.\n" + "5- Listado de autores.\n" + "0- Salir.");
