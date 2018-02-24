@@ -10,7 +10,7 @@ public class GestionPaises {
 		String nombrePais;
 		ListaDePaises paises = null;
 		String lista[] = { "España", "Afganistan", "Albania", "Alemania", "Cuba", "Francia", "Noruega", "Vietnam",
-				"Rusia", "Estados Unidos" };
+				"Rusia", "Estados Unidos" };//
 		Random nombreRandom = new Random();
 		do {
 			if (paises == null) {
