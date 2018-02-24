@@ -238,6 +238,5 @@ public class Metodos {
 		raiz2 = (-b - Math.sqrt((Math.pow(b, 2)) - (4 * a * c))) / (2 * a);
 		return new double[] { raiz1, raiz2 };
 	}// Ecuacion2G
-
-
+ 
 }// Class
