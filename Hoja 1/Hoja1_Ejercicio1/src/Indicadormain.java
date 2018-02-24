@@ -74,4 +74,5 @@ public class Indicadormain {
 		n = teclado.nextInt();
 		return n;
 	}// pedirEntero
+	
 }// class
