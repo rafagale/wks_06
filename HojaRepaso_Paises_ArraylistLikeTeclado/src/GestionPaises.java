@@ -21,7 +21,7 @@ public class GestionPaises {
 				opcion = pedirEntero("2- Añadir nombre\n" + "3- Borrar un nombre\n" + "4- Listar todos los nombres\n"
 						+ "5- Borrar todos los nombres\n" + "6- Expandir la lista\n" + "7- Mostrar un elemento");
 			}
-
+			
 			switch (opcion) {
 			case 1:
 				numeroPaises = pedirEntero("Cuantos paises quieres almacenar?");
@@ -74,6 +74,7 @@ public class GestionPaises {
 			default:
 				System.out.println("Elige una opcion valida");
 			}// switch
+			
 		} while (opcion != 0);
 
 	}// main
