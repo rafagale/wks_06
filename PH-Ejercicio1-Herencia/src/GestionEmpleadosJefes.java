@@ -27,6 +27,7 @@ public class GestionEmpleadosJefes {
 		}
 
 		num = Teclado.pedirEntero("Cuantos jefes quieres crear? Tambien son empleados");
+		
 		jefes = new Jefe[num];
 		for (int i = 0; i < jefes.length; i++) {
 			nombre = Teclado.pedirString("Introduce un nombre");
