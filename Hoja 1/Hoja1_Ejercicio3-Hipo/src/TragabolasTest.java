@@ -40,8 +40,6 @@ public class TragabolasTest {
 			jugar = sc.nextInt();
 		}
 		
-		
-
 	}// main
 
 	/**
