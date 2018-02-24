@@ -218,7 +218,7 @@ public class Fecha {
 			} else {
 				diasTotales = diasTotales + 365;
 			}
-		} // Calcular dias hasta el año anterior
+		} // Calcular dias hasta el año anterior.
 
 		for (int miMes = 1; miMes <= mes - 1; miMes++) {
 			if (esBisiesto()) {//**********************
