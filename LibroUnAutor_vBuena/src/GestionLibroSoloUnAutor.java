@@ -2,6 +2,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Arrays;
+import java.util.Random;
 import java.util.Scanner;
 
 /**
@@ -16,27 +17,48 @@ public class GestionLibroSoloUnAutor {
 
 		maxAutores = Leer.pedirEntero("Cuantos autores?");
 		maxLibros = Leer.pedirEntero("Libros maximos?");
-
+		
+		String titulos [] = {"Blabla", "HArry potter", "diccionario", "periodico"};
+		String nombres[] = { "Pepe", "Juan", "Amancio", "Mariano", "Soraya", "Esperanza", "Francisco", "Lucia" };
+		
+		Random rand = new Random();
 		Libro[] libros = new Libro[maxLibros];
-		Autor[] autor = new Autor[maxAutores];
+		Autor[] autores = new Autor[maxAutores];
 		System.out.println("Hay " + maxLibros + " libros");
 		opcion = Leer.pedirEntero(
 				"1-Crear libro\n2-Modificar autores\n3-Modificar libro\n4-Ver libros\n5-Ver autores\n0-Salir");
 		while (opcion != 0) {
 			switch (opcion) {
 			case 1: // Crear libros
+				//crear autores
+				
+				for (int i = 0; i < autores.length; i++) {
+					autores[i] = new Autor(nombres[rand.nextInt(nombres.length)],nombres[rand.nextInt(nombres.length)], 'm' );
+				}
+				
+				//crear libros
+				for (int i = 0; i < libros.length; i++) {
+					libros [i] = new Libro(titulos[rand.nextInt(titulos.length)], autores[rand.nextInt(autores.length)], (double)(rand.nextInt(5)));
+				}
 				break;
 			case 2: // Modificar autores
-				modificarAutores(listaAutores);s
 				break;
 			case 3: // Modificar libro
 				modificarLibros(libros);
 				break;
 			case 4: // Ver libros
-				verLibros(libros);
+				for (int i = 0; i < autores.length; i++) {
+					if (libros[i] != null) {
+						System.out.println(libros[i].cadenaLibro());
+					}
+				}
 				break;
 			case 5:// Ver autores
-				verAutores(autor, listaAutores);
+				for (int i = 0; i < autores.length; i++) {
+					if (autores[i] != null) {
+						System.out.println(autores[i].cadenaAutor());
+					}
+				}
 				break;
 			default:
 				System.out.println("Elige una opcion correcta");
@@ -46,16 +68,6 @@ public class GestionLibroSoloUnAutor {
 		} // while
 	}// main
 
-	private static void crearLibro(Libro[] libros, Autor autor) {
-		int cantidad;
-		Double precio;
-		String titulo;
-		titulo = pedirTitulo(libros);
-		precio = pedirDouble("Introduce el precio del libro");
-		cantidad = pedirEntero("Cantidad de libros a crear?");
-		libros[Libro.getContadorLibros()] = new Libro(titulo, autor, precio, cantidad);
-		System.out.println("Libro #" + Libro.getContadorLibros() + " creado");
-	}
 
 	private static String pedirTitulo(Libro[] libros) {
 		String titulo;
@@ -82,26 +94,6 @@ public class GestionLibroSoloUnAutor {
 		return existe;
 	}
 
-	private static Autor[] crearAutores(Autor[] listaAutores) {
-		Autor[] autores;
-		int numeroAutores;
-		String nombre;
-		String email;
-		String genero;
-		int indiceAutor;
-		numeroAutores = Leer.pedirEntero("Cuantos autores va a tener este libro?");
-		autores = new Autor[numeroAutores];
-		for (int i = 0; i < autores.length; i++) {
-			nombre = Leer.pedirCadena("Nombre autor");
-			email = Leer.pedirCadena("Email autor");
-			genero = pedirGenero();
-			autores[i] = new Autor(nombre, email, genero);
-			// Guardar los autores en un otro array
-			listaAutores[Autor.getContadorAutores()] = autores[i];
-		}
-		System.out.println("Contador de autores = " + Autor.getContadorAutores());
-		return autores;
-	}
 
 	private static String pedirGenero() {
 		String genero;

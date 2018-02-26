@@ -2,11 +2,11 @@
 public class Libro {
 	private String titulo;
 	private Autor autor;
-	private Double precio;
+	private double precio;
 	private Integer cantidad;
 	private static int contadorLibros;
 	
-	public Libro(String titulo, Autor autor, Double precio) {
+	public Libro(String titulo, Autor autor, double precio) {
 		this.titulo = titulo;
 		this.autor = autor;
 		this.precio = precio;
@@ -14,7 +14,7 @@ public class Libro {
 		contadorLibros++;
 	}
 
-	public Libro(String titulo, Autor autor, Double precio, Integer cantidad) {
+	public Libro(String titulo, Autor autor, double precio, Integer cantidad) {
 		this.titulo = titulo;
 		this.autor = autor;
 		this.precio = precio;
