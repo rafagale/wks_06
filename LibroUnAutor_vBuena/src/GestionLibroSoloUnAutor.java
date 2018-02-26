@@ -14,22 +14,20 @@ public class GestionLibroSoloUnAutor {
 	public static void main(String[] args) {
 		int opcion, maxAutores, maxLibros;
 
-		maxAutores = pedirEntero("Cuantos autores?");
-		maxLibros = pedirEntero("Libros maximos?");
+		maxAutores = Leer.pedirEntero("Cuantos autores?");
+		maxLibros = Leer.pedirEntero("Libros maximos?");
 
 		Libro[] libros = new Libro[maxLibros];
-		Autor autor = new Autor[maxAutores];
+		Autor[] autor = new Autor[maxAutores];
 		System.out.println("Hay " + maxLibros + " libros");
-		opcion = pedirEntero(
+		opcion = Leer.pedirEntero(
 				"1-Crear libro\n2-Modificar autores\n3-Modificar libro\n4-Ver libros\n5-Ver autores\n0-Salir");
 		while (opcion != 0) {
 			switch (opcion) {
 			case 1: // Crear libros
-				autor = crearAutores(listaAutores);
-				crearLibro(libros, autor);
 				break;
 			case 2: // Modificar autores
-				modificarAutores(listaAutores);
+				modificarAutores(listaAutores);s
 				break;
 			case 3: // Modificar libro
 				modificarLibros(libros);
@@ -43,7 +41,7 @@ public class GestionLibroSoloUnAutor {
 			default:
 				System.out.println("Elige una opcion correcta");
 			}// switch
-			opcion = pedirEntero(
+			opcion = Leer.pedirEntero(
 					"1-Crear libro\n2-Modificar autores\n3-Modificar libro\n4-Ver libros\n5-Ver autores\n0-Salir");
 		} // while
 	}// main
@@ -62,12 +60,12 @@ public class GestionLibroSoloUnAutor {
 	private static String pedirTitulo(Libro[] libros) {
 		String titulo;
 		if (Libro.getContadorLibros() > 0) {
-			titulo = pedirString("Introduce el titulo del libro");
+			titulo = Leer.pedirCadena("Introduce el titulo del libro");
 			while (existeTitulo(libros, titulo)) {
-				titulo = pedirString("Introduce un titulo nuevo");
+				titulo = Leer.pedirCadena("Introduce un titulo nuevo");
 			}
 		} else {
-			titulo = pedirString("Introduce el titulo del libro");
+			titulo = Leer.pedirCadena("Introduce el titulo del libro");
 		}
 		return titulo;
 	}
@@ -91,11 +89,11 @@ public class GestionLibroSoloUnAutor {
 		String email;
 		String genero;
 		int indiceAutor;
-		numeroAutores = pedirEntero("Cuantos autores va a tener este libro?");
+		numeroAutores = Leer.pedirEntero("Cuantos autores va a tener este libro?");
 		autores = new Autor[numeroAutores];
 		for (int i = 0; i < autores.length; i++) {
-			nombre = pedirString("Nombre autor");
-			email = pedirString("Email autor");
+			nombre = Leer.pedirCadena("Nombre autor");
+			email = Leer.pedirCadena("Email autor");
 			genero = pedirGenero();
 			autores[i] = new Autor(nombre, email, genero);
 			// Guardar los autores en un otro array
@@ -108,7 +106,7 @@ public class GestionLibroSoloUnAutor {
 	private static String pedirGenero() {
 		String genero;
 		do {
-			genero = pedirString("Genero(hombre/mujer)");
+			genero = Leer.pedirCadena("Genero(hombre/mujer)");
 		} while (!genero.toLowerCase().equals("hombre") && !genero.toLowerCase().equals("mujer"));
 		return genero;
 	}
@@ -122,8 +120,8 @@ public class GestionLibroSoloUnAutor {
 				System.out.println("#" + i + "--->" + listaAutores[i].cadenaAutor());
 			}
 		}
-		n = pedirEntero("Selecciona su numero");
-		modificacion = pedirString("Escribe su nuevo correo");
+		n = Leer.pedirEntero("Selecciona su numero");
+		modificacion = Leer.pedirCadena("Email");
 		try {
 			listaAutores[n].setEmail(modificacion);
 		} catch (Exception e) {
@@ -139,13 +137,13 @@ public class GestionLibroSoloUnAutor {
 			System.out.println("Ahora hay estos libros: ");
 			for (int i = 0; i < Libro.getContadorLibros(); i++) {
 				if (libros[i] != null) {
-					System.out.println("#" + (i + 1) + "--->" + libros[i].cadenaLibroVariosAutores());
+					System.out.println("#" + (i + 1) + "--->" + libros[i].cadenaLibro());
 				}
 			}
-			n = pedirEntero("Que libro quieres modificar");
-			precio = pedirDouble("Escribe su nuevo precio");
+			n = Leer.pedirEntero("Que libro quieres modificar");
+			precio = Leer.pedirDouble("Escribe su nuevo precio");
 			libros[n - 1].setPrecio(precio);
-			cantidad = pedirEntero("Escribe su nueva cantidad");
+			cantidad = Leer.pedirEntero("Escribe su nueva cantidad");
 			libros[n - 1].setCantidad(cantidad);
 		} catch (Exception e) {
 			System.out.println("No has creado ningun libro todavia");
@@ -176,55 +174,4 @@ public class GestionLibroSoloUnAutor {
 		}
 	}
 
-	// Metodos leer---------------
-	static public int pedirEntero(final String mensaje) {
-		BufferedReader dataIn = new BufferedReader(new InputStreamReader(System.in));
-		int numero = 0;
-		boolean error = true;
-		while (error) {
-			try {
-				System.out.println(mensaje);
-				numero = Integer.parseInt(dataIn.readLine());
-				error = false;
-			} catch (IOException e) {
-				System.out.println("Vuelve a introducir el dato, por favor");
-				error = true;
-			} catch (NumberFormatException e) {
-				System.out.println("El dato introducido no es entero");
-				System.out.println("Vuelve a introducir el dato, por favor: ");
-				error = true;
-			}
-		}
-		return numero;
-	}// Pedir entero
-
-	public static String pedirString(String mensaje) {
-		String s1;
-		Scanner sc = new Scanner(System.in);
-		System.out.println(mensaje);
-		s1 = sc.nextLine();
-		return s1;
-	}// Pedir string
-
-	static public double pedirDouble(final String mensaje) {
-		BufferedReader dataIn = new BufferedReader(new InputStreamReader(System.in));
-		double numero = 0;
-		boolean error = true;
-		while (error) {
-			try {
-				System.out.println(mensaje);
-				numero = Double.parseDouble(dataIn.readLine());
-				error = false;
-			} catch (IOException e) {
-				System.out.println("Vuelve a introducir el dato, por favor: ");
-				error = true;
-			} catch (NumberFormatException e) {
-				System.out.println("El dato introducido no es decimal");
-				System.out.println("Vuelve a introducir el dato, por favor: ");
-				error = true;
-			}
-		}
-		return numero;
-	}// Pedir double
-	
 }// Class
