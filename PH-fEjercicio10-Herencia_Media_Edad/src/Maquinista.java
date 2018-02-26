@@ -16,8 +16,8 @@ public class Maquinista extends Empleado {
 	}
 
 	@Override
-	public String visualizar() {
-		return super.visualizar() + ", Maquina asignada: " + maquinaAsignada + ", años de experiencia: "
+	public String toString() {
+		return super.toString() + ", Maquina asignada: " + maquinaAsignada + ", años de experiencia: "
 				+ aniosExperiencia + " (Maquinista)";
 	}
 

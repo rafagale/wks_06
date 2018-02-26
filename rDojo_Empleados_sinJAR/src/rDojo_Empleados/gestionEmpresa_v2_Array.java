@@ -115,7 +115,7 @@ public class gestionEmpresa_v2_Array {
 		for (int i = 0; i < currantes.length; i++) {
 			if (currantes[i] != null) {
 				System.out.print(currantes[i]);
-				System.out.print(" " + currantes[i].edadEmpleado(fechaNacimiento) + " aÃ±os");
+				System.out.print(" " + currantes[i].edadEmpleado(fechaNacimiento) + " años");
 				System.out.println();
 			}
 		}
@@ -125,13 +125,13 @@ public class gestionEmpresa_v2_Array {
 		for (int i = 0; i < currantes.length; i++) {
 			if (currantes[i] != null) {
 				System.out.print(currantes[i]);
-				System.out.println(" " + currantes[i].calculoNomina() + "â‚¬");
+				System.out.println(" " + currantes[i].calculoNomina() + "€");
 				// por separado
 				nomina += currantes[i].calculoNomina();
 			}
 		}
 		System.out.println();
-		System.out.println("El total es de " + nomina + "â‚¬");
+		System.out.println("El total es de " + nomina + "€");
 		System.out.println();
 		return nomina;
 	} // visualizarNomina

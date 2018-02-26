@@ -29,7 +29,6 @@ public class GestionMaquinistasAdm {
 																									//(max-min+1)+min
 					estudios[rand.nextInt(estudios.length)], rand.nextInt(100));
 		}
-		//rayada
 		System.out.println(visualizarNumeroEmpleados());
 
 		System.out.println("\n--------------------Empleados rasos------------------");
@@ -75,7 +74,7 @@ public class GestionMaquinistasAdm {
 	
 	public static void visualizarDatos( Empleado[] trabajadores) {
 		for (int i = 0; i < trabajadores.length; i++) {
-				System.out.println(trabajadores[i].visualizar());
+				System.out.println(trabajadores[i].toString());
 		}
 	}// visualizarDatos
 	

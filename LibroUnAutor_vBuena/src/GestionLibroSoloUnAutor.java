@@ -13,41 +13,65 @@ import java.util.Scanner;
 public class GestionLibroSoloUnAutor {
 
 	public static void main(String[] args) {
-		int opcion, maxAutores, maxLibros;
-
-		maxAutores = Leer.pedirEntero("Cuantos autores?");
+		int opcion, maxAutores, maxLibros, numAutores = 0, numLibros = 0, contadorNoVacios = 0;
+		String pregunta;
+		maxAutores = Leer.pedirEntero("Autores maximos?");
 		maxLibros = Leer.pedirEntero("Libros maximos?");
-		
-		String titulos [] = {"Blabla", "HArry potter", "diccionario", "periodico"};
+
+		String titulos[] = { "Blabla", "HArry potter", "diccionario", "periodico" };
 		String nombres[] = { "Pepe", "Juan", "Amancio", "Mariano", "Soraya", "Esperanza", "Francisco", "Lucia" };
-		
+
 		Random rand = new Random();
 		Libro[] libros = new Libro[maxLibros];
 		Autor[] autores = new Autor[maxAutores];
 		System.out.println("Hay " + maxLibros + " libros");
+
 		opcion = Leer.pedirEntero(
 				"1-Crear libro\n2-Modificar autores\n3-Modificar libro\n4-Ver libros\n5-Ver autores\n0-Salir");
 		while (opcion != 0) {
 			switch (opcion) {
-			case 1: // Crear libros
-				//crear autores
-				
-				for (int i = 0; i < autores.length; i++) {
-					autores[i] = new Autor(nombres[rand.nextInt(nombres.length)],nombres[rand.nextInt(nombres.length)], 'm' );
+			case 1:
+				// crear autores
+				do {
+					numAutores = Leer.pedirEntero("Cuantos autores quieres crear?");
+					numAutores += Autor.getContaAutores();
+				} while (numAutores > maxAutores);
+				for (int i = Autor.getContaAutores(); i < numAutores; i++) {
+					autores[i] = new Autor(nombres[rand.nextInt(nombres.length)],
+							nombres[rand.nextInt(nombres.length)] + "@gmail.com", 'm');
 				}
-				
-				//crear libros
-				for (int i = 0; i < libros.length; i++) {
-					libros [i] = new Libro(titulos[rand.nextInt(titulos.length)], autores[rand.nextInt(autores.length)], (double)(rand.nextInt(5)));
+
+				pregunta = Leer.pedirCadena("Quieres crear libros?(s/n)");
+				if (pregunta.equals("s")) {
+					do {
+						numLibros = Leer.pedirEntero("Cuantos libros quieres crear?");
+						numLibros += Libro.getContadorLibros();
+					} while (numLibros > maxLibros);
+
+					for (int j = 0; j < autores.length; j++) {
+						if (autores[j] != null) {
+							contadorNoVacios++;
+							// Caso limite
+						}
+					}
+					System.out.println(contadorNoVacios);
+					for (int i = Libro.getContadorLibros(); i < numLibros; i++) {
+						libros[i] = new Libro(titulos[rand.nextInt(titulos.length)],
+								autores[rand.nextInt(contadorNoVacios)], (double) (rand.nextInt(5)));
+					}
+				} else {
+					System.out.println("Autores creados");
 				}
+				// crear libros
 				break;
 			case 2: // Modificar autores
+				modificarAutores(autores);
 				break;
 			case 3: // Modificar libro
 				modificarLibros(libros);
 				break;
 			case 4: // Ver libros
-				for (int i = 0; i < autores.length; i++) {
+				for (int i = 0; i < libros.length; i++) {
 					if (libros[i] != null) {
 						System.out.println(libros[i].cadenaLibro());
 					}
@@ -67,7 +91,6 @@ public class GestionLibroSoloUnAutor {
 					"1-Crear libro\n2-Modificar autores\n3-Modificar libro\n4-Ver libros\n5-Ver autores\n0-Salir");
 		} // while
 	}// main
-
 
 	private static String pedirTitulo(Libro[] libros) {
 		String titulo;
@@ -94,7 +117,6 @@ public class GestionLibroSoloUnAutor {
 		return existe;
 	}
 
-
 	private static String pedirGenero() {
 		String genero;
 		do {
@@ -103,19 +125,19 @@ public class GestionLibroSoloUnAutor {
 		return genero;
 	}
 
-	private static void modificarAutores(Autor[] listaAutores) {
+	private static void modificarAutores(Autor[] autores) {
 		int n;
 		String modificacion;
 		System.out.println("Lista:");
-		for (int i = 0; i < listaAutores.length; i++) {
-			if (listaAutores[i] != null) {
-				System.out.println("#" + i + "--->" + listaAutores[i].cadenaAutor());
+		for (int i = 0; i < autores.length; i++) {
+			if (autores[i] != null) {
+				System.out.println("#" + i + "--->" + autores[i].cadenaAutor());
 			}
 		}
 		n = Leer.pedirEntero("Selecciona su numero");
 		modificacion = Leer.pedirCadena("Email");
 		try {
-			listaAutores[n].setEmail(modificacion);
+			autores[n].setEmail(modificacion);
 		} catch (Exception e) {
 			System.out.println("No hay autores");
 		}
