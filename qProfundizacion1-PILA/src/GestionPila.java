@@ -35,7 +35,7 @@ public class GestionPila {
 				System.out.println(folios.borrar());
 				break;
 			case 6:
-				folios.copiarEn(revistas);
+				folios.copiar(revistas);
 				System.out.println("Los datos se han copiado en una pila nueva de revistas");
 				System.out.println(revistas);
 				break;

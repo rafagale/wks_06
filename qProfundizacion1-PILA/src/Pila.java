@@ -11,6 +11,10 @@ public class Pila {
 		cima = 0;
 	}
 
+	public static int getCima() {
+		return cima;
+	}
+
 	public void apilar() {
 		Random rand = new Random();
 		datos[cima] = rand.nextInt(9 - 1 + 1) + 1;
@@ -40,10 +44,11 @@ public class Pila {
 			return false;
 		}
 	}// estaVacia
-
-	public void copiarEn(Pila pilaNueva) {
-		pilaNueva.datos = this.datos;
-	}// Copia los datos de una pila a otra
+	
+	public void copiar(Pila nueva) {
+		nueva.datos = Arrays.copyOf(this.datos, this.datos.length);
+		nueva.cima = this.cima;
+	}// copiar
 
 	public  String invertir() {
 /*		 * Invertir una PILA (INV), es decir, el elemento cima pasa a ser el último
