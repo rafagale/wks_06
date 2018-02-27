@@ -2,6 +2,7 @@ package rDojo_Empleados;
 
 import java.util.Random;
 
+
 public class gestionEmpresa {
 
 	public static void main(String[] args) {

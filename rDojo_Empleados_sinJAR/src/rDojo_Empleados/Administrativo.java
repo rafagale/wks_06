@@ -1,5 +1,6 @@
 package rDojo_Empleados;
 
+
 public class Administrativo extends Empleado {
 	private static Float plusAntiguedad = 50f;
 	private String departamento;

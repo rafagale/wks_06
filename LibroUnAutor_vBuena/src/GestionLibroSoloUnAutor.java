@@ -40,6 +40,7 @@ public class GestionLibroSoloUnAutor {
 					autores[i] = new Autor(nombres[rand.nextInt(nombres.length)],
 							nombres[rand.nextInt(nombres.length)] + "@gmail.com", 'm');
 				}
+				// crear libros
 				pregunta = Leer.pedirCadena("Quieres crear libros?(s/n)");
 				if (pregunta.equals("s")) {
 					do {
@@ -61,7 +62,7 @@ public class GestionLibroSoloUnAutor {
 				} else {
 					System.out.println("Autores creados");
 				}
-				// crear libros
+				
 				break;
 			case 2: // Modificar autores
 				modificarAutores(autores);

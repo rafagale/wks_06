@@ -14,6 +14,10 @@ public class Asignatura {
 	public String getNombre() {
 		return nombre;
 	}
-	
+
+	@Override
+	public String toString() {
+		return "Asignatura [nombre=" + nombre + ", horasSemana=" + horasSemana + ", curso=" + curso + "]";
+	}
 	
 }

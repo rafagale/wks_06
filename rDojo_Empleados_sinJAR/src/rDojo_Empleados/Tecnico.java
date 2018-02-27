@@ -1,5 +1,6 @@
 package rDojo_Empleados;
 
+
 public class Tecnico extends Empleado {
 	private String especialidad;
 	private Float plusEspecialidad;

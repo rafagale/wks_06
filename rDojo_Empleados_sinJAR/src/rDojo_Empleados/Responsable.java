@@ -1,5 +1,6 @@
 package rDojo_Empleados;
 
+
 public class Responsable extends Empleado {
 	private Float bono;
 	private String departamento;

@@ -2,6 +2,7 @@ package rDojo_Empleados;
 
 import java.util.Random;
 
+
 /**
  * 
  * @author Rafa
