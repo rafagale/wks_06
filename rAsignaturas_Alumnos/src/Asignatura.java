@@ -1,10 +1,10 @@
 
 public class Asignatura {
-	
+
 	private String nombre;
 	private Integer horasSemana;
 	private Integer curso;
-	
+
 	public Asignatura(String nombre, Integer horasSemana, Integer curso) {
 		this.nombre = nombre;
 		this.horasSemana = horasSemana;
@@ -17,7 +17,7 @@ public class Asignatura {
 
 	@Override
 	public String toString() {
-		return "Asignatura [nombre=" + nombre + ", horasSemana=" + horasSemana + ", curso=" + curso + "]";
+		return nombre;
 	}
-	
+
 }

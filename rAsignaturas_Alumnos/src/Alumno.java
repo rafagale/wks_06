@@ -14,42 +14,17 @@ public class Alumno {
 		this.notas = new Integer[10];
 	}
 
-	public void matricular() {
-		String nombre;
-		Integer horas;
-		Integer curso;
-		boolean existe = false;
-		int numeroAsig;
-		numeroAsig = Leer.pedirEntero("Cuantas asignaturas va a llevar?");
-
-		for (int i = 0; i < numeroAsig; i++) {
-			existe = false;
-			do {
-				nombre = Leer.pedirCadena("Nombre");
-				for (int j = 0; j < asignaturas.length && asignaturas[i] != null; j++) {
-					if (asignaturas[i].getNombre().equals(nombre)) {
-						System.out.println("existe ese nombre");
-						existe = true;
-					}
-				}
-			} while (existe);
-
-			horas = Leer.pedirEntero("horas?");
-
-			do {
-				curso = Leer.pedirEntero("curso?");
-			} while (curso != 1 && curso != 2);
-
-			asignaturas[i] = new Asignatura(nombre, horas, curso);
-		} // for
-
-	}// matricular
 	
+	//Todas
 	public void seMatriculaEn(Asignatura asignatura) {
-		for (int i = 0; i < asignaturas.length; i++) {
-			this.asignaturas[i]=asignatura;
-		}
-	}
+			for (int i = 0; i < asignaturas.length; i++) {
+				if (asignaturas[i] != null && asignaturas[i].getNombre().equalsIgnoreCase(asignatura.getNombre())) {
+					System.out.println("Ya te has matriculado de esa subnormal");
+				} else {
+					asignaturas[i] = asignatura;
+				}
+			}
+	}// seMatriculaEn
 
 	public void setNotas() {
 		int nota;
@@ -106,6 +81,36 @@ public class Alumno {
 				+ "\n \t\t\t\t notas=" + Arrays.toString(notas) + "]";
 	}// notaMedia
 
+	public void matricular() {
+		String nombre;
+		Integer horas;
+		Integer curso;
+		boolean existe = false;
+		int numeroAsig;
+		numeroAsig = Leer.pedirEntero("Cuantas asignaturas va a llevar?");
+
+		for (int i = 0; i < numeroAsig; i++) {
+			existe = false;
+			do {
+				nombre = Leer.pedirCadena("Nombre");
+				for (int j = 0; j < asignaturas.length && asignaturas[i] != null; j++) {
+					if (asignaturas[i].getNombre().equals(nombre)) {
+						System.out.println("existe ese nombre");
+						existe = true;
+					}
+				}
+			} while (existe);
+
+			horas = Leer.pedirEntero("horas?");
+
+			do {
+				curso = Leer.pedirEntero("curso?");
+			} while (curso != 1 && curso != 2);
+
+			asignaturas[i] = new Asignatura(nombre, horas, curso);
+		} // for
+
+	}// matricular
 	/*
 	 * Implementar una clase Alumno que incluya todas las asignaturas a las que
 	 * asiste un alumno y las notas que obtiene en esas asignaturas. Además de
