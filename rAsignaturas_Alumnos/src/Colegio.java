@@ -23,16 +23,17 @@ public class Colegio {
 			numeroAsig = Leer.pedirEntero("En cuantas asignaturas se quiere matricular?");
 		} while (numeroAsig < 3);
 
-		for (int k = 0; k < numeroAsig; k++) {
-			for (int i = 0; i < alumnos.length; i++) {
-				//do {//Bucle infinito
-					verAsignaturas(asignaturas);
-					opcion = Leer.pedirEntero("Elige una asignatura");
-					System.out.println(alumnos[i].seMatriculaEn(asignaturas[opcion]));
-				//} while (alumnos[i].seMatriculaEn(asignaturas[opcion]).equals("Ya te has matriculado de esa"));
-				
+		for (int i = 0; i < alumnos.length; i++) {
+			while (alumnos[i].getContaAsignaturas() < numeroAsig) {
+				verAsignaturas(asignaturas);
+				opcion = Leer.pedirEntero("Elige una asignatura");
+				//String retorno = alumnos[i].seMatriculaEn(asignaturas[opcion]);
+				//Haciendo el string y luego comprobar con eso 
+				System.out.println(alumnos[i].seMatriculaEn(asignaturas[opcion]));
 				System.out.println(alumnos[i]);
+
 			}
+			
 		}
 		// poner notas
 		for (int i = 0; i < alumnos.length; i++) {
