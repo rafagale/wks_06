@@ -22,7 +22,7 @@ public class Alumno {
 		for (int i = 0; i < asignaturas.length; i++) {
 			if (asignaturas[i] != null && asignaturas[i].getNombre().equals(asignatura.getNombre())) {
 				existe = true;
-			} //Si  se pone un else va elemento a elemento y acaba en false
+			} // Si se pone un else va elemento a elemento y acaba en false
 		}
 
 		if (!existe) {
@@ -52,21 +52,21 @@ public class Alumno {
 	}// setNotas
 
 	public void getNotas() {
+		System.out.println();
 		for (int i = 0; i < asignaturas.length && asignaturas[i] != null; i++) {
-			System.out.println(asignaturas[i].getNombre());
-			for (int j = 0; j < notas.length && notas[i] != null; j++) {
-				System.out.println(" " + notas[j]);
-			}
-			System.out.println();
+			System.out.print(asignaturas[i].getNombre());
+			System.out.print(": " + (double)(notas[i]) +"\n");
+			
 		}
+
 	}// getNotas
 
 	public String estado(Asignatura[] asignaturas) {
 		String mensaje;
 		if (notaMedia() > 6) {
-			mensaje ="Aprobado";
+			mensaje = "Aprobado";
 		} else {
-			mensaje ="Aprobado";
+			mensaje = "Aprobado";
 		}
 		return mensaje;
 	}// estado
@@ -89,7 +89,6 @@ public class Alumno {
 				+ "\n \t\t\t\t notas=" + Arrays.toString(notas) + "]";
 	}// notaMedia
 
-	
 	/*
 	 * Implementar una clase Alumno que incluya todas las asignaturas a las que
 	 * asiste un alumno y las notas que obtiene en esas asignaturas. Además de
