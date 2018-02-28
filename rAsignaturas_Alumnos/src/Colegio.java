@@ -25,9 +25,12 @@ public class Colegio {
 
 		for (int k = 0; k < numeroAsig; k++) {
 			for (int i = 0; i < alumnos.length; i++) {
-				verAsignaturas(asignaturas);
-				opcion = Leer.pedirEntero("Elige una asignatura");
-				System.out.println(alumnos[i].seMatriculaEn(asignaturas[opcion]));
+				//do {//Bucle infinito
+					verAsignaturas(asignaturas);
+					opcion = Leer.pedirEntero("Elige una asignatura");
+					System.out.println(alumnos[i].seMatriculaEn(asignaturas[opcion]));
+				//} while (alumnos[i].seMatriculaEn(asignaturas[opcion]).equals("Ya te has matriculado de esa"));
+				
 				System.out.println(alumnos[i]);
 			}
 		}

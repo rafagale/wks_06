@@ -33,7 +33,7 @@ public class Alumno {
 		if (!existe) {
 			return "Matriculado en " + asignatura;
 		} else {
-			return "Ya te has matriculado de esa subnormal";
+			return "Ya te has matriculado de esa";
 
 		}
 	}// seMatriculaEn
