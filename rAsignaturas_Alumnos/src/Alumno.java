@@ -24,12 +24,10 @@ public class Alumno {
 				existe = true;
 			} // Si se pone un else va elemento a elemento y acaba en false
 		}
-
 		if (!existe) {
 			asignaturas[contaAsignaturas] = asignatura;
 			contaAsignaturas++;
 		}
-
 		if (!existe) {
 			return "Matriculado en " + asignatura;
 		} else {
@@ -58,15 +56,20 @@ public class Alumno {
 			System.out.print(": " + (double)(notas[i]) +"\n");
 			
 		}
-
 	}// getNotas
+
+	
+	
+	public String getNombre() {
+		return nombre;
+	}
 
 	public String estado(Asignatura[] asignaturas) {
 		String mensaje;
 		if (notaMedia() > 6) {
 			mensaje = "Aprobado";
 		} else {
-			mensaje = "Aprobado";
+			mensaje = "Suspenso";
 		}
 		return mensaje;
 	}// estado
