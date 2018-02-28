@@ -34,7 +34,6 @@ public class Alumno {
 			return "Matriculado en " + asignatura;
 		} else {
 			return "Ya te has matriculado de esa";
-
 		}
 	}// seMatriculaEn
 
@@ -63,19 +62,11 @@ public class Alumno {
 	}// getNotas
 
 	public String estado(Asignatura[] asignaturas) {
-		String mensaje = "";
-		for (int i = 0; i < asignaturas.length && asignaturas[i] != null; i++) {
-			System.out.println(asignaturas[i].getNombre());
-			System.out.println();
-			for (int j = 0; j < notas.length && notas[j] != null; j++) {
-				System.out.println(" " + notas[j]);
-				if (notas[j] > 6 && notas[j] != null) {
-					mensaje = "Aprobado";
-				} else {
-					mensaje = "Suspenso";
-				}
-			}
-			System.out.println();
+		String mensaje;
+		if (notaMedia() > 6) {
+			mensaje ="Aprobado";
+		} else {
+			mensaje ="Aprobado";
 		}
 		return mensaje;
 	}// estado

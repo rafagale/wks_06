@@ -36,17 +36,21 @@ public class Colegio {
 			
 		}
 		// poner notas
+		System.out.println("Introduce las notas del alumno");
 		for (int i = 0; i < alumnos.length; i++) {
 			alumnos[i].setNotas();
 		}
 
 		// imprimir boletin
-		System.out.println("\t\t\t\tBoletin");
+		System.out.println("\tBoletin");
 		for (int i = 0; i < alumnos.length; i++) {
 			System.out.println(alumnos[i]);
-			System.out.print(" Nota media: " + alumnos[i].notaMedia());
+			System.out.print(" Nota media: " + alumnos[i].notaMedia() +" ");
 		}
-
+		
+		for (int i = 0; i < alumnos.length; i++) {
+			System.out.println(alumnos[i].estado(asignaturas));
+		}
 	}// main
 
 	private static void verAsignaturas(Asignatura[] asignaturas) {
