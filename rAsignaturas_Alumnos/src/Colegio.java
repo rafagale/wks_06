@@ -74,10 +74,10 @@ public class Colegio {
 
 	public static void crearAsignaturas(Asignatura[] asignaturas) {
 		String[] nombres = { "Matematicas", "Lengua", "Ingles", "Fisica", "Quimica", "Dibujo tecnico", "Recreo",
-				"Anatomia", "Fisiologia", "Informatica" };
+				"Anatomia", "Fisiologia", "Informatica", "Economia" };
 		Random rand = new Random();
 		for (int i = 0; i < 10; i++) {
-			asignaturas[i] = new Asignatura(nombres[rand.nextInt(nombres.length)], rand.nextInt(10 - 2 + 1) + 2,
+			asignaturas[i] = new Asignatura(nombres[i], rand.nextInt(10 - 2 + 1) + 2,
 					rand.nextInt(2 - 1 + 1) + 1);
 		}
 	}// crearAsignaturas
