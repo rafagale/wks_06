@@ -37,7 +37,7 @@ public class Colegio {
 		}
 
 		// imprimir boletin
-		System.out.println("Boletin");
+		System.out.println("\t\t\t\tBoletin");
 		for (int i = 0; i < alumnos.length; i++) {
 			System.out.println(alumnos[i]);
 			System.out.print(" Nota media: " + alumnos[i].notaMedia());
