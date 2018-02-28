@@ -5,6 +5,7 @@ public class Alumno {
 	private Integer edad;
 	private Asignatura[] asignaturas;
 	private Integer[] notas;
+	private int contaAsignaturas;
 
 	public Alumno(String nombre, Fecha fechaNacimiento) {
 		Fecha fechaActual = new Fecha(27, 2, 2018);
@@ -14,25 +15,40 @@ public class Alumno {
 		this.notas = new Integer[10];
 	}
 
-	
-	//Todas
-	public void seMatriculaEn(Asignatura asignatura) {
-			for (int i = 0; i < asignaturas.length; i++) {
-				if (asignaturas[i] != null && asignaturas[i].getNombre().equalsIgnoreCase(asignatura.getNombre())) {
-					System.out.println("Ya te has matriculado de esa subnormal");
-				} else {
-					asignaturas[i] = asignatura;
-				}
-			}
+	// Todas
+	public String seMatriculaEn(Asignatura asignatura) {
+		boolean existe = false;
+
+		for (int i = 0; i < asignaturas.length; i++) {
+			if (asignaturas[i] != null && asignaturas[i].getNombre().equals(asignatura.getNombre())) {
+				existe = true;
+			} //Si  se pone un else va elemento a elemento y acaba en false
+		}
+
+		if (!existe) {
+			asignaturas[contaAsignaturas] = asignatura;
+			contaAsignaturas++;
+		}
+
+		if (!existe) {
+			return "Matriculado en " + asignatura;
+		} else {
+			return "Ya te has matriculado de esa subnormal";
+
+		}
 	}// seMatriculaEn
+
+	public int getContaAsignaturas() {
+		return contaAsignaturas;
+	}
 
 	public void setNotas() {
 		int nota;
-		for (int i = 0; i < asignaturas.length; i++) {
-			if (asignaturas[i] != null) {
+		for (int i = 0; i < asignaturas.length && asignaturas[i] != null; i++) {
+			do {
 				nota = Leer.pedirEntero("Nota en " + asignaturas[i].getNombre() + " ?");
-				notas[i] = nota;
-			}
+			} while (nota < 0 || nota > 10);
+			notas[i] = nota;
 		}
 	}// setNotas
 
@@ -50,9 +66,10 @@ public class Alumno {
 		String mensaje = "";
 		for (int i = 0; i < asignaturas.length && asignaturas[i] != null; i++) {
 			System.out.println(asignaturas[i].getNombre());
-			for (int j = 0; j < notas.length && notas[i] != null; j++) {
+			System.out.println();
+			for (int j = 0; j < notas.length && notas[j] != null; j++) {
 				System.out.println(" " + notas[j]);
-				if (notas[j] > 6) {
+				if (notas[j] > 6 && notas[j] != null) {
 					mensaje = "Aprobado";
 				} else {
 					mensaje = "Suspenso";
@@ -81,36 +98,7 @@ public class Alumno {
 				+ "\n \t\t\t\t notas=" + Arrays.toString(notas) + "]";
 	}// notaMedia
 
-	public void matricular() {
-		String nombre;
-		Integer horas;
-		Integer curso;
-		boolean existe = false;
-		int numeroAsig;
-		numeroAsig = Leer.pedirEntero("Cuantas asignaturas va a llevar?");
-
-		for (int i = 0; i < numeroAsig; i++) {
-			existe = false;
-			do {
-				nombre = Leer.pedirCadena("Nombre");
-				for (int j = 0; j < asignaturas.length && asignaturas[i] != null; j++) {
-					if (asignaturas[i].getNombre().equals(nombre)) {
-						System.out.println("existe ese nombre");
-						existe = true;
-					}
-				}
-			} while (existe);
-
-			horas = Leer.pedirEntero("horas?");
-
-			do {
-				curso = Leer.pedirEntero("curso?");
-			} while (curso != 1 && curso != 2);
-
-			asignaturas[i] = new Asignatura(nombre, horas, curso);
-		} // for
-
-	}// matricular
+	
 	/*
 	 * Implementar una clase Alumno que incluya todas las asignaturas a las que
 	 * asiste un alumno y las notas que obtiene en esas asignaturas. Además de
