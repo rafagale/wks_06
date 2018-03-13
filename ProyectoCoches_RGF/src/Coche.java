@@ -34,10 +34,6 @@ public class Coche {
 		return disponible;
 	}
 
-	public void setDisponible(Boolean disponible) {
-		this.disponible = disponible;
-	}
-
 	public void alquilar() {
 		//Se verifica que el estado sea disponible y se cambia a false si se cumple
 		if (disponible) {
